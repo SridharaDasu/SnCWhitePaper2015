@@ -9,23 +9,29 @@ US CMS Software and Computing White Paper
 
 4) Please frequently "git pull" to get everyone's changes comments etc.
 
-To setup:
+* To setup:
 
 git clone https://github.com/SridharaDasu/SnCWhitePaper2015.git
 
-To edit tex - just use your favorite tex software on your machine.
+* To edit
 
-To add a new file:
+Just use your favorite tex software on your machine.
+
+* To add a new file:
 
 git add <new-file-name>
 
-To commit your changes to existing files:
+* To commit your changes to existing files:
 
 git commit -a -m "<brief message describing your change>"
 
-For further git help use google!
+* To get other peoples changes:
 
-Comments:
+git pull
+
+* For further git help use google!
+
+# Comments:
 
 Sridhara on 12 November: 
 I am hoping this will be the best white paper ever written :)
