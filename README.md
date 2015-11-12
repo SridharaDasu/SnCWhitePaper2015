@@ -2,8 +2,11 @@
 US CMS Software and Computing White Paper
 
 1) Please send me your github account name to be added to collaborators list to have direct push capability.
+
 2) Please feel free to add any suitable material to the repository
+
 3) Please feel free to add your comments below in this README.md file - you can do so without leaving github
+
 4) Please frequently "git pull" to get everyone's changes comments etc.
 
 To setup:
