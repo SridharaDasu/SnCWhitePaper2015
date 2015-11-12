@@ -1,0 +1,38 @@
+\section{Introduction}
+
+Completion of the Standard Model of particle physics with the discovery of the Higgs boson at M=125 GeV at the LHC behoves us to continue its detailed study at low energy scales, while continuing to explore higher energy new physics. The elusive TeV-scale super-symmetric or other exotic states that we hope to discover also seem to require significantly more collision data. The CMS experiment at thee LHC has resumed data-taking after a two-year shutdown this Fall.
+
+Computing environment and facilities for the CMS experiment are continually evolving to meet the requirements of the collaboration and to to take advantage of the evolution of technology within and beyond the high-energy physics community. During the recently started new phase of data acquisition, i.e., Run-2 (2015-18) and Run-3 (2021-23) of LHC about 300 fb$^{-1}$ will be accumulated. This 300-fb$^{-1}$-dataset presents two orders of magnitude increase in data volume compared to Run-1 (2009-12) dataset: An order of magnitude increase in integrated luminosity, a factor of three increase in trigger output rate to facilitate continued access to electro-weak scale physics, and a factor of three or so increase in event-complexity due to increased energy and instantaneous luminosity leading to event pileup. We note that this new beginning of the LHC data taking period as an opportune time to take stock of this evolution. 
+
+The Moore's law scaling of computing capabilities and evolution of storage are quite unlikely to meet this challenge under constant budgetary levels. Fortunately, innovations in resource utilization, adaptation to modern computing architectures, and improved workflows, are making up for the limitations in raw scaling of resources. We briefly describe these evolutionary changes in the offing and project how agile computing, utilizing owned, opportunistic and commercial cloud resources, with dynamic data management and just-in-time data movement over wide-area networks, will work to meet our challenge. In particular, this document focusses on the chaotic physicist-driven scientific data analysis activities rather than the dedicated prompt data production facilities. A brief look at the computing R\&D necessary for the HL-LHC phase (2025+), during which another two orders of magnitude in data volume is expected, is also provided.
+
+\section{Motivation and Goals}
+\noindent{(Barberis, Bauerdick, Bloom, Dasu, Wuerthwein, Yagil)}
+
+\begin{verbatim}
+Notes from past meetings:
+   Brief note on physics goals noting computing challenges, e.g.,
+      Distributed seamless data access to all centers of computing
+      High-throughput access to mini-AOD data for sparse event selection
+       Ability to manage small selected data sets conveniently for analysis teams
+       Ability to cope with custom data seamlessly, if they are necessary for analysis
+   Brief note on changes to trigger and other running conditions (PU) affecting the input
+      Scale of Run-2 data sample and processing needs
+      Outlook for beyond Run-2
+      Upgrade simulations need
+      Computing upgrade R\&D itself
+      Brief note on computing landscape now and immediate outlook
+      Tier-1 scale and near term planning
+       (primarily defined by CMS DAQ output and policies, LHC performance 
+        and especially re-reconstruction)
+      Tier-2 landscape and where we are possibly headed 
+  (primary purpose of this document and defined by analysis plans/needs)
+Cloud resources: 
+Handling of peak needs using non-owned, short-term and rented resources.
+Projections of campus grids, OSG and other national grids, commercial clouds 
+  High level themes
+      Agile computing
+      Location independence
+      Automatic optimization of CPU vs Storage for various data processing stages
+\end{verbatim}
+
