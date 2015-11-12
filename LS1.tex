@@ -48,23 +48,29 @@ groups across the world. Local campus grids controlled by non-CMS entities are e
 the CMS computing environment. Temporary access to dedicated large resources can be purchased
 on commercial grids or obtained from national or campus research facilities.
 
-\subsection{Development of MiniAOD}
+\subsection{Data Tiers for Analysis}
+
+CMS data is organized in several tiers ranging from RAW data acquired from the
+detector, to RECO format for reconstructed data, FEVT combining the two,
+full set of analysis objects (AOD) and compressed AOD, i.e., miniAOD.
 
 Physics analysis often involves a much smaller portion of reconstructed data than is
 available. While the raw data acquired from CMS is about 1 MB per event, the 
 reconstructed objects more than double that size typically. The AOD defined for
-Run-1 was successful but was designed in a rather lax way resulting in a 200 kB
+Run-1 was successful but was designed in a rather lax way resulting in a 400 kB
 size per event. Careful pruning of unused collections of objects, packing them
 in appropriately sized containers resulted in redefined miniAOD which is less than
-50 kB per event. Rate of event processing mattersâ so size of event being small is 
+50 kB per event. Rate of event processing matters, so size of event being small is 
 also beneficial for computational loads. The miniAOD is now visualized as the main 
 data format that will be used by bulk of CMS analysts, while niche usecases involving
-the FEVT format will be supported as needed. 
+the original AOD format will be supported as needed. In rare cases FEVT access may
+also be needed.  As the miniAOD improves we anticipate AOD replicas will be small.
 
 CMS would like to ensure that the CMS Data Federation hosts the compact 
-MiniAOD with appropriate level of replication for the popular data. The
-estimated size of the data federation for 300-fb$^{-1}$ luminosity data
-sample is: (50kB)(1kHz)*(10$^7$s/year)*(6y)=3*10$^9$MB=3PB.  Typically
+MiniAOD with appropriate level of replication for the popular data and
+a fraction of the AOD data.  The estimated miniAOD size of the data federation 
+for 300-fb$^{-1}$ luminosity data sample is: 
+(50kB)(1kHz)*(10$^7$s/year)*(6y)=3*10$^9$MB=3PB.  Typically
 to analyze this data requires an associated MC sample which is three times
 its size, leading to a 10PB disk storage requirement for the CMS data federation
 for an instance of MiniAOD. Since the MiniAOD is highly processed it is
@@ -75,10 +81,22 @@ in order to accommodate the analyst needs.  Not all analysts can migrate
 from one version to another immediately.  We estimate that two to three
 MiniAOD versions are needed at any time, with the older data deprecated
 dynamically as they become stale and unused.  This results in expected
-data volume of 20-30 PB of storage for MiniAOD.  The corresponding (tape) 
-archived raw data size is 60PB.  It is assumed that the reconstructed FEVT 
-objects are only available in the intermediate stages of processing and 
-not archived.
+data volume of 20-30 PB of storage for MiniAOD.  
+
+The AOD data tier is currently used by many analysis groups.  It is 
+anticipated there will remain significant usage for certain analysis
+which requires detailed understanding of the detector.  Complicated
+final states with missing transverse energy, multiple low $P_T$ jets,
+$\tau$ final states, etc.  The AOD is 410 kB per event, and using 
+30\% as the fraction of data that needs to be hosted on disk in this
+format we get 10PB storage.
+
+The tape archived raw data size for 300 fb$^{-1}$ is 60PB.  It is 
+assumed that the reconstructed FEVT objects are only available 
+in the intermediate stages of processing and not archived.  However,
+it is anticipated that a fraction of RAW data, at about 10 PB is
+expected to be stored on disk for special reconstruction techniques, 
+e.g., those with heavy slow particles, and for cache.
 
 \subsection{Improvements to CMS Workflows}
 
@@ -124,6 +142,7 @@ computer clusters to bring additional opportunistic uses for these
 cases.
 
 \subsection{Improvements to CMSSW Framework (multi-threading )}
+\noindent{(David - after that Liz)}
 
 Multicore computing systems have become ubiquitous in the past decade. However,
 efficient use of available resources, especially memory volume and access, required 
