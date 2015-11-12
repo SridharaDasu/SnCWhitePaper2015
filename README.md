@@ -25,6 +25,12 @@ git add [new-file-name]
 
 git commit -a -m ["brief message describing your change"]
 
+> To share your changes with others:
+
+git push
+
+(requires you to be my collaborator - otherwise, make a pull request using web interface)
+
 > To get other peoples changes:
 
 git pull
