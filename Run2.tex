@@ -3,9 +3,24 @@
 The scale of computing resources necessary is directly coupled to the foreseen output from the
 detector.  The trigger rates have been increased by an order of magnitude compared to the
 original goals at the time of CMS computing TDR. The discovery of Higgs at low mass and
-continued investigation of EWK scale physics requires low thresholds. Understanding the trigger
-plans and organizing the data in an appropriate way, for example in high and low priority
-processing-streams, may be a new direction to explore to flatten the computing resource needs.
+continued investigation of EWK scale physics requires low thresholds. 
+As the beam energy has reached more or less its maximum expected, it is highly likely that
+from here on out analyses will tend to use all the data accumulated over time, from the 2/fb
+accumulated in 2015 to the 300/fb expected to be accumulated by the end of Run 3 in 2025.
+%
+While the analysis and Monte Carlo production computing needs scale roughly linearly with integrated luminosity, the reconstruction
+time per event for both data and simulation grows roughly exponentially with instantaneous luminosity.
+As a result, the overall computing needs outpace cost savings due to Moore's law by a very large factor,
+requiring significant innovations in order to guarantee that the physics potential of the data taken is fully realized.
+
+{\bf Q by fkw: Do we need the subsections below, or is it sufficient to keep going like the above and call it good enough?
+Personally, all I would add here is a table that gives some of the numbers relevant to the computing needs estimates.
+I'd put them into a table, and refer to them as illustrative in one more sentence here, and then call this section done.
+If people agree with this way of proceeding, I offer to make the table and finish this section off.}
+
+%Understanding the trigger
+%plans and organizing the data in an appropriate way, for example in high and low priority
+%processing-streams, may be a new direction to explore to flatten the computing resource needs.
 
 \subsection{Physics Analysis Considerations}
 \noindent{(Barberis, Yagil, Sal)}
