@@ -1,7 +1,14 @@
 \section{Current S\&C R\&D}
-\noindent{(Elmer)}
+\noindent{(AY, Elmer)}
 
-\begin{verbatim}
-Talk about future directions too ...
-\end{verbatim}
+The main thrust of the R\&D effort of the project is to control the rate of growth of computing used.
+High-Luminosity is the least pleasant way to go exploring. Unlike High(er) Energy, one has to cope with increased event size (due to pile-up), pile-up complexity increases due to many overlapping events, data set size increases due to long running period required, impacting CPU, storage and network resources. 
+For example, an increase in number of PU events from 10-25 was measured to result in increase of a x3 of event reconstruction time. Such size increases (or larger) are unaffordable and must be prevented.
+
+There are a few possible ways to deal with this set of challenges. 
+\begin{itemize}
+\item reduce size/event e.g. miniAOD and beyond. Study operational and Physics implications.
+\item speed up reconstruction time, using vectorization and parallelization enabled by the new computing architectures. 
+\item explore the limitations of AAA. Start on US-side.  
+\end{itemize}
 
