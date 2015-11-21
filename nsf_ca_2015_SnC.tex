@@ -76,6 +76,24 @@ scale physics, and a factor of three or so increase in
 event-complexity due to increased energy and instantaneous luminosity
 leading to event pileup.
 
+The scale of computing resources necessary is directly coupled to the
+foreseen output from the detector.  The trigger rates have been
+increased by an order of magnitude compared to the original goals at
+the time of CMS computing TDR. The discovery of Higgs at low mass and
+continued investigation of EWK scale physics requires low thresholds.
+As the beam energy has reached more or less its maximum expected, it
+is highly likely that from here on out analyses will tend to use all
+the data accumulated over time, from the 2/fb accumulated in 2015 to
+the 300/fb expected to be accumulated by the end of Run 3 in 2025.
+
+While the analysis and Monte Carlo production computing needs scale
+roughly linearly with integrated luminosity, the reconstruction time
+per event for both data and simulation grows roughly exponentially
+with instantaneous luminosity.  As a result, the overall computing
+needs outpace cost savings due to Moore's law by a very large factor,
+requiring significant innovations in order to guarantee that the
+physics potential of the data taken is fully realized.
+
 The Moore's law scaling of computing capabilities and evolution of
 storage are quite unlikely to meet this challenge under constant
 budgetary levels. Fortunately, innovations in resource utilization,
@@ -300,7 +318,7 @@ collaborate on the hardware and user account maintenance.  There will
 be only a single instance of this "CMS-Connect" infrastructure for all
 these remaining groups. Groups within US-CMS are thus generally better
 off with a Tier-3 in a box, especially when they have sizable private
-data collections and large groups of students and post-docs.
+data collections and large groups of students and post-docs. 
 
 Finally, we will fully integrate cloud services access into this
 infrastructure in such way that local University groups can use local
@@ -345,16 +363,33 @@ expect Tier-2 personnel to provide are in the areas:
 
 \subsection{Operations (WBS 3)}
 
-Operations that is not the operation of the facilities themselves.
-We are paying for Frontier ops/support at Johns Hopkins, software
-distribution at Florida, glide-in and submission infrastructure
-operations at UCSD, AAA operations at Nebraska, T0 operations at MIT,
-and a ton of COLA for MIT students who are working on various aspects
-of CompOps.  Also part of Ajit is in here but if you want him to work
-on non-owned computing we will probably move him somewhere else.
+In addition to operating the Tier-2 facilities, additional S\&C 
+operations functions are met by the personnel supported by this
+project.  
 
 \subsubsection{Current Status}
+
+Currently these additional operations include support for Frontier
+database at Johns Hopkins.  Frontier provides run conditions and other
+configuration information for reconstruction and analysis jobs running
+on our distributed infrastructure.  It also includes support for
+software distribution at Florida.  The grid-wide job submission
+infrastructure operations at UCSD and AAA operations at Nebraska. The
+biggest item is the T0 operations at MIT and CERN.  Cost of living
+adjustment for those working on T0 operations at CERN is also
+included.  Support for simulations production at Wisconsin is also
+currently included here.
+
 \subsubsection{Future Plans}
+
+The Tier-0 operations remain essentially the same, requiring continued
+support of personnel both at MIT and at CERN.  As we scale higher in
+both job slots and their distribution over the CMS cloud, and highly
+distributed storage access on the WAN using AAA technologies
+underlying the CMS data federation, we anticipate that these
+operations support remain.  Additional operations support for smooth
+operation of US university portals (Tier-3-in-a-box) and efficient
+harnessing of opportunistic resources is also anticipated.
 
 \subsection{Computing Infrastructure and Services (WBS 4)}
 
@@ -544,42 +579,95 @@ clusters to bring additional opportunistic uses for these cases.
 
 \subsubsection{Future Plans}
 
+Blah Blah Blah indicating that continued in R\&D of {Computing Infrastructure and Services (WBS 4)}
+is necessary.
+
 \subsection{Software and Support (WBS 5)}
 
-All things software.  There is analysis tools development at
-Princeton, multi-threaded framework work at Cornell, and a lot of
-event display stuff at UCSD.  I am trying to get some of the latter
-reclassified as operations of the event display, so it might move.
+Multicore computing systems have become ubiquitous in the past
+decade. However, efficient use of available resources, especially
+memory volume and access, required adaptation of our software to
+suitable multithreaded frameworks. Keeping up with technology
+evolution in the market requires continues investigation and CMS
+framework and utilities software development.  Cornell, Princeton and
+UCSD groups are engaged with central CMS in this essential software
+development and support.
 
 \subsubsection{Current Status}
+
+A systematic effort to make the core CMSSW thread-safe and has
+successfully deployed it in the past year.  The event display
+for CMS has been reworked to work on a variety of platforms
+conveniently.
+
 \subsubsection{Future Plans}
+
+{FIXME: We need to list what is required to be done by the people
+  supported by this WBS.}
 
 \subsection{Technologies and Upgrade R\&D (WBS 6)}
 
-This is a huge grab-bag of R\&D, some of which is poorly defined, but
-we can make up a good story. There is a pile of stuff at UCSD that
-Frank and Avi want to classify as cost containment work new computing
-architectures, re-engineering of reconstruction for use on HPC
-machines, impact of reduced data formats like miniAOD and beyond.  At
-Princeton Pete has efforts in reconstruction on new architectures and
-the like.  Brian has some Brian things.  Cornell also has small
-efforts on new architectures and data mining.  And there are some
-things at Caltech I am either trying to get better defined or moved
-elsewhere.
+The main thrust of the R\&D effort of the project is to control the
+rate of growth of computing used.  High-Luminosity is the least
+pleasant way to go exploring. Unlike high(er) energy, one has to cope
+with increased event size (due to pile-up), pile-up complexity
+increases due to many overlapping events, data set size increases due
+to long running period required, impacting CPU, storage and network
+resources.  For example, an increase in number of PU events from 10-25
+was measured to result in increase of a x3 of event reconstruction
+time. Such size increases (or larger) are unaffordable and must be
+prevented.
 
 \subsubsection{Current Status}
+
+Tuning of multi-threaded software to increase the resource
+usage efficiency is one of our recent accomplishments.  
+{FIXME: Add more from David and Liz, when ready}
+
 \subsubsection{Future Plans}
+
+There are a few possible ways to deal with this set of challenges. 
+\begin{itemize}
+\item reduce size/event e.g. miniAOD and beyond. Study operational and Physics implications.
+\item speed up reconstruction time, using vectorization and parallelization enabled by the new computing architectures. 
+\item explore the limitations of AAA. Start on US-side.  
+\end{itemize}
+
+Invsetigation of new computing architectures, re-engineering of
+reconstruction for use on HPC machines, impact of reduced data formats
+like miniAOD and beyond are all on the list of items to be tackled.
+At Princeton efforts in reconstruction on new architectures is
+beginning Cornell has begun efforts on new architectures and data
+mining.  Nebraska and Wisconsin have long standing collaborations with
+distributed high-throughput computing experts from their CS
+departments.  Caltech software engineers are also formulating R\&D
+plans for long term, in collaboration with the CERN based multicore
+projects.
+
+Long term R\&D in exploring options of using GPUs for extensive
+parallel processing is under investigation.  While some of the long
+term R\&D is supported externally, we anticipate that rapid deployment
+of newly available products, which will certainly be necessary will
+require additional investment within the US CMS S\&C project.
+
 
 \subsection{Coordination with CMS (WBS 7)}
 
-This is just where we file the effort that is working on CMS-wide
-coordination rather than US CMS tasks.  On the NSF side this is S\&C
-coordination at Princeton, reconstruction coordination at Wisconsin
-and UCSD, user support at UCSD, and a small amount of money that goes
-to Harvey (let us not talk about it).
+US CMS S\&C personnel are well inetgrated in the CMS-wide coordination
+efforts and hold management positions.  
 
 \subsubsection{Current Status}
+
+Current support under this category includes S\&C coordination at
+Princeton, reconstruction coordination at Wisconsin and UCSD, and user
+support at UCSD.  
+
 \subsubsection{Future Plans}
+
+It is anticipated that approximately a third of the management positions
+in CMS are held by US personnel, of which NSF computing supported 
+personnel needs will have to be covered by this project.  The need
+is likely to remain approximately constant.
 
 \end{document}
 
