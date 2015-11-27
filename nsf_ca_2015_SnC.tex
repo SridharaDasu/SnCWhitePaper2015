@@ -7,6 +7,7 @@
 \topmargin -0.25 true in
 
 \usepackage{authblk}
+\usepackage{graphicx}
 
 \begin{document}
 
@@ -130,6 +131,9 @@ the MONARC project {\bf ref}, includes Tier-0 center at CERN,
 one US based Tier-1 center at FNAL (WBS 1) and seven US 
 university based Tier-2 centers (WBS 2) at 
 {\bf Caltech, Florida, MIT, Nebraska, Purdue, UC San Diego and Wisconsin}.
+Resources available at these centers funded through prior NSF
+support are summarized in Tables~\ref{compute-resources}~and~
+\ref{storage-resources}.
 
 The original MONARC model of organization of CMS computing resources
 in a tiered structure is now dated. While we retain Tier-0 at CERN for
@@ -156,12 +160,105 @@ appropriate usecases for tuning.
 \item Faculty collaborations at the University level can bring in additional
 campus or cloud resources
 \end{itemize}
+\item Access to opportunistic computing resources at the Universities amounting to ~37\%.
 \item Cost of infrastructure is subsidized at the Universities.
 \item Cost of personnel is also lower.
 \item Friendly competition amongst the sites results in increased productivity.
 \end{itemize}
 
 \subsubsection{Current Status}
+
+The seven US CMS Tier-2s not only maintain resources outlined in 
+Tables~\ref{compute-resources}~and~\ref{storage-resources}, but
+also provide many additional services.  Two FTE at each center
+are necessary to provide high-quality service that results in 
+very high availability, upwards of 95\%. The personnel are responsible
+for all aspects of provisioning these resources, from specifications to
+deployment taking advantage of local considerations. 
+
+All seven US Tier-2s rank amongst the top ten providers of the 50 such 
+CMS centers world-wide. Together they provide about 35\% of CMS
+Tier-2 resources.  The compute resources at Tier-2s serve both
+production and physicist analysis cases.  The resource utilization
+at the US Tier-2s in the past month is summarized in the Figure~
+\ref{computingJobsAtUST2sInOneMonth}. The top and bottom panels
+show the counts of the successfully processed production and analysis 
+jobs respectively.
+
+In addition to the facilities maintenance and operation, they also take 
+on other roles within software and computing projects.  CMS benefits
+because of their innovations and pioneering deployments, such as
+the most recent work in testing and commissioning of the world-wide
+CMS data federation using AAA technologies.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|}
+\hline
+& \multicolumn{3}{|c|}{\bf Number of Job Slots} \\ \cline{2-4}
+{\bf Tier 2 Center}                         & {\bf Purchased} & {\bf Opportunistic} & {\bf Total} \\ \hline
+Caltech                                         & 5,780 &    384 &   6,164 \\
+Florida                                          & 4,126 & 6,068 & 10,194 \\
+MIT                                               & 5,200 & 2,056 &   7,256 \\
+Nebraska                                      & 5,840 & 3,717 &   9,557 \\
+Purdue                                          & 6,636 & 9,581 & 16,217 \\
+UCSD                                           & 5,256 & SDSC &  5,256 \\ 
+Wisconsin                                     & 7,860 & 2,713  & 10,573 \\ \hline
+{\bf Total}                                       & {\bf 40,698} & {\bf 24,502 +} & {\bf 65,200} \\ \hline
+\end{tabular}
+\caption[]
+{
+Useable storage space currently deployed at US Tier2 centers.
+The San Diego Super-computing Center often provides access
+to opportunistic resources, which is in addition to routine 
+job slots available at other Tier-2s.
+}
+\label{compute-resources}
+\end{center}
+\end{table}
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+{\bf Tier 2 Center}                         & {\bf Storage (TB)} \\ \hline
+Caltech                                         & TBD \\
+Florida                                          & TBD \\
+MIT                                               & TBD \\
+Nebraska                                      & TBD \\
+Purdue                                          & TBD \\
+UCSD                                           & TBD \\ 
+Wisconsin                                     & 2300 \\ \hline
+{\bf Total}                                       & {\bf TBD} \\ \hline
+\end{tabular}
+\caption[]
+{
+Useable storage space currently deployed at US Tier2 centers.
+}
+\label{storage-resources}
+\end{center}
+\end{table}
+
+\begin{figure}
+\label{computingJobsAtUST2sInOneMonth}
+\begin{center}
+\includegraphics[height=3in]{productionJobsAtUST2sInOneMonth.png}
+\includegraphics[height=3in]{analysisJobsAtUST2sInOneMonth.png}
+\end{center}
+\caption{Counts of completed production (top) and analysis (bottom) 
+jobs at the US Tier-2s in the past month (November 2015).}
+\end{figure}
+
+\begin{figure}
+\label{storageUtilizationAtUST2s-Chart}
+\begin{center}
+\includegraphics[height=3in]{storageUtilizationAtUST2s-Chart.pdf}
+\end{center}
+\caption{Current usage of storage resources for centrally managed
+data at the US Tier-2s in the past month (November 2015) in TBs. 
+Physicist data storage at each site at the level of about 1000 TB
+is additional.}
+\end{figure}
 
 \subsubsection{Future Plans}
 
