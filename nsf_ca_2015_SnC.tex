@@ -63,12 +63,14 @@ future plans of US CMS software and computing project, focussing on
 its Tier-2 program, on which US and international CMS physicists rely
 upon for extracting physics from the expected large CMS datasets.
 
-Computing environment and facilities for the CMS experiment are
-continually evolving to meet the requirements of the collaboration and
-to to take advantage of the evolution of technology within and beyond
-the high-energy physics community. During the recently started new
+The scale of computing resources necessary is directly coupled to the
+foreseen output from the detector.  The trigger rates have been
+increased by an order of magnitude compared to the original goals at
+the time of CMS computing TDR. The discovery of Higgs at low mass and
+continued investigation of EWK scale physics requires low thresholds.
+During the recently started new
 phase of data acquisition, i.e., Run-2 (2015-18) and Run-3 (2021-23)
-of LHC about 300 fb$^{-1}$ will be accumulated. This
+of LHC, about 300 fb$^{-1}$ will be accumulated. This
 300-fb$^{-1}$-dataset presents two orders of magnitude increase in
 data volume compared to Run-1 (2009-12) dataset: An order of magnitude
 increase in integrated luminosity, a factor of three increase in
@@ -76,25 +78,23 @@ trigger output rate to facilitate continued access to electro-weak
 scale physics, and a factor of three or so increase in
 event-complexity due to increased energy and instantaneous luminosity
 leading to event pileup.
-
-The scale of computing resources necessary is directly coupled to the
-foreseen output from the detector.  The trigger rates have been
-increased by an order of magnitude compared to the original goals at
-the time of CMS computing TDR. The discovery of Higgs at low mass and
-continued investigation of EWK scale physics requires low thresholds.
 As the beam energy has reached more or less its maximum expected, it
 is highly likely that from here on out analyses will tend to use all
-the data accumulated over time, from the 2/fb accumulated in 2015 to
-the 300/fb expected to be accumulated by the end of Run 3 in 2025.
-
+the data accumulated over time, from the 3 fb$^{-1}$ at 13 TeV accumulated in 2015 to
+the 300 fb$^{-1}$ expected by the end of Run 3 in 2025.
 While the analysis and Monte Carlo production computing needs scale
 roughly linearly with integrated luminosity, the reconstruction time
 per event for both data and simulation grows roughly exponentially
 with instantaneous luminosity.  As a result, the overall computing
-needs outpace cost savings due to Moore's law by a very large factor,
+needs outpace expected technological advances and reasonable 
+funding scenarios by a very large factor,
 requiring significant innovations in order to guarantee that the
 physics potential of the data taken is fully realized.
 
+Computing environment and facilities for the CMS experiment are
+continually evolving to meet the requirements of the collaboration and
+to to take advantage of the evolution of technology within and beyond
+the high-energy physics community. 
 The Moore's law scaling of computing capabilities and evolution of
 storage are quite unlikely to meet this challenge under constant
 budgetary levels. Fortunately, innovations in resource utilization,
@@ -103,12 +103,7 @@ are making up for the limitations in raw scaling of resources. We
 briefly describe these evolutionary changes in the offing and project
 how agile computing, utilizing owned, opportunistic and commercial
 cloud resources, with dynamic data management and just-in-time data
-movement over wide-area networks, will work to meet our challenge. In
-particular, this document focusses on the chaotic physicist-driven
-scientific data analysis activities rather than the dedicated prompt
-data production facilities. A brief look at the computing R\&D
-necessary for the HL-LHC phase (2025+), during which another two
-orders of magnitude in data volume is expected, is also provided.
+movement over wide-area networks, will work to meet our challenge. 
 
 Our vision for meeting the challenge of growth of computing needs
 beyond what is affordable via a simple Moore's law extrapolation is
@@ -123,7 +118,7 @@ algorithms, data formats, and procedural changes for how we analyze
 the data we collect and simulate, in order to significantly reduce the
 computing needs.
 
-Another goal of our program is to empower physicists to conveniently
+Primary goal of our program is to empower physicists to conveniently
 analyze CMS data oblivious of the computing resource provisioning.
 The central services provided by those supported in this project
 will be providing seamless access to distributed world-wide 
@@ -131,7 +126,15 @@ resources to all US CMS universities.  In this context the
 Tier-2s will become responsible to maintain simple ``headnodes'',
 which provide seamless access or provide conslutation for small 
 installations, which could serve as portals to the campus
-resources at participating institutions.  
+resources at all US CMS institutions, democratizing access to
+computing resources.  
+
+This proposal focusses on the NSF supported University
+based computing, especially for chaotic physicist-driven
+scientific data analysis activities. A brief look at the computing 
+R\&D necessary for the HL-LHC phase (2025+), during which 
+another two orders of magnitude in data volume is expected, 
+is also discussed.
 
 \subsection{University Facilities (WBS 2)}
 
@@ -166,34 +169,50 @@ The advantage of strengthening the existing university sites is multi-fold:
 \item Connection to strong physics groups at the universities
 \begin{itemize}
 \item Student and postdoc physics analysts exercise the system providing
-appropriate usecases for tuning. 
+appropriate usecases for tuning, and provide prompt feedback for operations.
 \item Faculty collaborations at the University level can bring in additional
 campus or cloud resources
+\item Opportunistic computing resources at the Universities amount to ~37\%.
 \end{itemize}
-\item Access to opportunistic computing resources at the Universities amounting to ~37\%.
 \item Cost of infrastructure is subsidized at the Universities.
 \item Cost of personnel is also lower.
 \item Friendly competition amongst the sites results in increased productivity.
 \end{itemize}
 
+CMS computing workflows fall under few broad categories, namely, prompt
+calibration and reconstruction, which is primarily a Tier-0 functionality, 
+centrally scheduled reconstruction of LHC data and Monte Carlo, which 
+can be distributed world-wide at all tiers, centrally scheduled production 
+of simulated data, and chaotic user analysis, which is primarily done at 
+Tier-2s and any opportunistically available resources.
+
+CMS data is organized in several tiers ranging from RAW data acquired
+from the detector or simulated, to RECO format for reconstructed data, 
+FEVT combining the two, full set of analysis objects (AOD) and 
+compressed AOD, i.e., miniAOD. Ubiquitous access to AOD and miniAOD 
+for the analysts is the key enabler for prompt production of physics
+results.
+
 \subsubsection{Current Status}
 
-The seven US CMS Tier-2s not only maintain resources outlined in 
-Tables~\ref{compute-resources}~and~\ref{storage-resources}, but
+The seven US Tier-2s rank amongst the top ten providers of the 50 such 
+CMS centers world-wide. Together they provide about 35\% of CMS
+Tier-2 resources, outlined in Tables~\ref{compute-resources}~and~\ref{storage-resources}.  
+The compute resources at Tier-2s serve both production and physicist analysis cases.  The resource utilization
+at the US Tier-2s in the past month is summarized in the Figure~
+\ref{computingJobsAtUST2sInOneMonth}. The top and bottom panels
+show the counts of the successfully processed production and analysis 
+jobs respectively, which add up to about 30,000 jobs in steady state.
+These centers together are hosting 10 PB of CMS centrally and
+user produced data on their storage systems as shown in 
+Figure~\ref{storageUtilizationAtUST2s-Chart}.
+
+The US CMS Tier-2s not only maintain resources, but
 also provide many additional services.  Two FTE at each center
 are necessary to provide high-quality service that results in 
 very high availability, upwards of 95\%. The personnel are responsible
 for all aspects of provisioning these resources, from specifications to
 deployment taking advantage of local considerations. 
-
-All seven US Tier-2s rank amongst the top ten providers of the 50 such 
-CMS centers world-wide. Together they provide about 35\% of CMS
-Tier-2 resources.  The compute resources at Tier-2s serve both
-production and physicist analysis cases.  The resource utilization
-at the US Tier-2s in the past month is summarized in the Figure~
-\ref{computingJobsAtUST2sInOneMonth}. The top and bottom panels
-show the counts of the successfully processed production and analysis 
-jobs respectively.
 
 In addition to the facilities maintenance and operation, they also take 
 on other roles within software and computing projects.  CMS benefits
@@ -250,29 +269,99 @@ Useable storage space currently deployed at US Tier2 centers.
 \end{table}
 
 \begin{figure}
-\label{computingJobsAtUST2sInOneMonth}
 \begin{center}
 \includegraphics[height=3in]{productionJobsAtUST2sInOneMonth.png}
 \includegraphics[height=3in]{analysisJobsAtUST2sInOneMonth.png}
+\label{computingJobsAtUST2sInOneMonth}
 \end{center}
 \caption{Counts of completed production (top) and analysis (bottom) 
 jobs at the US Tier-2s in the past month (November 2015).}
 \end{figure}
 
 \begin{figure}
-\label{storageUtilizationAtUST2s-Chart}
 \begin{center}
 \includegraphics[height=3in]{storageUtilizationAtUST2s-Chart.pdf}
+\label{storageUtilizationAtUST2s-Chart}
 \end{center}
 \caption{Current usage of storage resources for centrally managed
 data at the US Tier-2s in the past month (November 2015) in TBs. 
-Physicist data storage at each site at the level of about 1000 TB
+Physicist data storage at each site at the level of about 500 TB
 is additional.}
 \end{figure}
 
 \subsubsection{Future Plans}
 
+\noindent{\bf Computing Resources}
+
+Unlike for Run-1, the Run-2/3 Tier-2 compute resource provisioning
+details are not concretely specified to allow local optimization based
+on cloud and opportunistic resource availability. However, the
+non-owned storage resource use is not yet well defined. Therefore, it
+is visualized that much of the storage, which is pared down to the
+minimum with improvements made in LS1, is owned and operated at the
+Tier-1s and Tier-2s.
+
+The CPU requirements are estimated, in units of number of slots
+needed, by scaling current usage up by a factor of 30 accounting for
+increase in expected integrated luminosity.  The increase in
+complexity of analysis is assumed to be compensated by the improved
+framework job efficiency and advances in computing power of individual
+machines.  Use of CMS data federation across the wide-area network at
+owned resource sites and the clouds in general, opens up the
+possibility of provisioning needed compute resources in a flexible way
+depending on cost/benefit.  However, it is visualized that a fraction
+of resources are housed at existing T2s.
+
+\begin{itemize}
+\item Currently 30,000 jobs, averaged over the past month, run at the seven 
+US T2s equally split between production and analysis and 10,000 production
+jobs at FNAL T1.
+\item Bulk of the 15,000 analysis jobs running at Tier-2s recently, are 
+identified as 13-TeV MC jobs.  The MC for 2015 was generated with the
+anticipation that we collect 10 fb$^{-1}$ this year.  Unfortunately,
+we only collected 2 fb$^{-1}$.  Nevertheless, the analysis effort 
+presently is equivalent to 10 fb$^{-1}$.
+\item Therefore, scaling by luminosity, 300 fb$^{-1}$ vs 10 fb$^{-1}$ collected 
+to date, we should expect to support about 900,000 jobs at T2s at steady state 
+and 300,000 jobs at T1.
+\item Proposed job slot availability: 300,000 for production at T1 and 100,000 through each of the seven US T2s.
+\end{itemize}
+
 \noindent{\bf Storage Resources}
+
+CMS would like to ensure that the CMS Data Federation hosts the
+compact MiniAOD with appropriate level of replication for the popular
+data and a fraction of the AOD data.  The estimated miniAOD size of
+the data federation for 300-fb$^{-1}$ luminosity data sample is:
+(50kB)(1kHz) $\times$ (10$^7$s/year) $\times$ (6y) =$3 \times 10^9$
+MB=3PB.  Typically to analyze
+this data requires an associated MC sample which is three times its
+size, leading to a 10PB disk storage requirement for the CMS data
+federation for an instance of MiniAOD. Since the MiniAOD is highly
+processed it is expected that improvements to the reconstruction,
+calibration and other changes will necessitate remaking of MiniAODs.
+Unfortunately, support of multiple versions of MiniAOD for several
+versions, say three, are needed in order to accommodate the analyst
+needs.  Not all analysts can migrate from one version to another
+immediately.  We estimate that two to three MiniAOD versions are
+needed at any time, with the older data deprecated dynamically as they
+become stale and unused.  This results in expected data volume of
+20-30 PB of storage for MiniAOD.
+
+The AOD data tier is currently used by many analysis groups.  It is
+anticipated there will remain significant usage for certain analysis
+which requires detailed understanding of the detector.  Complicated
+final states with missing transverse energy, multiple low $P_T$ jets,
+$\tau$ final states, etc.  The AOD is 410 kB per event, and using 30\%
+as the fraction of data that needs to be hosted on disk in this format
+we get 10PB storage.
+
+The tape archived raw data size for 300 fb$^{-1}$ is 60PB.  It is
+assumed that the reconstructed FEVT objects are only available in the
+intermediate stages of processing and not archived.  However, it is
+anticipated that a fraction of RAW data, at about 10 PB is expected to
+be stored on disk for special reconstruction techniques, e.g., those
+with heavy slow particles, and for cache.
 
 The storage resource requirements are estimated by scaling current
 data set of 30 fb$^{-1}$ acquired in 2010-2012 (Run-1) and 2015 (Early
@@ -312,42 +401,6 @@ magnitude higher.
 \end{itemize}
 \item Total Disk Storage:  110 PB
 \item Proposed Approximate Disk Storage Distribution: 30 PB disk and 110 PB tape at T1 and 12 PB at each at seven US T2s
-\end{itemize}
-
-\noindent{\bf Computing Resources}
-
-Unlike for Run-1, the Run-2/3 Tier-2 compute resource provisioning
-details are not concretely specified to allow local optimization based
-on cloud and opportunistic resource availability. However, the
-non-owned storage resource use is not yet well defined. Therefore, it
-is visualized that much of the storage, which is pared down to the
-minimum with improvements made in LS1, is owned and operated at the
-Tier-1s and Tier-2s.
-
-The CPU requirements are estimated, in units of number of slots
-needed, by scaling current usage up by a factor of 30 accounting for
-increase in expected integrated luminosity.  The increase in
-complexity of analysis is assumed to be compensated by the improved
-framework job efficiency and advances in computing power of individual
-machines.  Use of CMS data federation across the wide-area network at
-owned resource sites and the clouds in general, opens up the
-possibility of provisioning needed compute resources in a flexible way
-depending on cost/benefit.  However, it is visualized that a fraction
-of resources are housed at existing T2s.
-
-\begin{itemize}
-\item Currently 30,000 jobs, averaged over the past month, run at the seven 
-US T2s equally split between production and analysis and 10,000 production
-jobs at FNAL T1.
-\item Bulk of the 15,000 analysis jobs running at Tier-2s recently, are 
-identified as 13-TeV MC jobs.  The MC for 2015 was generated with the
-anticipation that we collect 10 fb$^{-1}$ this year.  Unfortunately,
-we only collected 2 fb$^{-1}$.  Nevertheless, the analysis effort 
-presently is equivalent to 10 fb$^{-1}$.
-\item Therefore, scaling by luminosity, 300 fb$^{-1}$ vs 10 fb$^{-1}$ collected 
-to date, we should expect to support about 900,000 jobs at T2s at steady state 
-and 300,000 jobs at T1.
-\item Proposed job slot availability: 300,000 for production at T1 and 100,000 through each of the seven US T2s.
 \end{itemize}
 
 \noindent{\bf Network Resources}
@@ -507,7 +560,7 @@ network access to our storage (AAA and XROOTD), and compute resources,
 using improved workflows.  For instance, data management and workflow 
 management development is done at Cornell, xrootd development at
 UCSD, and dynamic data placement development at MIT.  Additional 
-support is provided by NSF through AAA project to Nebraska, UCSD
+support was provided by NSF through AAA project to Nebraska, UCSD
 and Wisconsin.
 
 \subsubsection{Current Status}
@@ -542,9 +595,9 @@ federation, and duplicate multiple times as needed for popular data.
 
 \noindent{\bf CMS Data Federation (AAA)}
 
-CMS Data Federation is built to provide international-scale data
-access infrastructure under the name ÒAny Data, Anytime, AnywhereÓ
-(AAA). AAA removes the requirement of co-location of storage and
+CMS Data Federation is built to provide seamless international-scale data
+access  under the auspices of Any Data, Anytime, Anywhere
+(AAA) project. AAA removes the requirement of co-location of storage and
 processing resources.  The infrastructure is transparent, in that
 users have the same experience whether the data they analyze is
 halfway around the world or in the room next door.  It is reliable, in
@@ -559,7 +612,7 @@ network.
 AAA is made possible by XRootd software, which allows the creation of
 data federations. A data federation serves a global namespace via a
 tree of XRootd servers. The leaves of this tree are referred to as
-Òdata sources,Ó as they serve data from the local storage systems.
+data sources, as they serve data from the local storage systems.
 Each storage system is independent of the others, allowing for a broad
 range of implementations and groups to participate in the federation
 as long as they expose an agreed-upon namespace through the XRootd
@@ -568,7 +621,7 @@ applications to a subscribed data source that has the requested file.
 Each host is subscribed to at most one redirector, called a manager;
 loops are disallowed. If the requested file is not present on a server
 subscribed to the redirector, then the client will be redirected to
-the current hostÕs manager.  The manager continues the process until
+the current host's manager.  The manager continues the process until
 either a source is found or the client is at the root of the tree. An
 application may thus be redirected to any host in the federation,
 irrespective of the branch point it initially accesses.
@@ -582,60 +635,26 @@ environment. Temporary access to dedicated large resources can be
 purchased on commercial grids or obtained from national or campus
 research facilities.
 
-\noindent{\bf Data Management and Workflow Management}
-
-CMS data is organized in several tiers ranging from RAW data acquired
-from the detector, to RECO format for reconstructed data, FEVT
-combining the two, full set of analysis objects (AOD) and compressed
-AOD, i.e., miniAOD.
+\noindent{\bf Development of MiniAOD}
 
 Physics analysis often involves a much smaller portion of
 reconstructed data than is available. While the raw data acquired from
 CMS is about 1 MB per event, the reconstructed objects more than
 double that size typically. The AOD defined for Run-1 was successful
 but was designed in a rather lax way resulting in a 400 kB size per
-event. Careful pruning of unused collections of objects, packing them
+event, which when scaled to 300 fb$^{-1}$ results in unaffordable
+data volume. Further, rate of event processing matters in time to
+production of physics results, so size of event being small is also
+beneficial for computational loads. 
+
+The US CMS personnel supported by NSF played key role in development
+of the MiniAOD.  Careful pruning of unused collections of objects, packing them
 in appropriately sized containers resulted in redefined miniAOD which
-is less than 50 kB per event. Rate of event processing matters, so
-size of event being small is also beneficial for computational
-loads. The miniAOD is now visualized as the main data format that will
+is less than 50 kB per event. The miniAOD is now visualized as the main data format that will
 be used by bulk of CMS analysts, while niche usecases involving the
 original AOD format will be supported as needed. In rare cases FEVT
 access may also be needed.  As the miniAOD improves we anticipate AOD
-replicas will be small.
-
-CMS would like to ensure that the CMS Data Federation hosts the
-compact MiniAOD with appropriate level of replication for the popular
-data and a fraction of the AOD data.  The estimated miniAOD size of
-the data federation for 300-fb$^{-1}$ luminosity data sample is:
-(50kB)(1kHz)*(10$^7$s/year)*(6y)=3*10$^9$MB=3PB.  Typically to analyze
-this data requires an associated MC sample which is three times its
-size, leading to a 10PB disk storage requirement for the CMS data
-federation for an instance of MiniAOD. Since the MiniAOD is highly
-processed it is expected that improvements to the reconstruction,
-calibration and other changes will necessitate remaking of MiniAODs.
-Unfortunately, support of multiple versions of MiniAOD for several
-versions, say three, are needed in order to accommodate the analyst
-needs.  Not all analysts can migrate from one version to another
-immediately.  We estimate that two to three MiniAOD versions are
-needed at any time, with the older data deprecated dynamically as they
-become stale and unused.  This results in expected data volume of
-20-30 PB of storage for MiniAOD.
-
-The AOD data tier is currently used by many analysis groups.  It is
-anticipated there will remain significant usage for certain analysis
-which requires detailed understanding of the detector.  Complicated
-final states with missing transverse energy, multiple low $P_T$ jets,
-$\tau$ final states, etc.  The AOD is 410 kB per event, and using 30\%
-as the fraction of data that needs to be hosted on disk in this format
-we get 10PB storage.
-
-The tape archived raw data size for 300 fb$^{-1}$ is 60PB.  It is
-assumed that the reconstructed FEVT objects are only available in the
-intermediate stages of processing and not archived.  However, it is
-anticipated that a fraction of RAW data, at about 10 PB is expected to
-be stored on disk for special reconstruction techniques, e.g., those
-with heavy slow particles, and for cache.
+replica counts will become small. 
 
 \noindent{\bf Improvements to CMS Workflows}
 
