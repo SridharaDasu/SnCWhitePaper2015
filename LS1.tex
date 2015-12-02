@@ -10,14 +10,26 @@ technologies for CMS workflows.
 The original "Monarch" model of organization of CMS computing resources in a tiered structure 
 is now dated. While we retain Tier-0 at CERN for prompt processing, both calibration and 
 reconstruction, the functionality at higher tiers is changing. Especially at the Tier-2s, we are 
-evolving to a set of institutions providing portions of resources, focusing on local expertise, in 
+evolving to a set of institutions providing portions of resources, focusing on local expertise and capability development, in 
 a continuum infrastructure of services. Here we will develop an evolving new model for optimal 
 use of resources to provide for CMS computing needs.
+
+\subsection{CMS Data Federation (AAA)}
+
+CMS Data Federation is built to provide international-scale data access infrastructure under the name “Any Data, Anytime, Anywhere” (AAA). AAA removes the requirement of co-location of storage and processing resources.  The infrastructure is transparent, in that users have the same experience whether the data they analyze is halfway around the world or in the room next door.  It is reliable, in that end users rarely see a failure of data access when they run their application.  It enables greater access to the data, in that users no longer have the burden of purchasing and operating complex disk systems. In fact, any data can be accessed anytime from anywhere with an internet connection. The key to success of AAA is the improved wide-area network access due to enhancements made to our dedicated LHC network.
+
+AAA is made possible by XRootd software, which allows the creation of data federations. A data federation serves a global namespace via a tree of XRootd servers. The leaves of this tree are referred to as “data sources,” as they serve data from the local storage systems.  Each storage system is independent of the others, allowing for a broad range of implementations and groups to participate in the federation as long as they expose an agreed-upon namespace through the XRootd software. The non-leaf nodes have no storage, but may redirect client applications to a subscribed data source that has the requested file.  Each host is subscribed to at most one redirector, called a manager; loops are disallowed. If the requested file is not present on a server subscribed to the redirector, then the client will be redirected to the current host’s manager.  The manager continues the process until either a source is found or the client is at the root of the tree. An application may thus be redirected to any host in the federation, irrespective of the branch point it initially accesses.
+
+The CMS Data Federation is now fully deployed across all tiers of its computing infrastructure. Easy access to
+this data federation across the wide-area network is democratizing the computing abilities of University
+groups across the world. Local campus grids controlled by non-CMS entities are easily integrated in
+the CMS computing environment. Temporary access to dedicated large resources can be purchased
+on commercial grids or obtained from national or campus research facilities.
 
 \subsection{Dynamic Data Placement and Management}
 
 Underpinning the computing infrastructure in Run-1 was data distribution mechanism implemented
-using PhEDEx software. The workflow involved operators moving large chunks of data on command
+using the PhEDEx software, developed by US CMS. The workflow involved operators moving large chunks of data on command
 down the hierarchical grid so that after initial calibration and reconstruction at Tier-0, the raw data
 were moved to be archived at Tier-1 and reprocessed as necessary. The (re)reconstructed data from
 Tier-1s were further processed to obtain lower volume Analysis Objects Data (AOD) versions whose
@@ -29,42 +41,31 @@ statically at various facilities around the globe. It was observed that much of 
 was occupied by often rarely used data.
 
 Dynamic data placement and management (DDM) software was developed and commissioned during 
-the LS1 to address these shortcomings. DDM is now deployed at all tiers to automatically prune the
+the LS1 to address these shortcomings. DDM is now deployed at all tiers, and has replaced the manual procedures used in Run 1 
+with an algorithm to automatically prune the
 unused but archived data using well defined policies.  For example, the archived full event, i.e., raw
 plus reconstructed quantities (FEVT) is pruned from disk to keep sufficient space for the Tier-0 and 
 Tier-1 reconstruction workflows to execute smoothly. Most importantly we are able to keep at least
-one copy of all AOD on disk somewhere in the CMS data federation, and duplicate multiple times 
-as needed for popular data.
-
-\subsection{CMS Data Federation (AAA)}
-
-CMS Data Federation is built to provide international-scale data access infrastructure under the name “Any Data, Anytime, Anywhere” (AAA). AAA removes the requirement of co-location of storage and processing resources.  The infrastructure is transparent, in that users have the same experience whether the data they analyze is halfway around the world or in the room next door.  It is reliable, in that end users never see a failure of data access when they run their application.  It enables greater access to the data, in that users no longer have the burden of purchasing and operating complex disk systems. In fact, any data can be accessed anytime from anywhere with an internet connection. The key to success of AAA is the improved wide-area network access due to enhancements made to our dedicated LHC network.
-
-AAA is made possible by XRootd software, which allows the creation of data federations. A data federation serves a global namespace via a tree of XRootd servers. The leaves of this tree are referred to as “data sources,” as they serve data from the local storage systems.  Each storage system is independent of the others, allowing for a broad range of implementations and groups to participate in the federation as long as they expose an agreed-upon namespace through the XRootd software. The non-leaf nodes have no storage, but may redirect client applications to a subscribed data source that has the requested file.  Each host is subscribed to at most one redirector, called a manager; loops are disallowed. If the requested file is not present on a server subscribed to the redirector, then the client will be redirected to the current host’s manager.  The manager continues the process until either a source is found or the client is at the root of the tree. An application may thus be redirected to any host in the federation, irrespective of the branch point it initially accesses.
-
-CMS Data Federation is now fully deployed across all tiers of its computing infrastructure. Easy access to
-this data federation across the wide-area network is democratizing the computing abilities of University
-groups across the world. Local campus grids controlled by non-CMS entities are easily integrated in
-the CMS computing environment. Temporary access to dedicated large resources can be purchased
-on commercial grids or obtained from national or campus research facilities.
+one copy of all recently produced AOD on disk somewhere in the CMS data federation, and duplicate multiple times 
+as needed for popular data to ensure good access by users.
 
 \subsection{Data Tiers for Analysis}
 
 CMS data is organized in several tiers ranging from RAW data acquired from the
 detector, to RECO format for reconstructed data, FEVT combining the two,
-full set of analysis objects (AOD) and compressed AOD, i.e., miniAOD.
+full set of analysis objects (AOD) and a newly introduced compressed AOD format, the miniAOD.
 
 Physics analysis often involves a much smaller portion of reconstructed data than is
-available. While the raw data acquired from CMS is about 1 MB per event, the 
-reconstructed objects more than double that size typically. The AOD defined for
+available. While the raw data acquired from CMS is about 1 MB per event in typical CMS and LHC operating conditions, the 
+reconstructed objects are typically more than double that size. The AOD defined for
 Run-1 was successful but was designed in a rather lax way resulting in a 400 kB
 size per event. Careful pruning of unused collections of objects, packing them
-in appropriately sized containers resulted in redefined miniAOD which is less than
-50 kB per event. Rate of event processing matters, so size of event being small is 
-also beneficial for computational loads. The miniAOD is now visualized as the main 
-data format that will be used by bulk of CMS analysts, while niche usecases involving
+in appropriately sized containers resulted in a refined data tier, the miniAOD, which is less than
+50 kB per event. The rate of event processing matters to users, so the size of event being small is 
+also beneficial for computational loads. The miniAOD is now envisioned as the main 
+data format to be used by bulk of CMS analysts, while niche (10-20\% of analysis) use cases involving
 the original AOD format will be supported as needed. In rare cases FEVT access may
-also be needed.  As the miniAOD improves we anticipate AOD replicas will be small.
+also be needed.  As the miniAOD improves and matures we anticipate AOD replicas will be small.
 
 CMS would like to ensure that the CMS Data Federation hosts the compact 
 MiniAOD with appropriate level of replication for the popular data and
@@ -76,7 +77,7 @@ its size, leading to a 10PB disk storage requirement for the CMS data federation
 for an instance of MiniAOD. Since the MiniAOD is highly processed it is
 expected that improvements to the reconstruction, calibration and other
 changes will necessitate remaking of MiniAODs.  Unfortunately, support of
-multiple versions of MiniAOD for several versions, say three, are needed 
+multiple versions of MiniAOD for several versions are needed 
 in order to accommodate the analyst needs.  Not all analysts can migrate
 from one version to another immediately.  We estimate that two to three
 MiniAOD versions are needed at any time, with the older data deprecated
@@ -112,6 +113,14 @@ during the down periods of time. Recent tests indicate ability to switch to offl
 processing workflows within several minutes. Improved data transfer technology
 and remote Xrootd  access to CMS data federation are enabling technologies.
 
+CMS also used the LS1 period to reduce the resource needs of algorithms that make up the simulation,
+digitization and reconstruction applications. Substantial technical improvements, factors of between two and four, 
+were made in each of these applications while maintaining the physics performance. The primary changes ame from developing
+a new technique for sampling low-energy particles in the simulation, reoptimizing the tracking algorithms. In addition, 
+CMS worked to develop reconstruction for 25 ns operating conditions of the LHC. This brought significant new challenges, primarily
+to the tracking and calorimeter detectors.
+
+
 \subsection{Opportunistic Resources}
 
 CMS is in exploratory phase for smoothly integrating opportunistic resources 
@@ -144,12 +153,20 @@ cases.
 \subsection{Improvements to CMSSW Framework (multi-threading )}
 \noindent{(David - after that Liz)}
 
-Multicore computing systems have become ubiquitous in the past decade. However,
-efficient use of available resources, especially memory volume and access, required 
-adaptation of our software to suitable multithreaded frameworks. CMS engaged in
-a systematic effort to make the core CMSSW thread-safe and has successfully
-deployed it in the past year. Further tuning of software to increase the resource
-usage efficiency is underway.
+Multicore computing systems have become ubiquitous in the past decade. However, given
+computing hardware evolution, the continued
+efficient use of available resources, especially memory volume and access, requires 
+adaptation of our software to a suitable multithreaded framework. CMS has developed 
+a novel event-processing framework and has engaged in
+a systematic effort to make the core (simulation, high-level trigger and reconstruction algorithms) 
+CMSSW thread-safe. CMS has successfully
+deployed this framework in the past year, including Run 2 Tier-0 operations. 
+
+CMS has already achieved a large effective memory savings and latency reduction in its reconstruction for Run 2.   
+The potential capabilities of the CMS multithreaded framework are far beyond those of frameworks that exploit multiple processes
+This framework provides CMS the basis to exploit future CPU architectures and provides a flexible and scalable
+system for continued development. Further tuning of software and operational 
+procedures to increase the resource usage efficiency is underway both in the framework and targeted algorithm improvements for threading. 
 
 \subsection{Evolution of the computing hardware: CPU, Storage and Network}
 \noindent{(Elmer)}
