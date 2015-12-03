@@ -635,27 +635,6 @@ environment. Temporary access to dedicated large resources can be
 purchased on commercial grids or obtained from national or campus
 research facilities.
 
-\noindent{\bf Development of MiniAOD}
-
-Physics analysis often involves a much smaller portion of
-reconstructed data than is available. While the raw data acquired from
-CMS is about 1 MB per event, the reconstructed objects more than
-double that size typically. The AOD defined for Run-1 was successful
-but was designed in a rather lax way resulting in a 400 kB size per
-event, which when scaled to 300 fb$^{-1}$ results in unaffordable
-data volume. Further, rate of event processing matters in time to
-production of physics results, so size of event being small is also
-beneficial for computational loads. 
-
-The US CMS personnel supported by NSF played key role in development
-of the MiniAOD.  Careful pruning of unused collections of objects, packing them
-in appropriately sized containers resulted in redefined miniAOD which
-is less than 50 kB per event. The miniAOD is now visualized as the main data format that will
-be used by bulk of CMS analysts, while niche usecases involving the
-original AOD format will be supported as needed. In rare cases FEVT
-access may also be needed.  As the miniAOD improves we anticipate AOD
-replica counts will become small. 
-
 \noindent{\bf Improvements to CMS Workflows}
 
 The main objectives of the workflows management middleware is to
@@ -721,11 +700,33 @@ development and support.
 
 \subsubsection{Current Status}
 
+\noindent{\bf Development if Multi-threaded CMSSW Applications}
 A systematic effort to make the core CMSSW thread-safe and has
-successfully deployed it in the past year.  The event display
+successfully deployed it in the past year.  
+\noindent{\bf Support and Maintance of Fireworks}
+The event display
 for CMS has been reworked to work on a variety of platforms
 conveniently.
+\noindent{\bf Development of MiniAOD}
 
+Physics analysis often involves a much smaller portion of
+reconstructed data than is available. While the raw data acquired from
+CMS is about 1 MB per event, the reconstructed objects more than
+double that size typically. The AOD defined for Run-1 was successful
+but was designed in a rather lax way resulting in a 400 kB size per
+event, which when scaled to 300 fb$^{-1}$ results in unaffordable
+data volume. Further, rate of event processing matters in time to
+production of physics results, so size of event being small is also
+beneficial for computational loads. 
+
+The US CMS personnel supported by NSF played key role in development
+of the MiniAOD.  Careful pruning of unused collections of objects, packing them
+in appropriately sized containers resulted in redefined miniAOD which
+is less than 50 kB per event. The miniAOD is now visualized as the main data format that will
+be used by bulk of CMS analysts, while niche usecases involving the
+original AOD format will be supported as needed. In rare cases FEVT
+access may also be needed.  As the miniAOD improves we anticipate AOD
+replica counts will become small. 
 \subsubsection{Future Plans}
 
 {FIXME: We need to list what is required to be done by the people
