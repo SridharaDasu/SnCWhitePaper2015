@@ -734,23 +734,76 @@ conveniently.
 \subsection{Technologies and Upgrade R\&D (WBS 6)}
 
 The main thrust of the R\&D effort of the project is to control the
-rate of growth of computing used.  High-Luminosity is the least
+rate of growth of computing required, and thus cost incured, and to retain
+flexibility with regard to possible future changes in computer architecture.  
+There are fundamentally two largely independent effects that drive cost,
+those that scale with event complexity, i.e. average pile-up (PU) per event, 
+and those that scale with integrated luminosity, or total data volume.
+
+The cost of event reconstruction is driven by occupancy of the tracker.
+Higher instantaneous luminosity leads to higher pile-up thus higher
+occupancy and with it a near exponential growth in CPU time per event 
+in the pattern recognition step of the track reconstruction. 
+For example, an increase in the average number of PU events from 20-30
+was measured to result in an increase of x3 of event reconstruction time in the current CMS software release. 
+This range of PU matches the expected running conditions during 2015/16.
+To set the scale, the time to reconstruct a 13TeV top pair event exceeds the time to simulate
+the same event at an average PU $\sim$ 25 which we expect to reach early on in 2016.
+Any speed-ups of the reconstruction software, especially the tracking pattern recognition, 
+thus directly translate into computing cost savings.
+
+Analysis, MC production, and data reprocessing all scale roughly linearly with total integrated luminosity, or total
+data volume, leading to the x30 increase from the beginning of Run 2 in 2015 to the end of Run 3 in 2023 mention previously. 
+The software and computing R\&D program for the next 5 years is geared towards two timelines. It is meant to
+engage in fundamental R\&D towards solving the challenges of scaling out computing for the High Luminosity LHC era
+(2025-2035) but also to provide near term improvements that can be put into production during LS2 (2019/20)
+in order to address the challenges of Run 3 (2021-23). Given limited resources in personnel, our strategy is to focus
+on the long term with an eye towards adopting lessons learned in this process to address the Run 3 challenges.
+
+{\bf fkw: the prose below is probably meant to go into the introduction in some form?} 
+High-Luminosity is the least
 pleasant way to go exploring. Unlike high(er) energy, one has to cope
 with increased event size (due to pile-up), pile-up complexity
 increases due to many overlapping events, data set size increases due
 to long running period required, impacting CPU, storage and network
-resources.  For example, an increase in number of PU events from 10-25
+resources.  For example, an increase in the average number of PU events from 20-30
 was measured to result in increase of a x3 of event reconstruction
 time. Such size increases (or larger) are unaffordable and must be
 prevented.
 
 \subsubsection{Current Status}
 
-Tuning of multi-threaded software to increase the resource
-usage efficiency is one of our recent accomplishments.  
-{FIXME: Add more from David and Liz, when ready}
+During LS1, US-CMS drove multiple developments all focused on overall cost reductions in computing.
+We led the algorithmic improvements and code optimizations in the pattern recognition software that reduced the reconstruction
+time per event by xY for an average PU $\sim$ 30. We instigated the introduction of MiniAOD, reducing the event size by x10
+and the average analysis processing time per event by xYY {\bf fkw: figure out what a defensible number of this is given the data we have
+from the Data Popularity service}. In addition, we prepared the core framework to be multithreaded blablabla --- Sridhara to fill in text from David Lange here ...
 
 \subsubsection{Future Plans}
+
+{\bf Reconstruction Software:}
+Cornell, Princeton, and UCSD are collaborating on an ambitious R\&D program towards redesigning the core Kalman filter tracking algorithms of CMS for blablabla {\bf Avi to fill in the right words here}. While the bulk of this R\&D is funded to the tune of 3 FTE for 3 years
+via an independent NSF grant [cite the PIF], the present proposal includes a modest effort of XX focused on deriving short term
+benefits from this long term focused R\&D agenda.
+
+Deriving short term benefits is particularly interesting in light of the planned roll-out of large Supercomputers at both DOE and NSF
+based on the next two generations of Intel MIC processors. The degree to which CMS can benefit from these large scale resources
+for its core processing needs will depend crucially on the success of this R\&D.
+
+{\bf R\&D towards a new data analysis model:}
+For the HL-LHC era, CMS might need to contemplate a fundamental shift in the boundary between "primary data" and "custom data".
+Already in Run 1, the custom data Ntuples typically were analyzed at event rates ranging from 100 Hz to 10 kHz. 
+Ntuple analysis is even today
+in many cases IO rather than CPU limited. In contrast, the production of these custom Ntuples is almost always CPU limited. Even for the MiniAOD of Run 2, typical event processing rates reach little more than a few Hz.
+The trade-off at work here is flexibility versus speed. A data format for the entire CMS collaboration must be flexible in content for two reasons. First it needs to satisfy many types of data analyses, and second it must be "forward compatible", i.e. a MiniAOD produced today
+must still be useful a few months from now when the state of the art in physics object definition, jet energy calibrations, etc. etc. have
+changed to incorporate a variety of improvements. The R\&D questions here include: Can we speed up MiniAOD to the kinds of 
+event processing rates typical for custom Ntuples? If we can, what does it mean for the Tier-2 infrastructure to support IO limited
+jobs at large scale? E.g. do we need specialized batch system entry points for IO limited jobs for which disks need to be co-scheduled?
+Can we reuse some of the industry standard products for IO limited jobs, or is this impossible because we would loose the benefits of partial file reads in ROOT IO?
+
+
+
 
 There are a few possible ways to deal with this set of challenges. 
 \begin{itemize}
@@ -775,7 +828,6 @@ parallel processing is under investigation.  While some of the long
 term R\&D is supported externally, we anticipate that rapid deployment
 of newly available products, which will certainly be necessary will
 require additional investment within the US CMS S\&C project.
-
 
 \subsection{Coordination with CMS (WBS 7)}
 
