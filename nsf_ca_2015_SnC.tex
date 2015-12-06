@@ -553,15 +553,23 @@ harnessing of opportunistic resources is also anticipated.
 
 \subsection{Computing Infrastructure and Services (WBS 4)}
 
-The US CMS S\&C institutions continue to develop new solutions for CMS
-computing problems that result in more efficient use of both storage
-resources, using dynamic data management and seamless wide-area
-network access to our storage (AAA and XROOTD), and compute resources,
-using improved workflows.  For instance, data management and workflow 
+CMS as a global experiment depends on a variety of computing infrastructure services (CIS), several of which
+have been long term US-CMS commitments. In particular, US-CMS is traditionally leading in the areas
+of data management and centralized production. 
+
+To meet two of the three goals outlined in the introduction, increased efficiencies across Tier-1 and Tier-2
+and integration of additional resources outside those tiers, requires CIS to become substantially more agile.
+During LS1, substantial improvements towards a more agile data management infrastructure 
+were made by creating a global XRootd Data Federation, and 
+development \& deployment of a Dynamic Data Placement and Management (DDM). 
+The NSF funded effort led both of these. Data management and workflow 
 management development is done at Cornell, xrootd development at
 UCSD, and dynamic data placement development at MIT.  Additional 
-support was provided by NSF through AAA project to Nebraska, UCSD
+support was provided by NSF through the "Any Data, Anytime, Anywhere" (AAA) project to Nebraska, UCSD
 and Wisconsin.
+
+In the following, we briefly summarize those recent achievements, and then describe necessary future 
+work to be done within the present proposal.
 
 \subsubsection{Current Status}
 
@@ -593,6 +601,9 @@ workflows to execute smoothly. Most importantly we are able to keep at
 least one copy of all AOD on disk somewhere in the CMS data
 federation, and duplicate multiple times as needed for popular data.
 
+DDM uses PhEDEx to manage the actual transfers. It thus replaces decisions made by human operators during 
+Run1 with algorithms based on dataset "popularity", i.e. use.
+
 \noindent{\bf CMS Data Federation (AAA)}
 
 CMS Data Federation is built to provide seamless international-scale data
@@ -611,29 +622,124 @@ network.
 
 AAA is made possible by XRootd software, which allows the creation of
 data federations. A data federation serves a global namespace via a
-tree of XRootd servers. The leaves of this tree are referred to as
-data sources, as they serve data from the local storage systems.
-Each storage system is independent of the others, allowing for a broad
-range of implementations and groups to participate in the federation
-as long as they expose an agreed-upon namespace through the XRootd
-software. The non-leaf nodes have no storage, but may redirect client
-applications to a subscribed data source that has the requested file.
-Each host is subscribed to at most one redirector, called a manager;
-loops are disallowed. If the requested file is not present on a server
-subscribed to the redirector, then the client will be redirected to
-the current host's manager.  The manager continues the process until
-either a source is found or the client is at the root of the tree. An
-application may thus be redirected to any host in the federation,
-irrespective of the branch point it initially accesses.
+tree of XRootd servers. 
+%The leaves of this tree are referred to as
+%data sources, as they serve data from the local storage systems.
+%Each storage system is independent of the others, allowing for a broad
+%range of implementations and groups to participate in the federation
+%as long as they expose an agreed-upon namespace through the XRootd
+%software. The non-leaf nodes have no storage, but may redirect client
+%applications to a subscribed data source that has the requested file.
+%Each host is subscribed to at most one redirector, called a manager;
+%loops are disallowed. If the requested file is not present on a server
+%subscribed to the redirector, then the client will be redirected to
+%the current host's manager.  The manager continues the process until
+%either a source is found or the client is at the root of the tree. An
+%application may thus be redirected to any host in the federation,
+%irrespective of the branch point it initially accesses.
 
 CMS Data Federation is now fully deployed across all tiers of its
 computing infrastructure. Easy access to this data federation across
 the wide-area network is democratizing the computing abilities of
-University groups across the world. Local campus grids controlled by
+University groups across the world. Local campus clusters controlled by
 non-CMS entities are easily integrated in the CMS computing
 environment. Temporary access to dedicated large resources can be
-purchased on commercial grids or obtained from national or campus
+purchased on commercial clouds or obtained from national or campus
 research facilities.
+
+The main advantages of AAA vs DDM are that AAA fully supports partial file reads,
+a typical analysis job accesses less than 10\% of the data in each file, and ease of integration
+of non-traditional resources. The drawback of AAA as deployed today is that data still needs to be placed first,
+and replication of datasets need to be controlled according to needs. 
+The two systems AAA and DDM thus augment each other perfectly.
+
+\noindent{\bf Improvements to CMS Workflows}
+
+The main objectives of the workflows management middleware is to
+process data as quickly as possible, maintain uniform load across all
+resource sites and enable fast recovery in case of a site service
+interruption, e.g., by relocating jobs on an alternate site, while
+keep track of the integrity of the combined dataset.  
+
+During Run1 each Tier was used for only a small subset of all workflows.
+This led to inefficiencies and delays in processing due to inflexibility.
+During LS1, we expanded dramatically what workflows can be run where, making the overall system
+much more flexible. In addition, all resource usage, distributed analysis and centralized production,
+is now scheduled via a single global HTCondor pool, allowing for relative prioritization of different
+activities.
+
+\noindent{\bf Resources beyond the Tiered System}
+
+CMS is in exploratory phase for smoothly integrating opportunistic
+resources for production and routine use. National research computing
+sites such as NERSC and SDSC have large resources, but often requiring
+additional work in adaptation of our software suite to smoothly
+operate there. Some access restrictions are worked around with user
+level code, e.g., CVMFS through Parrot and Docker/Shifter containers
+on Cray supercomputers. Commercial clouds such as AWS have also been
+used, but have cost-implications placing constraints on workflows.  
+Campus clusters not purchased via US-CMS funds are accessible both
+through their OSG connection if existing generically
+%, or by placing
+%suitable head-nodes at the participating university CMS group
+%facilities. This latter use is of particularly important for analysis
+%groups at access their home resources seamlessly processing data from
+%the central CMS data federation using centrally supported code and
+%conditions repositories using technologies such as CVMFS and caching
+%SQUIDs. 
+The CMS High Level Trigger farm (HLT) has been integrated into offline computing operations
+via its OpenStack Cloud interface. HLT resources are now available for general processing anytime the
+DAQ is not running.
+
+%Final stages of physics analysis often involve workflows that are not
+%centrally managed CMSSW framework jobs. Technologies such as CMS
+%Connect are able to use campus grid and department level computer
+%clusters to bring additional opportunistic uses for these cases.
+
+\subsubsection{Future Plans}
+
+The PhEDEx data management system has served CMS extremely well for more than 10 years.
+However, it is ill equipped for the more agile needs of the future. E.g. it's internal mechanisms for
+source selection for a given transfer is much less agile than the bit torrent-like multi source client
+used in Xrootd. It's internal back-off mechanism for handling transfer failures leads to long transfer
+tails, and it is generally very difficult to impossible to fill modern large bandwidth network pipes using PhEDEx.
+
+A significant redesign of PhEDEx is necessary. 
+Such a redesign also provides an opportunity to consider discontinuing poorly supported protocols like SRM, 
+as well as duplication of protocols like maybe replacing gridftp with Xrootd, as the latter is required anyway
+for agile operations.
+
+Among the AAA toolset, a proxy-cache was developed that is not yet used in CMS. 
+Initial tests indicate that the cache system performs exceptionally well. As we gain more experience with this technology, 
+we may want to transition a sizable  fraction of the US-CMS disk space at Tier-2s and Tier-3s into XRootd proxy caches
+to gain additional efficiencies.
+
+The entire end-to-end centralized data production process still has far too many human effort intensive aspects.
+Significantly more automation is needed to make the overall system both more agile and more efficient. Today it is still not uncommon
+that some resources, especially in US-CMS, are oversubscribed while others, especially elsewhere in the world, remain unused. 
+Enforcing dynamically changing processing priorities is also still very difficult due to multiple layers of queuing and workflow
+restrictions. Significant efficiencies are yet to be gained here.
+
+Finally, commissioning of resources beyond the tiered system is still at the very beginning, and while having large potential
+for additional resources, will require significant effort still.
+
+\subsection{Software and Support (WBS 5)}
+
+Multicore computing systems have become ubiquitous in the past
+decade. However, efficient use of available resources, especially
+memory volume and access, required adaptation of our software to
+suitable multithreaded frameworks. Keeping up with technology
+evolution in the market requires continues investigation and CMS
+framework and utilities software development.  Cornell, Princeton and
+UCSD groups are engaged with central CMS in this essential software
+development and support.
+
+\subsubsection{Current Status}
+
+A systematic effort to make the core CMSSW thread-safe and has
+successfully deployed it in the past year.  The event display
+for CMS has been reworked to work on a variety of platforms
+conveniently.
 
 \noindent{\bf Development of MiniAOD}
 
@@ -655,76 +761,6 @@ be used by bulk of CMS analysts, while niche usecases involving the
 original AOD format will be supported as needed. In rare cases FEVT
 access may also be needed.  As the miniAOD improves we anticipate AOD
 replica counts will become small. 
-
-\noindent{\bf Improvements to CMS Workflows}
-
-The main objectives of the workflows management middleware is to
-process data as quickly as possible, maintain uniform load across all
-resource sites and enable fast recovery in case of a site service
-interruption, e.g., by relocating jobs on an alternate site, while
-keep track of the integrity of the combined dataset.  Recent
-developments in workflow management enable CMS to utilize impermanent
-opportunistic resources for data production. These workflow changes
-are enabling CMS to take better advantage of owned and opportunistic
-resources.  For instance the ability to use the high-level trigger
-farm for MC production and reconstruction during the down periods of
-time. Recent tests indicate ability to switch to offline processing
-workflows within several minutes. Improved data transfer technology
-and remote Xrootd access to CMS data federation are enabling
-technologies.
-
-\noindent{\bf Opportunistic Resources}
-
-CMS is in exploratory phase for smoothly integrating opportunistic
-resources for production and routine use. National research computing
-sites such as NERSC and SDSC have large resources, but often requiring
-additional work in adaptation of our software suite to smoothly
-operate there. Some access restrictions are worked around with user
-level code, e.g., CVMFS through Parrot and Docker/Shifter containers
-on Cray supercomputers. Commercial clouds such as AWS have also been
-used, but have cost-implications placing constraints on workflows. For
-example, the stage-out of data over the network is expensive. We have
-adapted by chaining various stages of workflow so that the smallest
-useable unit, say miniAOD is the only output that is staged out to the
-CMS data federation. Non-owned campus clusters are accessible both
-through their OSG connection if existing generically, or by placing
-suitable head-nodes at the participating university CMS group
-facilities. This latter use is of particularly important for analysis
-groups at access their home resources seamlessly processing data from
-the central CMS data federation using centrally supported code and
-conditions repositories using technologies such as CVMFS and caching
-SQUIDs. The CMS HLT cloud using virtual machines technology is able to
-quickly bring in very large resource during data taking down periods
-for offline workflow processing. Some of the innovations made there
-are useable elsewhere.
-
-Final stages of physics analysis often involve workflows that are not
-centrally managed CMSSW framework jobs. Technologies such as CMS
-Connect are able to use campus grid and department level computer
-clusters to bring additional opportunistic uses for these cases.
-
-\subsubsection{Future Plans}
-
-Blah Blah Blah indicating that continued in R\&D of {Computing Infrastructure and Services (WBS 4)}
-is necessary.
-
-\subsection{Software and Support (WBS 5)}
-
-Multicore computing systems have become ubiquitous in the past
-decade. However, efficient use of available resources, especially
-memory volume and access, required adaptation of our software to
-suitable multithreaded frameworks. Keeping up with technology
-evolution in the market requires continues investigation and CMS
-framework and utilities software development.  Cornell, Princeton and
-UCSD groups are engaged with central CMS in this essential software
-development and support.
-
-\subsubsection{Current Status}
-
-A systematic effort to make the core CMSSW thread-safe and has
-successfully deployed it in the past year.  The event display
-for CMS has been reworked to work on a variety of platforms
-conveniently.
 
 \subsubsection{Future Plans}
 
@@ -777,18 +813,28 @@ During LS1, US-CMS drove multiple developments all focused on overall cost reduc
 We led the algorithmic improvements and code optimizations in the pattern recognition software that reduced the reconstruction
 time per event by xY for an average PU $\sim$ 30. We instigated the introduction of MiniAOD, reducing the event size by x10
 and the average analysis processing time per event by xYY {\bf fkw: figure out what a defensible number of this is given the data we have
-from the Data Popularity service}. In addition, we prepared the core framework to be multithreaded blablabla --- Sridhara to fill in text from David Lange here ...
+from the Data Popularity service}. 
+We prepared the core framework to be multithreaded blablabla --- Sridhara to fill in text from David Lange here ... 
+And we transitioned the computing infrastructure and services that CMS depends towards a suite of services that are much more agile.
+
+US-CMS was the primary driver in all of these, and thus has a solid track record of innovation to be able to do more science
+given fixed hardware investments. We propose to continue being an innovation leader in global CMS. 
 
 \subsubsection{Future Plans}
 
 {\bf Reconstruction Software:}
-Cornell, Princeton, and UCSD are collaborating on an ambitious R\&D program towards redesigning the core Kalman filter tracking algorithms of CMS for blablabla {\bf Avi to fill in the right words here}. While the bulk of this R\&D is funded to the tune of 3 FTE for 3 years
+Cornell, Princeton, and UCSD are collaborating on an ambitious R\&D program towards redesigning the core Kalman filter tracking algorithms of CMS for parallel architectures While the bulk of this R\&D is funded to the tune of 3 FTE for 3 years
 via an independent NSF grant [cite the PIF], the present proposal includes a modest effort of XX focused on deriving short term
-benefits from this long term focused R\&D agenda.
+benefits from the independently funded long term focused R\&D agenda.
 
 Deriving short term benefits is particularly interesting in light of the planned roll-out of large Supercomputers at both DOE and NSF
-based on the next two generations of Intel MIC processors. The degree to which CMS can benefit from these large scale resources
-for its core processing needs will depend crucially on the success of this R\&D.
+based on the next two generations of Intel MIC processors. E.g. Cori Phase 2 at NERSC is expected to 
+include 9,300 Intel Knights Landing processors by 2017. Aurora at ANL is expected to deploy 50,000 Intel Knights Hill processors in 2018.
+Similar plans exists in the NSF for the Stampede Supercomputer at TACC.
+The degree to which CMS can benefit from these large scale resources
+for its core processing needs in Run2 and Run3 
+will depend crucially on successfully transitioning lessons learned from the externally funded 
+long term R\& D program into production. This transition is within the scope of the present proposal.
 
 {\bf R\&D towards a new data analysis model:}
 For the HL-LHC era, CMS might need to contemplate a fundamental shift in the boundary between "primary data" and "custom data".
@@ -802,32 +848,6 @@ event processing rates typical for custom Ntuples? If we can, what does it mean 
 jobs at large scale? E.g. do we need specialized batch system entry points for IO limited jobs for which disks need to be co-scheduled?
 Can we reuse some of the industry standard products for IO limited jobs, or is this impossible because we would loose the benefits of partial file reads in ROOT IO?
 
-
-
-
-There are a few possible ways to deal with this set of challenges. 
-\begin{itemize}
-\item reduce size/event e.g. miniAOD and beyond. Study operational and Physics implications.
-\item speed up reconstruction time, using vectorization and parallelization enabled by the new computing architectures. 
-\item explore the limitations of AAA. Start on US-side.  
-\end{itemize}
-
-Invsetigation of new computing architectures, re-engineering of
-reconstruction for use on HPC machines, impact of reduced data formats
-like miniAOD and beyond are all on the list of items to be tackled.
-At Princeton efforts in reconstruction on new architectures is
-beginning Cornell has begun efforts on new architectures and data
-mining.  Nebraska and Wisconsin have long standing collaborations with
-distributed high-throughput computing experts from their CS
-departments.  Caltech software engineers are also formulating R\&D
-plans for long term, in collaboration with the CERN based multicore
-projects.
-
-Long term R\&D in exploring options of using GPUs for extensive
-parallel processing is under investigation.  While some of the long
-term R\&D is supported externally, we anticipate that rapid deployment
-of newly available products, which will certainly be necessary will
-require additional investment within the US CMS S\&C project.
 
 \subsection{Coordination with CMS (WBS 7)}
 
