@@ -413,72 +413,83 @@ any costs for networking as part of this proposal.
 
 \noindent{\bf Non-traditional resources beyond Tier-1 and Tier-2}
 
-In the last few years, NSF-ACI made some very substantial investment
-into networking infrastructure across more than 100 campuses
-nationwide. Among them are 25 of the 40 collaborating universities in
-US-CMS. We propose to build on this NSF investment by working with all
-of them, as well as any of the remaining 15 universities interested,
-to fully integrate their campus IT operated hardware infrastructures
-and ScienceDMZs into the US-CMS Tier-2 infrastructure. This will be
-done following the model of the NSF funded ``Pacific Research
-Platform'' (PRP) using Open Science Grid (OSG) tools and processes.
-The PRP deploys single nodes into the ScienceDMZs of 20 institutions
-across the West Coast, including the US-CMS institutions UC Davis, UC
-Santa Barbara, UC Riverside, Caltech, and UC San Diego. These pieces
-of hardware are collaboratively maintained between the campus IT
-organizations and the PRP and SDSC teams at UCSD such that local IT is
-responsible for hardware and user account maintenance, and UCSD is
-responsible for all OS and software service maintenance.  The
-functionality implemented includes interactive data analysis, batch
-submission, CVMFS software cache, XRootd data cache, and XRootd server
-to export local data. The hardware is effectively a Tier-3 in a box
-without any of the human maintenance needs from the local CMS
-community. The deployment model includes careful custom integration
-into any existing University clusters accessible to the local
-group. This is made manageable with minimal effort beyond the initial
-deployment by management of OS, US-CMS and OSG services, and local
-configurations via a central Puppet infrastructure at UCSD.
+In the past, resources beyond the traditional Tier-1 and Tier-2 sites were generically lumped into the category of Tier-3.  The prevailing model of these resources was that they were structured more or less as small Tier-2 sites operated independently of the Tier-2 program by dedicated local administrators.  With the rise of significant computing capabilities across U.S. university campuses, and in particular, driving by substantial NSF-ACI investment into networking infrastructure across more than 100 campuses nation wide, this model is changing.  The Tier-3 site now functions more as a portal.  It provides a local portal for university researchers to access larger-scale U.S. CMS computing resources.  It also provides a portal for the CMS central computing infrastructure to access campus computing resources.  We propose to strengthen and expand this new model for non-traditional computing resources by seamlessly integrating CMS and campus IT infrastructures in a way that minimizes administrative effort while maximizing flexibility.  This approach is based on the NSF-funded ``Pacific Research Platform'' and the CMS Connect effort which utilizes the OSG's CI-Connect platform.
 
-The local CMS community is thus empowered to transparently use any and
-all local resources the University allows them to share in combination
-with the entire Tier-1 and Tier-2 system. Official CMS data is cached
-locally as needed. Private data by the local community is served out
-to the Tier-1 and Tier-2 system via XRootd servers. Each Tier-2 will
-also have an XRootd cache in order to transparently cache the private
-data of any of the local communities to avoid IO latencies due to WAN
-reads given the finite speed of light.  The HTCondor batch systems
-implemented on these pieces of hardware are all connected to the
-global CMS HTCondor pool via glideinWMS. Similarily any University
-clusters are integrated requiring nothing more than ssh access to a
-US-CMS account on the local University cluster. Sharing policies are
-controlled locally following local rules at each University. We expect
-that some Universities will enable access to all of US-CMS to share
-their spare capacity, while others will be more restrictive. All of
-this is presently already deployed and operated by PRP and SDSC for
-the US-ATLAS group at UC Irvine, and is being deployed at the CMS
-institutions listed above. Operations for the UC groups is funded via
-a mix of NSF and state funds. We are proposing to scale out deployment
-and operations of this model across the US to as many US-CMS
-institutions as possible, focusing on the 25 institutions that have
-received ScienceDMZ funding from NSF-ACI since 2012. The hardware
-costs as well as the human effort to deploy and operate this system
-will be borne out of the Tier-2 portion of this proposal. At a cost of
-$\sim$\$10,000 per Tier-3 in a box, this is a modest fraction of the
-total Tier-2 hardware budget across the seven Tier-2s and the 5 years
-of this proposal.
+The central hub of our proposal is a single node that will be deployed at each participating institution.  This node should be viewed as a ``Tier-3 in a box,'' a single, self-contained appliance that when deployed into a campus Science DMZ will bridge the CMS and campus infrastructures, enabling local CMS researches to access both sets of resources via a single portal.  This node will provide interactive data analysis, batch submission, CVMFS software cache, XRootD data cache, and XRootD an server to export local data.  The HTCondor batch systems implemented on these nodes are all connected to the global CMS HTCondor pool via glideinWMS.  Similarily any University computing resources are integrated requiring nothing more than ssh access to a US-CMS account on the local University cluster.  Local CMS university groups will thus be empowered to transparently use any and all local resources the University allows them to share in combination with the entire Tier-1 and Tier-2 system. Official CMS data is cached locally by the node as needed.  Private data produced by the local university group is served out to the Tier-1 and Tier-2 system via the XRootD server integrated into the node.  Each Tier-2 will also have an XRootD cache in order to transparently cache the private data of any of the local university groups to avoid IO latencies. 
 
-We fully understand that the above model will not be appropriate for
-all 40 collaborating institutions within US-CMS. We thus augment it
-with an additional hosted service build on the OSG-connect model
-pioneered by the University of Chicago OSG/ATLAS group.  This service
-will provide identical functionality to the Tier-3 in a box for
-institutions that are either lacking appropriate network connectivity
-or a local IT organization that would be capable and/or willing to
-collaborate on the hardware and user account maintenance.  There will
-be only a single instance of this "CMS-Connect" infrastructure for all
-these remaining groups. Groups within US-CMS are thus generally better
-off with a Tier-3 in a box, especially when they have sizable private
-data collections and large groups of students and post-docs. 
+Deployment and maintenance of these nodes will be undertaken as a partnership between local campus IT and U.S. CMS Tier-2 personnel, following the model of the PRP.  The PRP deploys single nodes into the Science DMZs of 20 institutions across the West Coast, including the US-CMS institutions UC Davis, UC Santa Barbara, UC Riverside, Caltech, and UC San Diego. These pieces of hardware are collaboratively maintained between the campus IT organizations and the PRP and SDSC teams at UCSD.  In this model, local campus IT is responsible for the maintaining the hardware and local user accounts, while OS and software service (including necessary OSG and CMSSW element) maintenance is undertaken by a collaboration of U.S. CMS Tier-2 personnel and local campus IT effort.  This is made manageable with minimal effort beyond the initial deployment by management of OS, US-CMS and OSG services, and local configurations via a central Puppet infrastructure.
+
+We are proposing to scale out deployment and operations of this model across the US to as many US-CMS institutions as possible, focusing on the 25 institutions that have received ScienceDMZ funding from NSF-ACI since 2012. The hardware costs as well as the human effort to deploy and operate this system will be borne out of the Tier-2 portion of this proposal.  At a cost of $\sim$\$10,000 per Tier-3 in a box, this is a modest fraction of the total Tier-2 hardware budget across the seven Tier-2s and the 5 years of this proposal.  We fully understand that the above model will not be appropriate for all collaborating institutions within US-CMS. We thus augment it with an additional hosted service---CMS Connect---built on the OSG-connect/CI-Connect model pioneered by the University of Chicago OSG/ATLAS group.  This service will provide identical functionality to the Tier-3 in a box for institutions that are either lacking appropriate network connectivity or a local IT organization that would be capable and/or willing to collaborate on the hardware and user account maintenance.  There will be only a single instance of this "CMS-Connect" infrastructure for all these remaining groups.  University groups will generally be better served by the more flexible and customized Tier-3 in a box approach, but with the combination of the two approaches ensures that all groups will be served.
+
+%%%
+%%%   FKW's original text
+%%%
+%In the last few years, NSF-ACI made some very substantial investment
+%into networking infrastructure across more than 100 campuses
+%nationwide. Among them are 25 of the 40 collaborating universities in
+%US-CMS. We propose to build on this NSF investment by working with all
+%of them, as well as any of the remaining 15 universities interested,
+%to fully integrate their campus IT operated hardware infrastructures
+%and ScienceDMZs into the US-CMS Tier-2 infrastructure. This will be
+%done following the model of the NSF funded ``Pacific Research
+%Platform'' (PRP) using Open Science Grid (OSG) tools and processes.
+%The PRP deploys single nodes into the ScienceDMZs of 20 institutions
+%across the West Coast, including the US-CMS institutions UC Davis, UC
+%Santa Barbara, UC Riverside, Caltech, and UC San Diego. These pieces
+%of hardware are collaboratively maintained between the campus IT
+%organizations and the PRP and SDSC teams at UCSD such that local IT is
+%responsible for hardware and user account maintenance, and UCSD is
+%responsible for all OS and software service maintenance.  The
+%functionality implemented includes interactive data analysis, batch
+%submission, CVMFS software cache, XRootd data cache, and XRootd server
+%to export local data. The hardware is effectively a Tier-3 in a box
+%without any of the human maintenance needs from the local CMS
+%community. The deployment model includes careful custom integration
+%into any existing University clusters accessible to the local
+%group. This is made manageable with minimal effort beyond the initial
+%deployment by management of OS, US-CMS and OSG services, and local
+%configurations via a central Puppet infrastructure at UCSD.
+%
+%The local CMS community is thus empowered to transparently use any and
+%all local resources the University allows them to share in combination
+%with the entire Tier-1 and Tier-2 system. Official CMS data is cached
+%locally as needed. Private data by the local community is served out
+%to the Tier-1 and Tier-2 system via XRootd servers. Each Tier-2 will
+%also have an XRootd cache in order to transparently cache the private
+%data of any of the local communities to avoid IO latencies due to WAN
+%reads given the finite speed of light.  The HTCondor batch systems
+%implemented on these pieces of hardware are all connected to the
+%global CMS HTCondor pool via glideinWMS. Similarily any University
+%clusters are integrated requiring nothing more than ssh access to a
+%US-CMS account on the local University cluster. Sharing policies are
+%controlled locally following local rules at each University. We expect
+%that some Universities will enable access to all of US-CMS to share
+%their spare capacity, while others will be more restrictive. All of
+%this is presently already deployed and operated by PRP and SDSC for
+%the US-ATLAS group at UC Irvine, and is being deployed at the CMS
+%institutions listed above. Operations for the UC groups is funded via
+%a mix of NSF and state funds. We are proposing to scale out deployment
+%and operations of this model across the US to as many US-CMS
+%institutions as possible, focusing on the 25 institutions that have
+%received ScienceDMZ funding from NSF-ACI since 2012. The hardware
+%costs as well as the human effort to deploy and operate this system
+%will be borne out of the Tier-2 portion of this proposal. At a cost of
+%$\sim$\$10,000 per Tier-3 in a box, this is a modest fraction of the
+%total Tier-2 hardware budget across the seven Tier-2s and the 5 years
+%of this proposal.
+%
+%We fully understand that the above model will not be appropriate for
+%all 40 collaborating institutions within US-CMS. We thus augment it
+%with an additional hosted service build on the OSG-connect model
+%pioneered by the University of Chicago OSG/ATLAS group.  This service
+%will provide identical functionality to the Tier-3 in a box for
+%institutions that are either lacking appropriate network connectivity
+%or a local IT organization that would be capable and/or willing to
+%collaborate on the hardware and user account maintenance.  There will
+%be only a single instance of this "CMS-Connect" infrastructure for all
+%these remaining groups. Groups within US-CMS are thus generally better
+%off with a Tier-3 in a box, especially when they have sizable private
+%data collections and large groups of students and post-docs. 
 
 Finally, we will fully integrate cloud services access into this
 infrastructure in such way that local University groups can use local
