@@ -209,18 +209,15 @@ results.
 The seven US Tier-2s rank amongst the top ten providers of the 50 such 
 CMS centers world-wide. Together they provide about 35\% of CMS
 Tier-2 resources, outlined in Tables~\ref{compute-resources}~and~\ref{storage-resources}.  
-The compute resources at Tier-2s serve both production and physicist analysis cases.  The resource utilization
-at the US Tier-2s in the past month is summarized in the Figure~
-\ref{computingJobsAtUST2sInOneMonth}. The top and bottom panels
-show the counts of the successfully processed production and analysis 
-jobs respectively, which add up to about 30,000 jobs in steady state.
-{\bf fkw: Do you really want these plots in here? How do they help the proposal get funded?}
+The compute resources at Tier-2s serve both production and physicist analysis cases.  
+The resource utilization at the US Tier-2s in the past month adds up to about 30,000 jobs 
+in steady state split equally between production and analysis workflows. 
 These centers together are hosting 10 PB of CMS centrally and
-user produced data on their storage systems as shown in 
-Figure~\ref{storageUtilizationAtUST2s-Chart}.
+user produced data on their storage systems.
 
-The US CMS Tier-2s not only maintain resources, but
-also provide many additional services.  {\bf fkw changed this - need to decide on XX:} XX FTE across more than one person at each center
+
+The US CMS Tier-2s not only maintain resources, but also provide many additional services. 
+ {\bf fkw changed this - need to decide on XX:} XX FTE across more than one person at each center
 are necessary to provide high-quality service that results in 
 very high availability, upwards of 95\%. The personnel are responsible
 for all aspects of provisioning these resources, from specifications through
@@ -283,78 +280,19 @@ Useable storage space currently deployed at US Tier2 centers.
 \end{center}
 \end{table}
 
-\begin{figure}
-\begin{center}
-\includegraphics[height=3in]{productionJobsAtUST2sInOneMonth.png}
-\includegraphics[height=3in]{analysisJobsAtUST2sInOneMonth.png}
-\label{computingJobsAtUST2sInOneMonth}
-\end{center}
-\caption{Counts of completed production (top) and analysis (bottom) 
-jobs at the US Tier-2s in the past month (November 2015).}
-\end{figure}
-
-\begin{figure}
-\begin{center}
-\includegraphics[height=3in]{storageUtilizationAtUST2s-Chart.pdf}
-\label{storageUtilizationAtUST2s-Chart}
-\end{center}
-\caption{Current usage of storage resources for centrally managed
-data at the US Tier-2s in the past month (November 2015) in TBs. 
-Physicist data storage at each site at the level of about 500 TB
-is additional. {\bf fkw: What does this add to the previous table? How does this help the proposal get funded?}}
-\end{figure}
-
-\subsubsection{Future Plans}
-
-\noindent{\bf Computing Resources}
-
-To define plans for the future, we start with an extrapolation of needs from the present.
-
-%Unlike for Run-1, the Run-2/3 Tier-2 compute resource provisioning
-%details are not concretely specified to allow local optimization based
-%on cloud and opportunistic resource availability. However, the
-%non-owned storage resource use is not yet well defined. Therefore, it
-%is visualized that much of the storage, which is pared down to the
-%minimum with improvements made in LS1, is owned and operated at the
-%Tier-1s and Tier-2s.
-
-For the sake of simplicity, CPU requirements are estimated in units of number of batch slots
-needed based on the following assumptions:
-
-%by scaling current usage up by a factor of 30 accounting for
-%increase in expected integrated luminosity.  The increase in
-%complexity of analysis is assumed to be compensated by the improved
-%framework job efficiency and advances in computing power of individual
-%machines.  Use of CMS data federation across the wide-area network at
-%owned resource sites and the clouds in general, opens up the
-%possibility of provisioning needed compute resources in a flexible way
-%depending on cost/benefit.  However, it is visualized that a fraction
-%of resources are housed at existing T2s.
-
-\begin{itemize}
-\item Currently 30,000 jobs, averaged over the past month, run at the seven 
-US T2s equally split between production and analysis and 10,000 production
-jobs at FNAL T1.
-\item Bulk of the 15,000 analysis jobs running at Tier-2s recently, are 
-identified as 13-TeV MC jobs.  The MC for 2015 was generated with the
-anticipation that we collect 10 fb$^{-1}$ this year.  While we unfortunately
-collected only 2 fb$^{-1}$, we nevertheless consider 10 fb$^{-1}$ the appropriate
-integrated luminosity baseline for the needs scaling into the future. 
-\item Therefore, scaling by luminosity, 300 fb$^{-1}$ vs 10 fb$^{-1}$ collected 
-to date, we should expect to support about 900,000 jobs at T2s at steady state 
-and 300,000 jobs at T1.
-\item Proposed job slot availability: 300,000 for production at T1 and 100,000 through each of the seven US T2s.
-\end{itemize}
-
-\noindent{\bf Storage Resources}
-
-During LS1, CMS introduced a refined analysis format called "MiniAOD".
-This format is 1/10th the size of the AOD, and typically requires somewhere between 1/2 to 1/5th the CPU power to
-analyze. These reductions are accomplished by storing only more refined information, requiring remaking of the MiniAOD
-in response to improved calibrations, or significant improvements of physics objects. During Fall of 2015 CMS went through two iterations
+Some Run-1 analysis are still on-going and they are based on AOD format.
+The AOD event size is 220 kB and was the primary format of data that is
+used for Run-1 analysis.  Scaling AOD based analysis to Run-2 
+would be unaffordable.  Therefore, during LS1, US CMS helped in introducing
+a refined analysis format called "MiniAOD".  This format is 1/10th the size of the AOD, 
+and typically requires somewhere between 1/2 to 1/5th the CPU power to
+analyze. These reductions are accomplished by storing only more refined information, 
+requiring remaking of the MiniAOD in response to improved calibrations, or significant
+improvements of physics objects. During Fall of 2015 CMS went through two iterations
 of MiniAOD, with at least one more to follow before Moriond 2016 conference results.
-MiniAOD is expected to satisfy the needs of at least 90 \% of all physics analyses. I.e. it is envisioned that a few analyses will
-require more detailed information not present in the MiniAOD, and will thus need to access the AOD or maybe even the RAW format.
+MiniAOD is expected to satisfy the needs of at least 90 \% of all physics analyses, i.e. 
+it is envisioned that a few analyses will require more detailed information not present 
+in the MiniAOD, and will thus need to access the AOD or maybe even the RAW format.
 
 The operational model today is that Analysis groups process these "primary data" to produce custom 
 Ntuples for their analyses at a event processing rate of 1-10Hz or so. The custom Ntuples are then typically 
@@ -363,46 +301,92 @@ only to a handful analyses is thus dramatically accelerating science and reducin
 amounts of disk space at Tier-2s need to be provisioned to host that custom data. US-CMS organizes this by assigning a fixed set of 
 University groups to each Tier-2 as their host Tier-2 for these custom data samples.
 
-The estimated miniAOD size for 300-fb$^{-1}$ of integrated luminosity is:
-(50kB)(1kHz) $\times$ (10$^7$s/year) $\times$ (6y) =$3 \times 10^9$
-MB=3PB.  Typically to analyze this data requires an associated MC sample which is three times the
-size of the detector data, leading to a $\sim$ 12PB disk storage requirement for the CMS data
-federation for hosting one replica of one version of all MiniAOD datasets. 
-Since the MiniAOD is highly processed it is expected that improvements to the reconstruction,
-calibration and other changes will necessitate remaking of MiniAODs.
-%Unfortunately, support of multiple versions of MiniAOD for several
-%versions, say three, are needed in order to accommodate the analyst
-%needs.  
-As not all analysts can migrate from one version to another
-immediately.  We estimate that two to three MiniAOD versions are
-needed at any time, with the older data deprecated dynamically as they
-become stale and unused.  This results in an expected disk space requirement of
-20-30 PB for MiniAOD for 300-fb$^{-1}$ of integrated luminosity.
+\subsubsection{Future Plans}
 
+\noindent{\bf Tier-2 Resources}
+
+To define plans for the future, we use a simple model that scales
+the present usage of job slot count and storage, to future years based
+expected LHC  luminosity plan (see Table~\ref{projection}).
+For the sake of simplicity, CPU requirements are estimated in units of number of 
+batch slots needed and the storage is determined by the amount of
+data anticipated to be accumulated and equal amount of MC simulated.
 In addition to the MiniAOD, we expect to require disk space to accommodate 
-$\sim$ 10\% of the data in AOD format on disk to allow the $\le$ 10\% of analyses that require it.
-For an AOD event size of $\sim$ 500 kB this amounts to $\sim$ 10PB of storage 
-for 300-fb$^{-1}$ of integrated luminosity, or 50 PB total for MiniAOD and AOD combined, allowing some modest
-level of replication across sites within the US.
- 
-For the custom data we project a need of 30PB across the US-CMS Tier-2s based on our Run1 experience.
-This data is not replicated, nor is it assumed to be backed up to tape. Implicit in this operational model is the assumption that the data
-can be reproduced easily enough if lost due to disk failures at a Tier-2.
+$\sim$ 10\% of the data in AOD format on disk to allow the $\le$ 10\% of 
+analyses that require such detail.
 
-In addition to data analysis activities of the Run2 and Run3 data, we also must budget for disk space for the CMS upgrade activities.
-We expect event sizes to be larger, and a more heavy use of AOD as upgrade activities will be focused around custom simulations
-and detailed reconstruction development. We budget 20 PB for the purpose of the present needs assessment.
+In Table~\ref{projection}, we start by showing the actual numbers for
+2015 scale of operations.  We have accumulated about 4 fb$^{-1}$
+of data from LHC runs and produced 10 fb$^{-1}$ of simulated data.
+Including that simulated and accumulated in Run-1, we are running
+30000 production jobs on 17 pb of data at US Tier-2s currently,
+equally split amongst production and analysis jobs.  We show the
+average availability of job slots and storage at the US Tier-2s to
+start the scaling from.  We extrapolate to out years using the
+LHC run plan, which sets the scale for integrated luminosity.
 
-Finally, there is a need for some RAW data on disk, plus staging space to in front of the Tier-1 tape archive, as well as at the Tier-2s for 
-staging data as it is being reconstructed or simulations as they are being produced. Based on our present experience, we assume
-10PB to be sufficient to accommodate this.
+We assume that the production job slot usage scales as a function of 
+incremental luminosity expected that year.  The analysis job slot usage
+scales as a function of the accumulated by that time, because the analysts
+will be combining all of the 13-TeV data in Run-2 and Run-3.
+We expect that the storage in AOD format is limited to 10\% of
+the data volume.  The miniAOD format data is expected to be
+used by most analysts reducing the needed storage volume.  A
+factor 50\% replication across all US Tier-2s is used to provide 
+the necessary speedy access and redundancy.
 
-Adding it all up, we arrive at a total disk space need of 110PB at US-CMS facilities for 300 fb$^{-1}$ of integrated luminosity, 
-and we are proposing to locate 12PB of this at each of the seven US Tier-2s.
-There is no tape storage at Tier-2 centers today, and we expect to keep it that way. Tape needs are thus out of scope for the present proposal
-and thus not discussed here.
+Note that in addition to the production data, we also have to provide
+access to custom user data.  We also must budget for disk space for 
+the CMS upgrade activities, in the process of tuning their specification
+for the technical design reports.  Wherever possible the data is not replicated, 
+nor is it assumed to be  backed up to tape. Implicit in this operational model 
+is the assumption that the data can be reproduced easily enough if lost due 
+to disk failures at a Tier-2.  Finally, there is a need for some RAW data on disk, 
+plus staging space to in front of the Tier-1 tape archive, as well as at the Tier-2s
+for staging data as it is being reconstructed or simulations as they are being 
+produced. 
 
-\noindent{\bf Network Resources}
+The 2015 data does not mirror the anticipate usage in the out years,
+which is likely larger due to complexity of events at higher luminosities
+etc.  However, we are projecting starting from current situation for
+simplicity.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|}
+\hline
+&\multicolumn{2}{|c|}{\bf Luminosity (fb$^{-1}$)}&\multicolumn{2}{|c|}{\bf Job Slots}&\multicolumn{2}{|c|}{\bf Storage (pb)}&\multicolumn{2}{|c|}{\bf Per Tier-2} \\ \cline{2-9}
+{\bf Year}&{\bf Incr.}&{\bf Cumul.}&{\bf Prod.}&{\bf Ana.}&{\bf AOD}&{\bf MiniAOD}&{\bf Job Slots}&{\bf Storage (pb)} \\  \hline
+2015&     4&     4& 15000&   15000& 3.8& 13&   5814&   2.0 \\ \hline
+2016&   36&   40& 18000&   20000&   9&  31&   5429&   5.7 \\ \hline
+2017&   40&   80& 20000&   40000& 18&  62&   8571&  11 \\ \hline
+2018&   40& 120& 20000&   60000& 27&  92& 11429&  17 \\ \hline
+2019&    0& 120&  10000&   60000& 27&  92& 10000&  17 \\ \hline
+2020&    0& 120&  10000&   60000& 27&  92& 10000&  17 \\ \hline
+2021&   60& 180& 30000&   90000& 40& 138& 17143& 25 \\ \hline
+2022&   60& 240& 30000& 120000& 54& 184& 21429& 34 \\ \hline
+2023&   60& 300& 30000& 150000& 67& 230& 25714& 42 \\ \hline
+\end{tabular}
+\caption[]
+{
+Projection of resources by the year from actual usage in 2015 for
+out years through 2023, based on LHC luminosity expectation is
+shown. The cost of resources which satisfy the projected needs, 
+including current Moore's law scaling, i.e., 10\% to 20\% reduction 
+in costs per year, ranges between \$308K and \$473K.
+}
+\label{projection}
+\end{center}
+\end{table}
+
+In order to estimate the cost of provisioning the estimated needs in
+Table~\ref{projection}, we start with the recent actual incurred costs 
+for hardware purchases, which is, \$118 per job slot and \$56 per TB.
+It is well known that Moore's law scaling has slowed down.  Based
+on recent trends we anticipate 10\% to 20 \% reduction in cost of
+provisioning resources in the out years.  With these assumptions
+we estimate that cost of provisioning resources at US Tier-2s
+is an average of \$308K and \$473K per year. 
 
 The network bandwidth requirement will also scale with increased data
 size and wide-area distributed computing.  Typically sites are
@@ -411,7 +395,19 @@ multi-100 Gbps connections in the coming years. Up to now, networking at Tier-2 
 via sources outside the US-CMS software and computing project. We expect this to stay that way, and are thus not budgeting
 any costs for networking as part of this proposal.
 
-\noindent{\bf Non-traditional resources beyond Tier-1 and Tier-2}
+This bottoms-up estimate of resource needs and costs are significantly
+higher than what we would like. We are proposing in remaining sections
+several ideas to mitigate the growing needs by innovation.  Use of
+non-traditional resources is the primary future goal.  We note that
+in recent years significant resources were available opportunistically
+through the Tier-2s.  We anticipate to increase this pool in the future.
+However, we note that innovation needed to use a variety of resources
+and environments requires R\&D and thus continued support of  personnel.
+We allocated XX\% of the effort of the Tier-2 personnel for this
+purpose, in addition to the effort in the research areas described
+in later sections.
+
+\noindent{\bf Non-traditional resources}
 
 In the past, resources beyond the traditional Tier-1 and Tier-2 sites were generically lumped into the category of Tier-3.  The prevailing model of these resources was that they were structured more or less as small Tier-2 sites operated independently of the Tier-2 program by dedicated local administrators.  With the rise of significant computing capabilities across U.S. university campuses, and in particular, driving by substantial NSF-ACI investment into networking infrastructure across more than 100 campuses nation wide, this model is changing.  The Tier-3 site now functions more as a portal.  It provides a local portal for university researchers to access larger-scale U.S. CMS computing resources.  It also provides a portal for the CMS central computing infrastructure to access campus computing resources.  We propose to strengthen and expand this new model for non-traditional computing resources by seamlessly integrating CMS and campus IT infrastructures in a way that minimizes administrative effort while maximizing flexibility.  This approach is based on the NSF-funded ``Pacific Research Platform'' and the CMS Connect effort which utilizes the OSG's CI-Connect platform.
 
