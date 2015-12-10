@@ -52,7 +52,7 @@
 
 \subsection{Introduction}
 
-The NSF support for software and computing at the US Universities
+The NSF support for software and computing at US Universities
 played a crucial role in the success of the CMS program, having
 contributed to almost all the published work thus far, including the
 discovery of the Higgs boson that completed the Standard Model of
@@ -82,29 +82,25 @@ As the beam energy has reached more or less its maximum expected, it
 is highly likely that from here on out analyses will tend to use all
 the data accumulated over time, from the 3 fb$^{-1}$ at 13 TeV accumulated in 2015 to
 the 300 fb$^{-1}$ expected by the end of Run 3 in 2025.
+{\bf fkw: You say 3/fb here but use 4/fb in the spreadsheet. We should be consistent and change one or the other of them. I'd prefer changing the spreadsheet to 3 but I don't feel strongly.}
 While the analysis and Monte Carlo production computing needs scale
 roughly linearly with integrated luminosity, the reconstruction time
 per event for both data and simulation grows roughly exponentially
-with instantaneous luminosity.  As a result, the overall computing
-needs outpace expected technological advances and reasonable 
-funding scenarios by a very large factor,
-requiring significant innovations in order to guarantee that the
-physics potential of the data taken is fully realized.
-
-Computing environment and facilities for the CMS experiment are
-continually evolving to meet the requirements of the collaboration and
-to take advantage of the evolution of technology within and beyond
-the high-energy physics community. 
-The Moore's law scaling of computing capabilities and evolution of
+with instantaneous luminosity.  
+Unfortunately, Moore's law scaling of computing capabilities and evolution of
 storage have slowed down from x2 gains every 15-18 months 10 years ago to a modest x2 gain every 4-7 years expected in the future.
-Moore's law alone is thus quite unlikely to meet the CMS computing challenge under constant
-budgetary levels. Innovations in resource utilization,
-adaptation to modern computing architectures, and improved workflows,
-will need to make up for the limitations in raw scaling of resources. We
-briefly describe these evolutionary changes in the offing and project
-how agile computing, utilizing owned, opportunistic and commercial
-cloud resources, with dynamic data management and just-in-time data
-movement over wide-area networks, will work to meet our challenge. 
+As a result, the overall computing
+needs outpace expected technological advances and reasonable 
+funding scenarios by a factor 2-4 in Run 2 and 3, with even larger shortfalls projected for the HL-LHC era.
+%requiring significant innovations in order to guarantee that the
+%physics potential of the data taken is fully realized.
+%Innovations in resource utilization,
+%adaptation to modern computing architectures, and improved workflows,
+%will need to make up for the limitations in raw scaling of resources. We
+%briefly describe these evolutionary changes in the offing and project
+%how agile computing, utilizing owned, opportunistic and commercial
+%cloud resources, with dynamic data management and just-in-time data
+%movement over wide-area networks, will work to meet our challenge. 
 
 Our vision for meeting the challenge of growth of computing needs
 beyond what is affordable via a simple Moore's law extrapolation is
@@ -151,7 +147,7 @@ is also discussed.
 
 The tiered computing model of the LHC experiments, based on a 
 distributed infrastructure of regional centers outlined by
-the MONARC project {\bf ref}, includes Tier-0 center at CERN,
+the MONARC project {\bf ref}, includes a Tier-0 center at CERN,
 one US based Tier-1 center at FNAL (WBS 1) and seven US 
 university based Tier-2 centers (WBS 2) at 
 {\bf Caltech, Florida, MIT, Nebraska, Purdue, UC San Diego and Wisconsin}.
@@ -160,13 +156,27 @@ support are summarized in Tables~\ref{compute-resources}~and~
 \ref{storage-resources}.
 
 The original MONARC model of organization of CMS computing resources
-in a tiered structure is now dated. While we retain Tier-0 at CERN for
-prompt processing, both calibration and reconstruction, the
-functionality at higher tiers is changing. Especially at the Tier-2s,
-we are evolving to a set of institutions providing portions of
-resources, focusing on local expertise, in a continuum infrastructure
-of services. Nevertheless, dedicated facilities at the existing
-Tier-2s to address the core analysis computing needs must be met.
+slowly morphed into something that is much more flexible, and makes significantly more use 
+of networking.  The US-CMS Tier-2 program has been the primary driver of this global evolution.
+%in a tiered structure is now dated. While we retain Tier-0 at CERN for
+%prompt processing, both calibration and reconstruction, the
+%functionality at higher tiers is changing. Especially at the Tier-2s,
+%we are evolving to a set of institutions providing portions of
+%resources, focusing on local expertise, in a continuum infrastructure
+%of services. Nevertheless, dedicated facilities at the existing
+%Tier-2s to address the core analysis computing needs must be met.
+The US-CMS Tier-2 program has thus provided the premier Tier-2 centers globally,
+as well as the intellectual leadership to make radical changes. With the current proposal
+we continue this transition, focusing on maintaining leadership in operations of a
+production infrastructure, and leadership in engineering changes to afford
+doing ever more demanding physics with fixed hardware budgets.
+
+{\bf fkw: I think we need to turn the bulleted list below into short prose. Personally, I'd prefer 
+to just list major accomplishments in prose. Basically, take credit here for stuff that we introduced to CMS.
+E.g. Commisioning the global data transfers matrix across all T1s and T2s, initiating the centralized MC production, 
+leading the commissioning of the Grid worldwide for CMS, introducing the concepts of late-binding WMS,
+data federation, dynamic data placement, MiniAOD, global queue across analysis and production processing, what else?
+I don't think we need to associate institutions to each item here. Let's just take credit for all of them as a collective of 7 T2s.}
 
 The advantage of strengthening the existing university sites is multi-fold:
 \begin{itemize}
@@ -190,19 +200,20 @@ campus or cloud resources
 \item Friendly competition amongst the sites results in increased productivity.
 \end{itemize}
 
-CMS computing workflows fall under few broad categories, namely, prompt
-calibration and reconstruction, which is primarily a Tier-0 functionality, 
-centrally scheduled reconstruction of LHC data and Monte Carlo, which 
-can be distributed world-wide at all tiers, centrally scheduled production 
-of simulated data, and chaotic user analysis, which is primarily done at 
-Tier-2s and any opportunistically available resources.
+%fkw commented this out because I could not see why it is here:
+%CMS computing workflows fall under few broad categories, namely, prompt
+%calibration and reconstruction, which is primarily a Tier-0 functionality, 
+%centrally scheduled reconstruction of LHC data and Monte Carlo, which 
+%can be distributed world-wide at all tiers, centrally scheduled production 
+%of simulated data, and chaotic user analysis, which is primarily done at 
+%Tier-2s and any opportunistically available resources.
 
-CMS data is organized in several tiers ranging from RAW data acquired
-from the detector or simulated, to RECO format for reconstructed data, 
-FEVT combining the two, full set of analysis objects (AOD) and 
-compressed AOD, i.e., miniAOD. Ubiquitous access to AOD and miniAOD 
-for the analysts is the key enabler for prompt production of physics
-results.
+%CMS data is organized in several tiers ranging from RAW data acquired
+%from the detector or simulated, to RECO format for reconstructed data, 
+%FEVT combining the two, full set of analysis objects (AOD) and 
+%compressed AOD, i.e., miniAOD. Ubiquitous access to AOD and miniAOD 
+%for the analysts is the key enabler for prompt production of physics
+%results.
 
 \subsubsection{Current Status}
 
@@ -216,16 +227,15 @@ These centers together are hosting 10 PB of CMS centrally and
 user produced data on their storage systems.
 
 
-The US CMS Tier-2s not only maintain resources, but also provide many additional services. 
- {\bf fkw changed this - need to decide on XX:} XX FTE across more than one person at each center
-are necessary to provide high-quality service that results in 
+%The US CMS Tier-2s not only maintain resources, but also provide many additional services. 
+We continue to request in this proposal 2 FTE at each of the 7 Tier-2 institutions.
+On average, 1.6 FTE of these are necessary at each center to provide high-quality service that results in 
 very high availability, upwards of 95\%. The personnel are responsible
 for all aspects of provisioning these resources, from specifications through
 deployment to operations, taking advantage of local considerations. 
-
-In addition to the facilities maintenance and operation, the two people funded at each Tier-2 also take 
-on other roles within the larger US-CMS software and computing project.  CMS benefits
-because of their innovations and pioneering deployments, such as
+The remaining 7x0.4 FTE of effort take 
+on other roles within the larger US-CMS software and computing project.  
+CMS benefits from this close connection because of innovations and pioneering deployments initiated at US Tier-2s, such as
 the most recent work in testing and commissioning of the world-wide
 CMS data federation using AAA technologies.
 
@@ -280,11 +290,12 @@ Useable storage space currently deployed at US Tier2 centers.
 \end{center}
 \end{table}
 
-Some Run-1 analysis are still on-going and they are based on AOD format.
-The AOD event size is 220 kB and was the primary format of data that is
-used for Run-1 analysis.  Scaling AOD based analysis to Run-2 
-would be unaffordable.  Therefore, during LS1, US CMS helped in introducing
-a refined analysis format called "MiniAOD".  This format is 1/10th the size of the AOD, 
+Run-1 analyses still on-going are based on the Run 1 AOD format, comprising 220kB per event on average.
+Average AOD event sizes in Run 2 are roughly 500kB. The growth is partly due to increased pile-up, and partly by design,
+to allow rerunning particle flow reconstruction in its entirety from the AOD.
+In addition, the High Level Trigger output rate was increased by x3 from the end of Run 1 to the beginning of Run 2.
+To contain costs and speed up physics analysis, US-CMS initiated the introduction of a 
+refined analysis format called "MiniAOD".  Implemented in collaboration with CERN, this format is 1/10th the size of the AOD, 
 and typically requires somewhere between 1/2 to 1/5th the CPU power to
 analyze. These reductions are accomplished by storing only more refined information, 
 requiring remaking of the MiniAOD in response to improved calibrations, or significant
