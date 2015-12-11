@@ -81,7 +81,6 @@ As the beam energy has reached more or less its maximum expected, it
 is highly likely that from here on out analyses will tend to use all
 the data accumulated over time, from the 3 fb$^{-1}$ at 13 TeV accumulated in 2015 to
 the 300 fb$^{-1}$ expected by the end of Run 3 in 2025.
-{\bf fkw: You say 3/fb here but use 4/fb in the spreadsheet. We should be consistent and change one or the other of them. I'd prefer changing the spreadsheet to 3 but I don't feel strongly.}
 While the analysis and Monte Carlo production computing needs scale
 roughly linearly with integrated luminosity, the reconstruction time
 per event for both data and simulation grows roughly exponentially
@@ -157,62 +156,27 @@ support are summarized in Tables~\ref{compute-resources}~and~
 The original MONARC model of organization of CMS computing resources
 slowly morphed into something that is much more flexible, and makes significantly more use 
 of networking.  The US-CMS Tier-2 program has been the primary driver of this global evolution.
-%in a tiered structure is now dated. While we retain Tier-0 at CERN for
-%prompt processing, both calibration and reconstruction, the
-%functionality at higher tiers is changing. Especially at the Tier-2s,
-%we are evolving to a set of institutions providing portions of
-%resources, focusing on local expertise, in a continuum infrastructure
-%of services. Nevertheless, dedicated facilities at the existing
-%Tier-2s to address the core analysis computing needs must be met.
 The US-CMS Tier-2 program has thus provided the premier Tier-2 centers globally,
 as well as the intellectual leadership to make radical changes. With the current proposal
 we continue this transition, focusing on maintaining leadership in operations of a
 production infrastructure, and leadership in engineering changes to afford
 doing ever more demanding physics with fixed hardware budgets.
 
-{\bf fkw: I think we need to turn the bulleted list below into short prose. Personally, I'd prefer 
-to just list major accomplishments in prose. Basically, take credit here for stuff that we introduced to CMS.
-E.g. Commisioning the global data transfers matrix across all T1s and T2s, initiating the centralized MC production, 
-leading the commissioning of the Grid worldwide for CMS, introducing the concepts of late-binding WMS,
-data federation, dynamic data placement, MiniAOD, global queue across analysis and production processing, what else?
-I don't think we need to associate institutions to each item here. Let's just take credit for all of them as a collective of 7 T2s.}
-
-The advantage of strengthening the existing university sites is multi-fold:
-\begin{itemize}
-\item Each university group brings unique experience and expertise to bear
-\begin{itemize}
-\item MIT: Dynamic data management and production operations expertise
-\item Nebraska: Dr. Bockleman et al, brought in numerous innovations to CMS middleware
-\item San Diego: Connections to SDSC, OSG and core CMS software developers
-\item Wisconsin: Connections to HT-Condor and OSG core-developers
-\end{itemize}
-\item Connection to strong physics groups at the universities
-\begin{itemize}
-\item Student and postdoc physics analysts exercise the system providing
-appropriate usecases for tuning, and provide prompt feedback for operations.
-\item Faculty collaborations at the University level can bring in additional
-campus or cloud resources
-\item Opportunistic computing resources at the Universities amount to ~37\%.
-\end{itemize}
-\item Cost of infrastructure is subsidized at the Universities.
-\item Cost of personnel is also lower.
-\item Friendly competition amongst the sites results in increased productivity.
-\end{itemize}
-
-%fkw commented this out because I could not see why it is here:
-%CMS computing workflows fall under few broad categories, namely, prompt
-%calibration and reconstruction, which is primarily a Tier-0 functionality, 
-%centrally scheduled reconstruction of LHC data and Monte Carlo, which 
-%can be distributed world-wide at all tiers, centrally scheduled production 
-%of simulated data, and chaotic user analysis, which is primarily done at 
-%Tier-2s and any opportunistically available resources.
-
-%CMS data is organized in several tiers ranging from RAW data acquired
-%from the detector or simulated, to RECO format for reconstructed data, 
-%FEVT combining the two, full set of analysis objects (AOD) and 
-%compressed AOD, i.e., miniAOD. Ubiquitous access to AOD and miniAOD 
-%for the analysts is the key enabler for prompt production of physics
-%results.
+The advantage of strengthening the existing university sites is multi-fold.
+For instance each of the university groups brings unique experience and 
+expertise to bear in addressing S\&C challenges.  Commissioning the global 
+data transfers matrix across all T1s and T2s, initiating the centralized MC production, 
+leading the commissioning of the Grid worldwide for CMS, introducing the 
+concepts of late-binding WMS, CMS data federation, dynamic data placement, 
+MiniAOD, global queue across analysis and production processing, are all
+initiated and executed by the US Tier-2 based groups.  Faculty collaborations 
+at the University level brought access to significant opportunistic resources 
+(~37\%) on their campuses and on the cloud.  Often cost of infrastructure 
+at the University Tier-2s is subsidized and the cost of personnel is also lower.
+Further, friendly competition amongst the sites results in increased productivity
+of US Tier-2s overall.  Finally, the US CMS Tier-2 institutions also provide 
+connections to strong physics groups at those universities as well, resulting 
+in prompt feedback for operations with their intense analysis activities.  
 
 \subsubsection{Current Status}
 
@@ -225,8 +189,6 @@ in steady state split equally between production and analysis workflows.
 These centers together are hosting 10 PB of CMS centrally and
 user produced data on their storage systems.
 
-
-%The US CMS Tier-2s not only maintain resources, but also provide many additional services. 
 We continue to request in this proposal 2 FTE at each of the 7 Tier-2 institutions.
 On average, 1.6 FTE of these are necessary at each center to provide high-quality service that results in 
 very high availability, upwards of 95\%. The personnel are responsible
@@ -242,6 +204,19 @@ CMS data federation using AAA technologies.
 \begin{center}
 \begin{tabular}{|l|c|c|c|}
 \hline
+
+%
+%Number of Job Slots & \\ \hline
+%Available     & \\
+%Purchased     & 40,698 \\
+%Opportunistic & 24,502 \\
+%Total         & 65,200 \\ \hline
+%Used          & \\
+%Production 
+%
+%\multicolumn{4}{|c|}{Number of Job Slots} &  \multicolumn{3}{|c|}{Storage (pb)} \\ \hline
+%Purchased & Opportunistic
+%
 & \multicolumn{3}{|c|}{\bf Number of Job Slots} \\ \cline{2-4}
 {\bf Tier 2 Center}                         & {\bf Purchased} & {\bf Opportunistic} & {\bf Total} \\ \hline
 Caltech                                         & 5,780 &    384 &   6,164 \\
@@ -367,9 +342,9 @@ simplicity.
 \hline
 &\multicolumn{2}{|c|}{\bf Luminosity (fb$^{-1}$)}&\multicolumn{2}{|c|}{\bf Job Slots}&\multicolumn{2}{|c|}{\bf Storage (pb)}&\multicolumn{2}{|c|}{\bf Per Tier-2} \\ \cline{2-9}
 {\bf Year}&{\bf Incr.}&{\bf Cumul.}&{\bf Prod.}&{\bf Ana.}&{\bf AOD}&{\bf MiniAOD}&{\bf Job Slots}&{\bf Storage (pb)} \\  \hline
-2015&     4&     4& 15000&   15000& 3.8& 13&   5814&   2.0 \\ \hline
-2016&   36&   40& 18000&   20000&   9&  31&   5429&   5.7 \\ \hline
-2017&   40&   80& 20000&   40000& 18&  62&   8571&  11 \\ \hline
+2015&    3&   3& 15000&   15000& 3.8& 13&   5814&   2.0 \\ \hline
+2016&   36&  40& 18000&   20000&   9&  31&   5429&   5.7 \\ \hline
+2017&   40&  80& 20000&   40000& 18&  62&   8571&  11 \\ \hline
 2018&   40& 120& 20000&   60000& 27&  92& 11429&  17 \\ \hline
 2019&    0& 120&  10000&   60000& 27&  92& 10000&  17 \\ \hline
 2020&    0& 120&  10000&   60000& 27&  92& 10000&  17 \\ \hline
@@ -382,7 +357,7 @@ simplicity.
 Projection of resources by the year from actual usage in 2015 for
 out years through 2023, based on LHC luminosity expectation is
 shown. The cost of resources which satisfy the projected needs, 
-including current Moore's law scaling, i.e., 10\% to 20\% reduction 
+including current Moore's law scaling, i.e., 20\% to 10\% reduction 
 in costs per year, ranges between \$308K and \$473K.
 }
 \label{projection}
@@ -393,7 +368,7 @@ In order to estimate the cost of provisioning the estimated needs in
 Table~\ref{projection}, we start with the recent actual incurred costs 
 for hardware purchases, which is, \$118 per job slot and \$56 per TB.
 It is well known that Moore's law scaling has slowed down.  Based
-on recent trends we anticipate 10\% to 20 \% reduction in cost of
+on recent trends we anticipate 20\% to 10 \% reduction in cost of
 provisioning resources in the out years.  With these assumptions
 we estimate that cost of provisioning resources at US Tier-2s
 is an average of \$308K and \$473K per year. 
@@ -413,7 +388,7 @@ in recent years significant resources were available opportunistically
 through the Tier-2s.  We anticipate to increase this pool in the future.
 However, we note that innovation needed to use a variety of resources
 and environments requires R\&D and thus continued support of  personnel.
-We allocated XX\% of the effort of the Tier-2 personnel for this
+We allocated 20\% of the effort of the Tier-2 personnel for this
 purpose, in addition to the effort in the research areas described
 in later sections.
 
