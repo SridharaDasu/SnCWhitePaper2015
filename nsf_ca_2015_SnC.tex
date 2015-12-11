@@ -51,45 +51,44 @@
 
 \subsection{Introduction}
 
-The NSF support for software and computing at US Universities
+The NSF support for software and computing at U.S. universities
 played a crucial role in the success of the CMS program, having
 contributed to almost all the published work thus far, including the
 discovery of the Higgs boson that completed the Standard Model of
 particle physics.  Continued NSF support for software and computing is
-mandatory for future successes, including perhaps discovery of new
+mandatory for future successes, including the possible discovery of new
 physics.  In this section we briefly describe the current status and
-future plans of the US CMS software and computing project, focussing on
-its Tier-2 program, on which US and international CMS physicists rely
+future plans of the U.S. CMS software and computing project, focusing on
+its Tier-2 program, on which U.S. and international CMS physicists rely
 for extracting physics from the expected large CMS datasets.
 
 The scale of computing resources necessary is directly coupled to the
-foreseen output from the detector.  The trigger rates have been
-increased by an order of magnitude compared to the original goals at
-the time of CMS computing TDR. The discovery of Higgs at low mass and
-continued investigation of EWK scale physics requires low thresholds.
-During the recently started new
-phase of data acquisition, i.e., Run-2 (2015-18) and Run-3 (2021-23)
-of LHC, about 300 fb$^{-1}$ will be accumulated. This
-300-fb$^{-1}$-dataset presents two orders of magnitude increase in
-data volume compared to the Run-1 (2009-12) dataset: An order of magnitude
-increase in integrated luminosity, a factor of three increase in
-trigger output rate to facilitate continued access to electro-weak
-scale physics, and a factor of three or so increase in
-event-complexity due to increased energy and instantaneous luminosity
-leading to event pileup.
-As the beam energy has reached more or less its maximum expected, it
-is highly likely that from here on out analyses will tend to use all
-the data accumulated over time, from the 3 fb$^{-1}$ at 13 TeV accumulated in 2015 to
-the 300 fb$^{-1}$ expected by the end of Run 3 in 2025.
-While the analysis and Monte Carlo production computing needs scale
-roughly linearly with integrated luminosity, the reconstruction time
-per event for both data and simulation grows roughly exponentially
-with instantaneous luminosity.  
-Unfortunately, Moore's law scaling of computing capabilities and evolution of
-storage have slowed down from x2 gains every 15-18 months 10 years ago to a modest x2 gain every 4-7 years expected in the future.
-As a result, the overall computing
-needs outpace expected technological advances and reasonable 
-funding scenarios by a factor 2-4 in Run 2 and 3, with even larger shortfalls projected for the HL-LHC era.
+foreseen output from the detector.  The trigger rates have been increased
+by an order of magnitude compared to the original goals at the time of CMS
+computing technical design report. The discovery of Higgs at low mass and
+continued investigation of electroweak scale physics requires low trigger
+thresholds.  During the recently started new phase of data acquisition,
+Run~2 (2015-18) and Run~3 (2021-23) of LHC, about 300 fb$^{-1}$ will be
+accumulated. This 300~fb$^{-1}$ dataset presents two orders of magnitude
+increase in data volume compared to the Run~1 (2009-12) dataset.  An order
+of magnitude arises from the increase in integrated luminosity, a factor of
+three comes from the increased trigger output rate to facilitate continued
+access to electroweak scale physics, and a final factor of three or so
+increase is due to greater event-complexity from increased energy and
+instantaneous luminosity leading to event pileup.  As the beam energy has
+reached more or less the maximum expected, it is highly likely that from
+here on out analyses will tend to use all the data accumulated over time,
+from the 3 fb$^{-1}$ at 13 TeV accumulated in 2015 to the 300 fb$^{-1}$
+expected by the end of Run~3 in 2025.  While the analysis and Monte Carlo
+production computing needs scale roughly linearly with integrated
+luminosity, the reconstruction time per event for both data and simulation
+grows roughly exponentially with instantaneous luminosity.  Unfortunately,
+Moore's law scaling of computing capabilities and evolution of storage have
+slowed down from $\times 2$ gains every 15-18 months ten years ago to a
+modest $\times 2$ gain every 4-7 years expected in the future.  As a
+result, the overall computing needs outpace expected technological advances
+and reasonable funding scenarios by a factor of 2-4 in Run~2 and Run~3, with even
+larger shortfalls projected for the HL-LHC era.
 %requiring significant innovations in order to guarantee that the
 %physics potential of the data taken is fully realized.
 %Innovations in resource utilization,
@@ -102,27 +101,31 @@ funding scenarios by a factor 2-4 in Run 2 and 3, with even larger shortfalls pr
 
 Our vision for meeting the challenge of growth of computing needs
 beyond what is affordable via a simple Moore's law extrapolation is
-threefold. First, we will gain efficiencies by being overall more
-agile in the way we use the traditional FNAL based Tier-1 and seven
-university based Tier-2s center resources. Second, we will grow the
+threefold. First, we will gain efficiencies by being  more
+agile in the way we use the traditional Fermilab-based Tier-1 and seven
+university-based Tier-2s center resources. Second, we will grow the
 resource pool by more tightly integrating resources at all other
-US-CMS universities, DOE and NSF supercomputing centers, and
-commercial cloud providers as much as possible. And third, we will
+U.S.~CMS universities, DOE and NSF supercomputing centers, and
+commercial cloud providers as much as possible. Finally, we will
 pursue an aggressive R\&D program towards improvements in software
 algorithms, data formats, and procedural changes for how we analyze
 the data we collect and simulate, in order to significantly reduce the
 computing needs.
 
-Primary goal of our program is to empower physicists at all 48 US-CMS member institutions 
-to conveniently analyze CMS data. % oblivious of the computing resource provisioning.
-For the next 5 years, we propose to capitalize on NSF investment in networking at US universities
-as well as developments from other NSF projects [AAA, gWMS, OSG, PRP]
-to integrate much more tightly resources at US-CMS member institutions beyond Tier-1 and Tier-2 centers
-into the centrally operated services infrastructure of the CMS experiment.
-In this context effort funded via the Tier-2 program will become responsible to maintain
-infrastructure in the Science DMZs of US-CMS member institutions jointly with IT professionals at those institutions.
-The effort funded via this proposal will provide consultation to campus IT organizations and ultimately maintain services
-on hardware inside the various Science DMZs, in order to support the desired integration of campus IT with CMS IT.
+The primary goal of our program is to empower physicists at all 48 U.S.~CMS
+member institutions to conveniently analyze CMS
+data. % oblivious of the computing resource provisioning.
+For the next five years, we propose to capitalize on NSF investment in
+networking at U.S. universities as well as developments from other NSF
+projects [AAA, gWMS, OSG, PRP] to integrate resources at U.S.~CMS member
+institutions beyond Tier-1 and Tier-2 centers much more tightly into the
+centrally operated services infrastructure of the CMS experiment.  In this
+context, effort funded via the Tier-2 program will become responsible to
+maintain infrastructure in the Science DMZs of U.S.~CMS member institutions
+jointly with IT professionals at those institutions.  The effort funded via
+this proposal will provide consultation to campus IT organizations and
+ultimately maintain services on hardware inside the various Science DMZs,
+in order to support the desired integration of campus IT with CMS IT.
 
 %The central services provided by those supported in this project
 %will be providing seamless access to distributed world-wide 
@@ -133,78 +136,95 @@ on hardware inside the various Science DMZs, in order to support the desired int
 %resources at all US CMS institutions, democratizing access to
 %computing resources.  
 
-This proposal focusses on the NSF supported University
-based computing, especially for the most diverse %chaotic 
-physicist-driven
-scientific data analysis activities. A brief look at the computing 
-R\&D necessary for the HL-LHC phase (2025+), during which 
-another two orders of magnitude in data volume is expected, 
-is also discussed.
+This proposal focuses on the NSF supported university-based computing,
+especially for the most diverse %chaotic
+physicist-driven scientific data analysis activities, as they will require
+the bulk of the S\&C resources requested in this proposal.  Other supported
+activities are also discussed, including a brief look at the
+computing R\&D necessary for the HL-LHC phase (2025+), during which another
+two orders of magnitude in data volume is expected.
+
+\subsubsection{CMS computing model details}
+\label{computingmodeldetails}
+The tiered computing model of the LHC experiments, based on a distributed
+infrastructure of regional centers outlined by the MONARC project {\bf
+  ref}, includes a Tier-0 center at CERN, seven Tier-1 centers (including
+one at Fermilab) and about fifty Tier-2 centers (including eight in the
+U.S., seven of which will be supported by this award).~\footnote{The
+  Fermilab facilities are covered by S\&C WBS 1; they receive no NSF
+  support and are not discussed further in the proposal.  The eighth
+  U.S. Tier-2 center, at Vanderbilt, is supported by the DOE Nuclear
+  Physics program.}  The original model envisioned that only a very
+specific set of tasks would be performed at each tier of the
+infrastructure, but in recent years, much more flexibility has been
+introduced into the system.  The technical changes leading to this have
+largely been pioneered within the U.S., in many cases by unversity-based
+personnel supported by the previous NSF award for U.S. CMS operations,
+especially those at the Tier-2 centers.  Some of the innovations have
+included commissioning the global data transfers matrix across all Tier-1
+and Tier-2 sites, initiating the centralized Monte Carlo production,
+leading the commissioning of the grid worldwide for CMS, introducing the
+concepts of late-binding WMS, CMS data federation, dynamic data placement,
+MiniAOD, and global queue across analysis and production processing
+
+CMS uses a variety of data formats tailored for different purposes.
+Ongoing Run~1 analyses are based on the Run 1 AOD format, comprising 220~kB
+per event on average.  Average AOD event sizes in Run~2 are roughly
+500~kB. The growth is partly due to increased pileup, and partly by design,
+to allow re-running particle-flow reconstruction in its entirety from the
+AOD.  In addition, the high level trigger output rate was increased by a
+factor of three between Run~1 and Run~2.  To contain costs and speed up
+physics analysis, U.S.~CMS initiated the introduction of a refined analysis
+format called ``MiniAOD.''  Implemented in collaboration with CERN, this
+format is $1/10$ the size of the AOD, and typically requires somewhere
+between $1/2$ to $1/5$ the CPU power to analyze. These reductions are
+accomplished by storing only more refined information, which thus requires remaking
+the MiniAOD in response to improved calibrations, or significant
+improvements of physics objects. During Fall 2015 CMS went through two
+iterations of MiniAOD, with at least one more to follow before Moriond 2016
+conference results.  MiniAOD is expected to satisfy the needs of at least
+90\% of all physics analyses, {\it i.e.} it is envisioned that a few analyses
+will require more detailed information not present in the MiniAOD, and will
+thus need to access the AOD or maybe even the RAW format.
+
+The operational model today is that analysis groups process these primary
+data samples to produce custom Ntuples for their analyses at a event processing
+rate of 1-10~Hz or so. The custom Ntuples are then typically analyzed at
+$\times 100$ larger event rates. The transformation from primary data useful to the
+entire collaboration to custom data useful only to a handful analyses is
+thus dramatically accelerating science and reducing computing costs with
+the drawback that non-negligible amounts of disk space at Tier-2s need to
+be provisioned to host that custom data. 
+%This belongs somewhere later, not sure where yet.
+% US-CMS organizes this by assigning a fixed set of University groups to
+% each Tier-2 as their host Tier-2 for these custom data samples.
 
 \subsection{University Facilities (WBS 2)}
 
-The tiered computing model of the LHC experiments, based on a 
-distributed infrastructure of regional centers outlined by
-the MONARC project {\bf ref}, includes a Tier-0 center at CERN,
-one US based Tier-1 center at FNAL (WBS 1) and seven US 
-university based Tier-2 centers (WBS 2) at 
-{\bf Caltech, Florida, MIT, Nebraska, Purdue, UC San Diego and Wisconsin}.
-Resources available at these centers funded through prior NSF
-support are summarized in Tables~\ref{compute-resources}~and~
-\ref{storage-resources}.
-
-The original MONARC model of organization of CMS computing resources
-slowly morphed into something that is much more flexible, and makes significantly more use 
-of networking.  The US-CMS Tier-2 program has been the primary driver of this global evolution.
-The US-CMS Tier-2 program has thus provided the premier Tier-2 centers globally,
-as well as the intellectual leadership to make radical changes. With the current proposal
-we continue this transition, focusing on maintaining leadership in operations of a
-production infrastructure, and leadership in engineering changes to afford
-doing ever more demanding physics with fixed hardware budgets.
-
-The advantage of strengthening the existing university sites is multi-fold.
-For instance each of the university groups brings unique experience and 
-expertise to bear in addressing S\&C challenges.  Commissioning the global 
-data transfers matrix across all T1s and T2s, initiating the centralized MC production, 
-leading the commissioning of the Grid worldwide for CMS, introducing the 
-concepts of late-binding WMS, CMS data federation, dynamic data placement, 
-MiniAOD, global queue across analysis and production processing, are all
-initiated and executed by the US Tier-2 based groups.  Faculty collaborations 
-at the University level brought access to significant opportunistic resources 
-(~37\%) on their campuses and on the cloud.  Often cost of infrastructure 
-at the University Tier-2s is subsidized and the cost of personnel is also lower.
-Further, friendly competition amongst the sites results in increased productivity
-of US Tier-2s overall.  Finally, the US CMS Tier-2 institutions also provide 
-connections to strong physics groups at those universities as well, resulting 
-in prompt feedback for operations with their intense analysis activities.  
-
 \subsubsection{Current Status}
 
-The seven US Tier-2s rank amongst the top ten providers of the 50 such 
-CMS centers world-wide. Together they provide about 35\% of CMS
-Tier-2 resources, outlined in Tables~\ref{current-resources}.
-The compute resources at Tier-2s serve both production and physicist analysis cases.  
-The resource utilization at the US Tier-2s in the past month adds up to about 30,000 jobs 
-in steady state split equally between production and analysis workflows. 
-These centers together are hosting 10 PB of CMS centrally and
-user produced data on their storage systems.
-
-We continue to request in this proposal 2 FTE at each of the 7 Tier-2 institutions.
-On average, 1.6 FTE of these are necessary at each center to provide high-quality service that results in 
-very high availability, upwards of 95\%. The personnel are responsible
-for all aspects of provisioning these resources, from specifications through
-deployment to operations, taking advantage of local considerations. 
-The remaining 7x0.4 FTE of effort take 
-on other roles within the larger US-CMS software and computing project.  
-CMS benefits from this close connection because of innovations and pioneering deployments initiated at US Tier-2s, such as
-the most recent work in testing and commissioning of the world-wide
-CMS data federation using AAA technologies.
+The primary university-based facilities are the Tier-2 centers at Caltech,
+Florida, MIT, Nebraska, Purdue, UC San Diego and Wisconsin.  Resources
+available at these centers funded through prior NSF support are summarized
+in Table~\ref{current-resources}.  Faculty collaborations at the university
+level have brought access to significant opportunistic resources on their
+campuses and on the cloud (~37\% of the total available to CMS).  Often
+cost of infrastructure at the university Tier-2s is subsidized and the cost
+of personnel is also lower.  Further, friendly competition amongst the
+sites results in increased productivity of US Tier-2s overall.  The seven
+US Tier-2s rank amongst the top ten providers of the 50 such CMS centers
+world-wide. Together they provide about 35\% of CMS Tier-2 resources.  The
+compute resources at Tier-2s serve both production and physicist analysis
+cases.  The resource utilization at the US Tier-2s in the past month adds
+up to about 30,000 jobs in steady state split equally between production
+and analysis workflows.  These centers together are hosting 10 PB of CMS
+centrally and user produced data on their storage systems.
 
 \begin{table}
 \begin{center}
 \begin{tabular}{|l|c|l|c|}
 \hline
-\multicolumn{2}{|c|}{Number of Job Slots} &  \multicolumn{2}{|c|}{Storage (pb)} \\ \hline
+\multicolumn{2}{|c|}{Number of Job Slots} &  \multicolumn{2}{|c|}{Storage (PB)} \\ \hline
 Available as of 11/2015 &          &               &    \\
 Purchased     & 40,698             & Purchased     & 14 \\
 Opportunistic & 24,502             & Opportunistic & -  \\
@@ -216,71 +236,78 @@ Total         & 30,000             & Total         & 14 \\ \hline
 \end{tabular}
 \caption[]
 {
-Currently available and used number of job slots and storage (pb) totals for all the US Tier-2s are tabulated.
+Currently available and used number of job slots and storage totals
+for all the US Tier-2 sites.
 }
 \label{current-resources}
 \end{center}
 \end{table}
 
-Run-1 analyses still on-going are based on the Run 1 AOD format, comprising 220kB per event on average.
-Average AOD event sizes in Run 2 are roughly 500kB. The growth is partly due to increased pile-up, and partly by design,
-to allow rerunning particle flow reconstruction in its entirety from the AOD.
-In addition, the High Level Trigger output rate was increased by x3 from the end of Run 1 to the beginning of Run 2.
-To contain costs and speed up physics analysis, US-CMS initiated the introduction of a 
-refined analysis format called ``MiniAOD''.  Implemented in collaboration with CERN, this format is 1/10th the size of the AOD, 
-and typically requires somewhere between 1/2 to 1/5th the CPU power to
-analyze. These reductions are accomplished by storing only more refined information, 
-requiring remaking of the MiniAOD in response to improved calibrations, or significant
-improvements of physics objects. During Fall of 2015 CMS went through two iterations
-of MiniAOD, with at least one more to follow before Moriond 2016 conference results.
-MiniAOD is expected to satisfy the needs of at least 90 \% of all physics analyses, i.e. 
-it is envisioned that a few analyses will require more detailed information not present 
-in the MiniAOD, and will thus need to access the AOD or maybe even the RAW format.
+Not only does the U.S. CMS Tier-2 program provide the premier Tier-2
+centers in all of CMS, the staff at these centers, working in partnerships
+with their universities, also provide the intellectual leadership to make
+radical changes such as those mentioned in
+Section~\ref{computingmodeldetails}.  With the current proposal we continue
+this transition, focusing on maintaining leadership in operations of a
+production infrastructure, and leadership in engineering changes to afford
+doing ever more demanding physics with fixed hardware budgets.  Thus, the
+investment in personnel at the universities sites brings at least as much
+value as the investment in the computing equipment.
 
-The operational model today is that Analysis groups process these ``primary data'' to produce custom 
-Ntuples for their analyses at a event processing rate of 1-10Hz or so. The custom Ntuples are then typically 
-analyzed at x100 larger event rates. The transformation from primary data useful to the entire collaboration to custom data useful
-only to a handful analyses is thus dramatically accelerating science and reducing computing costs with the drawback that non-negligible
-amounts of disk space at Tier-2s need to be provisioned to host that custom data. US-CMS organizes this by assigning a fixed set of 
-University groups to each Tier-2 as their host Tier-2 for these custom data samples.
+We continue to request in this proposal 2 FTE at each of the seven Tier-2
+institutions.  On average, 1.6 FTE of these are necessary at each center to
+provide high-quality service that results in very high availability,
+upwards of 95\%. The personnel are responsible for all aspects of
+provisioning these resources, from specifications through deployment to
+operations, taking advantage of local considerations.  The remaining
+$7 \times 0.4$ FTE of effort take on other roles within the larger U.S.~CMS
+software and computing project as described in the later sections of
+the proposal.  CMS benefits from this close connection because of
+innovations and pioneering deployments initiated at U.S. Tier-2s, such as the
+most recent work in testing and commissioning of the world-wide CMS data
+federation using AAA technologies.
+
+Finally, the US CMS Tier-2 institutions also provide connections to strong
+physics groups at those universities as well, resulting in prompt feedback
+for operations with their intense analysis activities.
 
 \subsubsection{Future Plans}
 
 \noindent{\bf Tier-2 Resources}
 
 To define plans for the future, we use a simple model that scales
-the present usage of job slot count and storage, to future years based
+the present usage of job slot count and storage to future years based
 expected LHC  luminosity plan (see Table~\ref{projection}).
 For the sake of simplicity, CPU requirements are estimated in units of number of 
 batch slots needed and the storage is determined by the amount of
 data anticipated to be accumulated and equal amount of MC simulated.
 In addition to the MiniAOD, we expect to require disk space to accommodate 
-$\sim$ 10\% of the data in AOD format on disk to allow the $\le$ 10\% of 
+$\sim$10\% of the data in AOD format on disk to allow the $\le$ 10\% of 
 analyses that require such detail.
 
 In Table~\ref{projection}, we start by showing the actual numbers for
-2015 scale of operations.  We have accumulated about 4 fb$^{-1}$
-of data from LHC runs and produced 10 fb$^{-1}$ of simulated data.
-Including that simulated and accumulated in Run-1, we are running
-30000 production jobs on 17 pb of data at US Tier-2s currently,
-equally split amongst production and analysis jobs.  We show the
-average availability of job slots and storage at the US Tier-2s to
-start the scaling from.  We extrapolate to out years using the
+2015 scale of operations.  We have accumulated about 4~fb$^{-1}$
+of data from LHC runs and produced 10~fb$^{-1}$ of simulated data.
+Including the data simulated and accumulated in Run~1, we are running
+30000 production jobs on 1~pb of data at U.S. Tier-2s currently,
+equally split between production and analysis jobs.  We show the
+current average availability of job slots and storage at the U.S. Tier-2s to
+start the scaling.  We then extrapolate to out years using the
 LHC run plan, which sets the scale for integrated luminosity.
 
 We assume that the production job slot usage scales as a function of 
 incremental luminosity expected that year.  The analysis job slot usage
 scales as a function of the accumulated by that time, because the analysts
-will be combining all of the 13-TeV data in Run-2 and Run-3.
+will be combining all of the 13~TeV data in Run~2 and Run~3.
 We expect that the storage in AOD format is limited to 10\% of
-the data volume.  The miniAOD format data is expected to be
+the data volume.  The MiniAOD format data is expected to be
 used by most analysts reducing the needed storage volume.  A
-factor 50\% replication across all US Tier-2s is used to provide 
+factor 50\% replication across all U.S. Tier-2s is used to provide 
 the necessary speedy access and redundancy.
 
 Note that in addition to the production data, we also have to provide
 access to custom user data.  We also must budget for disk space for 
-the CMS upgrade activities, in the process of tuning their specification
+the CMS upgrade activities, which are tuning their specification
 for the technical design reports.  Wherever possible the data is not replicated, 
 nor is it assumed to be  backed up to tape. Implicit in this operational model 
 is the assumption that the data can be reproduced easily enough if lost due 
@@ -289,7 +316,7 @@ plus staging space to in front of the Tier-1 tape archive, as well as at the Tie
 for staging data as it is being reconstructed or simulations as they are being 
 produced. 
 
-The 2015 data does not mirror the anticipate usage in the out years,
+The 2015 data usage does not mirror the anticipate usage in the out years,
 which is likely larger due to complexity of events at higher luminosities
 etc.  However, we are projecting starting from current situation for
 simplicity.
@@ -325,41 +352,118 @@ in costs per year, ranges between \$308K and \$473K.
 
 In order to estimate the cost of provisioning the estimated needs in
 Table~\ref{projection}, we start with the recent actual incurred costs 
-for hardware purchases, which is, \$118 per job slot and \$56 per TB.
+for hardware purchases, which is \$118 per job slot and \$56 per TB.
 It is well known that Moore's law scaling has slowed down.  Based
-on recent trends we anticipate 20\% to 10 \% reduction in cost of
+on recent trends we anticipate 20\% to 10\% reduction in cost of
 provisioning resources in the out years.  With these assumptions
-we estimate that cost of provisioning resources at US Tier-2s
+we estimate that cost of provisioning resources at U.S. Tier-2s
 is an average of \$308K and \$473K per year. 
 
-The network bandwidth requirement will also scale with increased data
-size and wide-area distributed computing.  Typically sites are
-connected through 100 Gbps network presently, and we expect
-multi-100 Gbps connections in the coming years. Up to now, networking at Tier-2 centers has always been funded
-via sources outside the US-CMS software and computing project. We expect this to stay that way, and are thus not budgeting
-any costs for networking as part of this proposal.
+The network bandwidth requirement will also scale with increased data size
+and wide-area distributed computing.  Typically sites are connected through
+100~Gbps network presently, and we expect multi-100~Gbps connections in the
+coming years. Up to now, networking at Tier-2 centers has always been
+funded via sources outside the U.S. CMS software and computing project. We
+expect this to stay that way, and are thus not budgeting any costs for
+networking as part of this proposal.
 
 This bottoms-up estimate of resource needs and costs are significantly
-higher than what we would like. We are proposing in remaining sections
-several ideas to mitigate the growing needs by innovation.  Use of
+higher than desired.  The proposed activities in the following sections will
+develop several ideas to mitigate the growing needs by innovation.  Use of
 non-traditional resources is the primary future goal.  We note that
 in recent years significant resources were available opportunistically
 through the Tier-2s.  We anticipate to increase this pool in the future.
 However, we note that innovation needed to use a variety of resources
-and environments requires R\&D and thus continued support of  personnel.
+and environments requires R\&D and thus continued support of personnel.
 We allocated 20\% of the effort of the Tier-2 personnel for this
 purpose, in addition to the effort in the research areas described
-in later sections.
+in later sections.  {\bf Q from Ken for someone: is this meant as part of
+  the 1.6 FTE/site for ops or the 0.4 for other activities?}
+
+Two staff members are required to operate each site, to provide full
+coverage.  However, each center can be operated with approximately 1.6~FTE
+of effort.  Each site thus contributes effort to other S\&C activites
+described in the proposal.  Many site staff members are former HEP
+physicists, who have now become experts in computing. They are able to
+provide wide-ranging expertise in physics software development.
 
 \noindent{\bf Non-traditional resources}
 
-In the past, resources beyond the traditional Tier-1 and Tier-2 sites were generically lumped into the category of Tier-3.  The prevailing model of these resources was that they were structured more or less as small Tier-2 sites operated independently of the Tier-2 program by dedicated local administrators.  With the rise of significant computing capabilities across U.S. university campuses, and in particular, driving by substantial NSF-ACI investment into networking infrastructure across more than 100 campuses nation wide, this model is changing.  The Tier-3 site now functions more as a portal.  It provides a local portal for university researchers to access larger-scale US-CMS computing resources.  It also provides a portal for the CMS central computing infrastructure to access campus computing resources.  We propose to strengthen and expand this new model for non-traditional computing resources by seamlessly integrating CMS and campus IT infrastructures in a way that minimizes administrative effort while maximizing flexibility.  This approach is based on the NSF-funded ``Pacific Research Platform'' and the CMS Connect effort which utilizes the OSG's CI-Connect platform.
+In the past, resources beyond the traditional Tier-1 and Tier-2 sites were
+generically lumped into the category of Tier-3.  The prevailing model of
+these resources was that they were structured more or less as small Tier-2
+sites operated independently of the Tier-2 program by dedicated local
+administrators.  With the rise of significant computing capabilities across
+U.S. university campuses, and in particular, driven by substantial NSF-ACI
+investment into networking infrastructure across more than 100 campuses
+nationwide, this model is changing.  The Tier-3 site now functions more as
+a portal.  It provides a local portal for university researchers to access
+larger-scale U.S. CMS computing resources.  It also provides a portal for the
+CMS central computing infrastructure to access campus computing resources.
+We propose to strengthen and expand this new model for non-traditional
+computing resources by seamlessly integrating CMS and campus IT
+infrastructures in a way that minimizes administrative effort while
+maximizing flexibility.  This approach is based on the NSF-funded ``Pacific
+Research Platform'' and the CMS Connect effort which utilizes the OSG's
+CI-Connect platform.
 
-The central hub of our proposal is a single node that will be deployed at each participating institution.  This node should be viewed as a ``Tier-3 in a box,'' a single, self-contained appliance that when deployed into a campus Science DMZ will bridge the CMS and campus infrastructures, enabling local CMS researches to access both sets of resources via a single portal.  This node will provide interactive data analysis, batch submission, CVMFS software cache, XRootD data cache, and XRootD an server to export local data.  The HTCondor batch systems implemented on these nodes are all connected to the global CMS HTCondor pool via glideinWMS.  Similarily any University computing resources are integrated requiring nothing more than ssh access to a US-CMS account on the local University cluster.  Local CMS university groups will thus be empowered to transparently use any and all local resources the University allows them to share in combination with the entire Tier-1 and Tier-2 system. Official CMS data is cached locally by the node as needed.  Private data produced by the local university group is served out to the Tier-1 and Tier-2 system via the XRootD server integrated into the node.  Each Tier-2 will also have an XRootD cache in order to transparently cache the private data of any of the local university groups to avoid IO latencies. 
+The central hub of our proposal is a single node that will be deployed at
+each participating institution.  This node should be viewed as a ``Tier-3
+in a box,'' a single, self-contained appliance that when deployed into a
+campus Science DMZ will bridge the CMS and campus infrastructures, enabling
+local CMS researches to access both sets of resources via a single portal.
+This node will provide interactive data analysis, batch submission, CVMFS
+software cache, XRootD data cache, and XRootD an server to export local
+data.  The HTCondor batch systems implemented on these nodes are all
+connected to the global CMS HTCondor pool via glideinWMS.  Similarily any
+University computing resources are integrated requiring nothing more than
+ssh access to a U.S. CMS account on the local university cluster.  Local CMS
+university groups will thus be empowered to transparently use any and all
+local resources the university allows them to share in combination with the
+entire Tier-1 and Tier-2 system. Official CMS data is cached locally by the
+node as needed.  Private data produced by the local university group is
+served out to the Tier-1 and Tier-2 system via the XRootD server integrated
+into the node.  Each Tier-2 will also have an XRootD cache in order to
+transparently cache the private data of any of the local university groups
+to avoid I/O latencies.
 
-Deployment and maintenance of these nodes will be undertaken as a partnership between local campus IT and US-CMS Tier-2 personnel, following the model of the PRP.  The PRP deploys single nodes into the Science DMZs of 20 institutions across the West Coast, including the US-CMS institutions UC Davis, UC Santa Barbara, UC Riverside, Caltech, and UC San Diego. These pieces of hardware are collaboratively maintained between the campus IT organizations and the PRP and SDSC teams at UCSD.  In this model, local campus IT is responsible for the maintaining the hardware and local user accounts, while OS and software service (including necessary OSG and CMSSW element) maintenance is undertaken by a collaboration of US-CMS Tier-2 personnel and local campus IT effort.  This is made manageable with minimal effort beyond the initial deployment by management of OS, US-CMS and OSG services, and local configurations via a central Puppet infrastructure.
+Deployment and maintenance of these nodes will be undertaken as a
+partnership between local campus IT and U.S. CMS University Facilities
+personnel, following the model of the PRP.  The PRP deploys single nodes
+into the Science DMZs of 20 institutions across the West Coast, including
+the US-CMS institutions UC Davis, UC Santa Barbara, UC Riverside, Caltech,
+and UC San Diego. These pieces of hardware are collaboratively maintained
+between the campus IT organizations and the PRP and SDSC teams at UCSD.  In
+this model, local campus IT is responsible for the maintaining the hardware
+and local user accounts, while OS and software service (including necessary
+OSG and CMSSW element) maintenance is undertaken by a collaboration of
+U.S. CMS University Facilities personnel and local campus IT effort.  This is made
+manageable with minimal effort beyond the initial deployment by management
+of OS, U.S. CMS and OSG services, and local configurations via a central
+Puppet infrastructure.
 
-We are proposing to scale out deployment and operations of this model across the US to as many US-CMS institutions as possible, focusing on the 25 institutions that have received ScienceDMZ funding from NSF-ACI since 2012. The hardware costs as well as the human effort to deploy and operate this system will be borne out of the Tier-2 portion of this proposal.  At a cost of $\sim$\$10,000 per Tier-3 in a box, this is a modest fraction of the total Tier-2 hardware budget across the seven Tier-2s and the 5 years of this proposal.  We fully understand that the above model will not be appropriate for all collaborating institutions within US-CMS. We thus augment it with an additional hosted service---CMS Connect---built on the OSG-connect/CI-Connect model pioneered by the University of Chicago OSG/ATLAS group.  This service will provide identical functionality to the Tier-3 in a box for institutions that are either lacking appropriate network connectivity or a local IT organization that would be capable and/or willing to collaborate on the hardware and user account maintenance.  There will be only a single instance of this "CMS-Connect" infrastructure for all these remaining groups.  University groups will generally be better served by the more flexible and customized Tier-3 in a box approach, but with the combination of the two approaches ensures that all groups will be served.
+We are proposing to scale out deployment and operations of this model
+across the U.S. to as many U.S.~CMS institutions as possible, focusing on
+the 25 institutions that have received ScienceDMZ funding from NSF-ACI
+since 2012. The hardware costs as well as the human effort to deploy and
+operate this system will be borne out of the University Facilities portion
+of this proposal.  At a cost of $\sim$\$10,000 per Tier-3 in a box, this is
+a modest fraction of the total Tier-2 hardware budget across the seven
+Tier-2s and the five years of this proposal.  We fully understand that the
+above model will not be appropriate for all collaborating institutions
+within U.S. CMS. We thus augment it with an additional hosted service -- CMS
+Connect -- built on the OSG Connect/CI Connect model pioneered by the
+University of Chicago OSG/ATLAS group.  This service will provide identical
+functionality to the Tier-3 in a box for institutions that are either
+lacking appropriate network connectivity or a local IT organization that
+would be capable and/or willing to collaborate on the hardware and user
+account maintenance.  There will be only a single instance of this
+CMS Connect" infrastructure for all these remaining groups.  University
+groups will generally be better served by the more flexible and customized
+Tier-3 in a box approach, but with the combination of the two approaches
+ensures that all groups will be served.  Development work on CMS Connect is
+led by Notre Dame.  {\bf Need to settle on
+  hyphenation/spacing convention for the ``Connects''.}
 
 %%%
 %%%   FKW's original text
@@ -432,11 +536,11 @@ We are proposing to scale out deployment and operations of this model across the
 %data collections and large groups of students and post-docs. 
 
 Finally, we will fully integrate cloud services access into this
-infrastructure in such way that local University groups can use local
+infrastructure in such way that local university groups can use local
 funds to purchase cloud resources to augment their personal access to
 computing resources, and thus accelerate their science. We expect to
 be collaborating on this functionality with the HEPCloud project at
-FNAL as well as the Open Science Grid.
+Fermilab as well as the Open Science Grid.
 
 In addition to all of the above functionality geared towards data
 analysis, we propose to also integrate Supercomputing resources at DOE
@@ -447,30 +551,31 @@ OSG on the detailed access mechanisms and policies.  At this point,
 December 2015, HEPCloud is focused on AWS, while OSG is working with
 Comet (NSF) and Cori (DOE) to understand the technical, operational,
 and security processes for use of these supercomputers via OSG
-interfaces.
+interfaces.  {\bf Ken: Still not perfectly happy with this paragraph -- is
+  it about having the resources available for universities, or the work
+  needed to be done to make it happen, which would belong in WBS 4?}
 
-\noindent{\bf Facilities Support Personnel}
-
-Two persons at each facility are necessary to provide full coverage.
-However, recent experience indicates that about 30-50\% of those
-person's effort can be freed up for other work. Most of the effective
-people involved in CMS computing are former HEP physicists, who have
-now become experts in computing. They are able to provide wide-ranging
-expertise in physics software development.  The additional services we
-expect Tier-2 personnel to provide are in the areas:
-\begin{itemize}
-\item Support for non-Tier-2 university portals to CMS cloud
-\begin{itemize}
-\item We expect each Tier-2 to support about 7 universities in their neighborhood.
-\end{itemize}
-\item Computing services for CMS upgrades and research to address future needs
-\begin{itemize}
-\item Development of simulation program for upgrade detectors
-\item Production of simulation data for upgrade detectors
-\item Participation in computing research
-\item Participation in DIANA/HEP and other community wide computing projects for future.
-\end{itemize}
-\end{itemize} 
+%\noindent{\bf Facilities Support Personnel}
+% Two persons at each facility are necessary to provide full coverage.
+% However, recent experience indicates that about 30-50\% of those
+% person's effort can be freed up for other work. Most of the effective
+% people involved in CMS computing are former HEP physicists, who have
+% now become experts in computing. They are able to provide wide-ranging
+% expertise in physics software development.  The additional services we
+% expect Tier-2 personnel to provide are in the areas:
+% \begin{itemize}
+% \item Support for non-Tier-2 university portals to CMS cloud
+% \begin{itemize}
+% \item We expect each Tier-2 to support about 7 universities in their neighborhood.
+% \end{itemize}
+% \item Computing services for CMS upgrades and research to address future needs
+% \begin{itemize}
+% \item Development of simulation program for upgrade detectors
+% \item Production of simulation data for upgrade detectors
+% \item Participation in computing research
+% \item Participation in DIANA/HEP and other community wide computing projects for future.
+% \end{itemize}
+% \end{itemize} 
 
 \subsection{Operations (WBS 3)}
 
@@ -482,7 +587,7 @@ and analysis computing jobs.
 
 \subsubsection{Current Status}
 
-US-CMS personnel fill a variety of roles in CMS computing operations.
+U.S. CMS personnel fill a variety of roles in CMS computing operations.
 MIT staff support Tier-0 operations for the experiment, overseeing the
 day-to-day operation of the facility, which is of critical importance.  Other 
 MIT personnel play leading roles in
@@ -492,8 +597,8 @@ infrastructure.  Nebraska provides support for AAA operations and for
 network performance reliability.  Johns Hopkins supports the operation of
 the Frontier system that provides run conditions and other configuration
 information for reconstruction and analysis jobs running on the distributed
-infrastructure.  {\bf Question from Kevin:  Is the following statement still correct in the CVMFS era?  Florida takes responsibility for software distribution
-throughout the grid sites of the experiment.}
+infrastructure.  Florida takes responsibility for software distribution
+throughout the grid sites of the experiment via the CVMFS caching system.
 
 \subsubsection{Future Plans}
 
