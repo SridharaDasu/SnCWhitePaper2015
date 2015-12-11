@@ -8,7 +8,6 @@
 
 \usepackage{authblk}
 \usepackage{graphicx}
-
 \begin{document}
 
 \title{NSF Cooperative Agreement - Computing Section}
@@ -61,7 +60,7 @@ mandatory for future successes, including perhaps discovery of new
 physics.  In this section we briefly describe the current status and
 future plans of the US CMS software and computing project, focussing on
 its Tier-2 program, on which US and international CMS physicists rely
-upon for extracting physics from the expected large CMS datasets.
+for extracting physics from the expected large CMS datasets.
 
 The scale of computing resources necessary is directly coupled to the
 foreseen output from the detector.  The trigger rates have been
@@ -295,7 +294,7 @@ Average AOD event sizes in Run 2 are roughly 500kB. The growth is partly due to 
 to allow rerunning particle flow reconstruction in its entirety from the AOD.
 In addition, the High Level Trigger output rate was increased by x3 from the end of Run 1 to the beginning of Run 2.
 To contain costs and speed up physics analysis, US-CMS initiated the introduction of a 
-refined analysis format called "MiniAOD".  Implemented in collaboration with CERN, this format is 1/10th the size of the AOD, 
+refined analysis format called ``MiniAOD''.  Implemented in collaboration with CERN, this format is 1/10th the size of the AOD, 
 and typically requires somewhere between 1/2 to 1/5th the CPU power to
 analyze. These reductions are accomplished by storing only more refined information, 
 requiring remaking of the MiniAOD in response to improved calibrations, or significant
@@ -305,7 +304,7 @@ MiniAOD is expected to satisfy the needs of at least 90 \% of all physics analys
 it is envisioned that a few analyses will require more detailed information not present 
 in the MiniAOD, and will thus need to access the AOD or maybe even the RAW format.
 
-The operational model today is that Analysis groups process these "primary data" to produce custom 
+The operational model today is that Analysis groups process these ``primary data'' to produce custom 
 Ntuples for their analyses at a event processing rate of 1-10Hz or so. The custom Ntuples are then typically 
 analyzed at x100 larger event rates. The transformation from primary data useful to the entire collaboration to custom data useful
 only to a handful analyses is thus dramatically accelerating science and reducing computing costs with the drawback that non-negligible
@@ -420,11 +419,11 @@ in later sections.
 
 \noindent{\bf Non-traditional resources}
 
-In the past, resources beyond the traditional Tier-1 and Tier-2 sites were generically lumped into the category of Tier-3.  The prevailing model of these resources was that they were structured more or less as small Tier-2 sites operated independently of the Tier-2 program by dedicated local administrators.  With the rise of significant computing capabilities across U.S. university campuses, and in particular, driving by substantial NSF-ACI investment into networking infrastructure across more than 100 campuses nation wide, this model is changing.  The Tier-3 site now functions more as a portal.  It provides a local portal for university researchers to access larger-scale U.S. CMS computing resources.  It also provides a portal for the CMS central computing infrastructure to access campus computing resources.  We propose to strengthen and expand this new model for non-traditional computing resources by seamlessly integrating CMS and campus IT infrastructures in a way that minimizes administrative effort while maximizing flexibility.  This approach is based on the NSF-funded ``Pacific Research Platform'' and the CMS Connect effort which utilizes the OSG's CI-Connect platform.
+In the past, resources beyond the traditional Tier-1 and Tier-2 sites were generically lumped into the category of Tier-3.  The prevailing model of these resources was that they were structured more or less as small Tier-2 sites operated independently of the Tier-2 program by dedicated local administrators.  With the rise of significant computing capabilities across U.S. university campuses, and in particular, driving by substantial NSF-ACI investment into networking infrastructure across more than 100 campuses nation wide, this model is changing.  The Tier-3 site now functions more as a portal.  It provides a local portal for university researchers to access larger-scale US-CMS computing resources.  It also provides a portal for the CMS central computing infrastructure to access campus computing resources.  We propose to strengthen and expand this new model for non-traditional computing resources by seamlessly integrating CMS and campus IT infrastructures in a way that minimizes administrative effort while maximizing flexibility.  This approach is based on the NSF-funded ``Pacific Research Platform'' and the CMS Connect effort which utilizes the OSG's CI-Connect platform.
 
 The central hub of our proposal is a single node that will be deployed at each participating institution.  This node should be viewed as a ``Tier-3 in a box,'' a single, self-contained appliance that when deployed into a campus Science DMZ will bridge the CMS and campus infrastructures, enabling local CMS researches to access both sets of resources via a single portal.  This node will provide interactive data analysis, batch submission, CVMFS software cache, XRootD data cache, and XRootD an server to export local data.  The HTCondor batch systems implemented on these nodes are all connected to the global CMS HTCondor pool via glideinWMS.  Similarily any University computing resources are integrated requiring nothing more than ssh access to a US-CMS account on the local University cluster.  Local CMS university groups will thus be empowered to transparently use any and all local resources the University allows them to share in combination with the entire Tier-1 and Tier-2 system. Official CMS data is cached locally by the node as needed.  Private data produced by the local university group is served out to the Tier-1 and Tier-2 system via the XRootD server integrated into the node.  Each Tier-2 will also have an XRootD cache in order to transparently cache the private data of any of the local university groups to avoid IO latencies. 
 
-Deployment and maintenance of these nodes will be undertaken as a partnership between local campus IT and U.S. CMS Tier-2 personnel, following the model of the PRP.  The PRP deploys single nodes into the Science DMZs of 20 institutions across the West Coast, including the US-CMS institutions UC Davis, UC Santa Barbara, UC Riverside, Caltech, and UC San Diego. These pieces of hardware are collaboratively maintained between the campus IT organizations and the PRP and SDSC teams at UCSD.  In this model, local campus IT is responsible for the maintaining the hardware and local user accounts, while OS and software service (including necessary OSG and CMSSW element) maintenance is undertaken by a collaboration of U.S. CMS Tier-2 personnel and local campus IT effort.  This is made manageable with minimal effort beyond the initial deployment by management of OS, US-CMS and OSG services, and local configurations via a central Puppet infrastructure.
+Deployment and maintenance of these nodes will be undertaken as a partnership between local campus IT and US-CMS Tier-2 personnel, following the model of the PRP.  The PRP deploys single nodes into the Science DMZs of 20 institutions across the West Coast, including the US-CMS institutions UC Davis, UC Santa Barbara, UC Riverside, Caltech, and UC San Diego. These pieces of hardware are collaboratively maintained between the campus IT organizations and the PRP and SDSC teams at UCSD.  In this model, local campus IT is responsible for the maintaining the hardware and local user accounts, while OS and software service (including necessary OSG and CMSSW element) maintenance is undertaken by a collaboration of US-CMS Tier-2 personnel and local campus IT effort.  This is made manageable with minimal effort beyond the initial deployment by management of OS, US-CMS and OSG services, and local configurations via a central Puppet infrastructure.
 
 We are proposing to scale out deployment and operations of this model across the US to as many US-CMS institutions as possible, focusing on the 25 institutions that have received ScienceDMZ funding from NSF-ACI since 2012. The hardware costs as well as the human effort to deploy and operate this system will be borne out of the Tier-2 portion of this proposal.  At a cost of $\sim$\$10,000 per Tier-3 in a box, this is a modest fraction of the total Tier-2 hardware budget across the seven Tier-2s and the 5 years of this proposal.  We fully understand that the above model will not be appropriate for all collaborating institutions within US-CMS. We thus augment it with an additional hosted service---CMS Connect---built on the OSG-connect/CI-Connect model pioneered by the University of Chicago OSG/ATLAS group.  This service will provide identical functionality to the Tier-3 in a box for institutions that are either lacking appropriate network connectivity or a local IT organization that would be capable and/or willing to collaborate on the hardware and user account maintenance.  There will be only a single instance of this "CMS-Connect" infrastructure for all these remaining groups.  University groups will generally be better served by the more flexible and customized Tier-3 in a box approach, but with the combination of the two approaches ensures that all groups will be served.
 
@@ -549,18 +548,18 @@ and analysis computing jobs.
 
 \subsubsection{Current Status}
 
-U.S. CMS personnel fill a variety of roles in CMS computing operations.
-Staff MIT support Tier-0 operations for the experiment, overseeing the
-day-to-day operation of the facility, which is of critical importance for
-the operation of the experiment.  Other MIT personnel play leading roles in
+US-CMS personnel fill a variety of roles in CMS computing operations.
+MIT staff support Tier-0 operations for the experiment, overseeing the
+day-to-day operation of the facility, which is of critical importance.  Other 
+MIT personnel play leading roles in
 operating the experiment's data transfer system and providing support for
 the distributed grid infrastructure.  UCSD maintains the CMS job submission
 infrastructure.  Nebraska provides support for AAA operations and for
 network performance reliability.  Johns Hopkins supports the operation of
 the Frontier system that provides run conditions and other configuration
 information for reconstruction and analysis jobs running on the distributed
-infrastructure.  Florida takes responsibility for software distribution
-throughout the grid sites of the experiment.
+infrastructure.  {\bf Question from Kevin:  Is the following statement still correct in the CVMFS era?  Florida takes responsibility for software distribution
+throughout the grid sites of the experiment.}
 
 \subsubsection{Future Plans}
 
@@ -581,12 +580,12 @@ of data management and centralized production.
 To meet two of the three goals outlined in the introduction, increased efficiencies across Tier-1 and Tier-2
 and integration of additional resources outside those tiers, requires CIS to become substantially more agile.
 During LS1, substantial improvements towards a more agile data management infrastructure 
-were made by creating a global XRootd Data Federation, and 
-development \& deployment of a Dynamic Data Placement and Management (DDM). 
+were made by creating a global XRootD Data Federation, and 
+development and deployment of a Dynamic Data Placement and Management (DDM). 
 The NSF funded effort led both of these. Data management and workflow 
-management development is done at Cornell, xrootd development at
-UCSD, and dynamic data placement development at MIT.  Additional 
-support was provided by NSF through the "Any Data, Anytime, Anywhere" (AAA) project to Nebraska, UCSD
+management development is done at Cornell, XRootD development at
+UCSD, and DDM development at MIT.  Additional 
+support was provided by NSF through the ``Any Data, Anytime, Anywhere'' (AAA) project to Nebraska, UCSD
 and Wisconsin.
 
 In the following, we briefly summarize those recent achievements, and then describe necessary future 
@@ -594,7 +593,7 @@ work to be done within the present proposal.
 
 \subsubsection{Current Status}
 
-\noindent{\bf Dynamic Data Placement and Management}
+\noindent{\bf Dynamic Data Placement and Management (DDM)}
 
 Underpinning the computing infrastructure in Run-1 was data
 distribution mechanism implemented using PhEDEx software. The workflow
@@ -604,7 +603,7 @@ at Tier-0, the raw data were moved to be archived at Tier-1 and
 reprocessed as necessary. The (re)reconstructed data from Tier-1s were
 further processed to obtain lower volume Analysis Objects Data (AOD)
 versions whose copies were transferred to Tier-2s and placed on disk
-storage for random access for chaotic analysis workflows.  Similarly
+storage for random access in chaotic analysis workflows.  Similarly
 the Monte Carlo (MC) simulation data was produced at Tier-2s,
 aggregated, reconstructed and archived at Tier-1s. The MC AODs were
 then placed on command by the operators at various Tier-2s. The net
@@ -612,8 +611,8 @@ result was multiple copies of data placed statically at various
 facilities around the globe. It was observed that much of the disk
 volume was occupied by often rarely used data.
 
-Dynamic data placement and management (DDM) software was developed and
-commissioned during the LS1 to address these shortcomings. DDM is now
+The DDM software was developed and
+commissioned during LS1 to address these shortcomings. DDM is now
 deployed at all tiers to automatically prune the unused but archived
 data using well defined policies.  For example, the archived full
 event, i.e., raw plus reconstructed quantities (FEVT) is pruned from
@@ -623,16 +622,15 @@ least one copy of all AOD on disk somewhere in the CMS data
 federation, and duplicate multiple times as needed for popular data.
 
 DDM uses PhEDEx to manage the actual transfers. It thus replaces decisions made by human operators during 
-Run1 with algorithms based on dataset "popularity", i.e. use.
+Run1 with algorithms based on dataset ``popularity'', i.e. use.
 
 \noindent{\bf CMS Data Federation (AAA)}
 
 CMS Data Federation is built to provide seamless international-scale data
-access  under the auspices of Any Data, Anytime, Anywhere
-(AAA) project. AAA removes the requirement of co-location of storage and
+access  under the auspices of the AAA project. AAA removes the requirement of co-location of storage and
 processing resources.  The infrastructure is transparent, in that
 users have the same experience whether the data they analyze is
-halfway around the world or in the room next door.  It is reliable, in
+halfway around the world or in the room next door.  {\bf Comment from Kevin:  Unfortunately the next statement is not true in my experience, but it does make data access failures more rare.  I understand this is a marketing statement, but if we also want it to be true, we should change ``never'' to ``rarely''}  It is reliable, in
 that end users never see a failure of data access when they run their
 application.  It enables greater access to the data, in that users no
 longer have the burden of purchasing and operating complex disk
@@ -641,9 +639,9 @@ an internet connection. The key to success of AAA is the improved
 wide-area network access due to enhancements made to our dedicated LHC
 network.
 
-AAA is made possible by XRootd software, which allows the creation of
+AAA is made possible by XRootD software, which allows the creation of
 data federations. A data federation serves a global namespace via a
-tree of XRootd servers. 
+tree of XRootD servers. 
 %The leaves of this tree are referred to as
 %data sources, as they serve data from the local storage systems.
 %Each storage system is independent of the others, allowing for a broad
@@ -658,8 +656,7 @@ tree of XRootd servers.
 %either a source is found or the client is at the root of the tree. An
 %application may thus be redirected to any host in the federation,
 %irrespective of the branch point it initially accesses.
-
-CMS Data Federation is now fully deployed across all tiers of its
+The CMS Data Federation is now fully deployed across all tiers of its
 computing infrastructure. Easy access to this data federation across
 the wide-area network is democratizing the computing abilities of
 University groups across the world. Local campus clusters controlled by
@@ -682,7 +679,7 @@ resource sites and enable fast recovery in case of a site service
 interruption, e.g., by relocating jobs on an alternate site, while
 keep track of the integrity of the combined dataset.  
 
-During Run1 each Tier was used for only a small subset of all workflows.
+During Run 1 each Tier was used for only a small subset of all workflows.
 This led to inefficiencies and delays in processing due to inflexibility.
 During LS1, we expanded dramatically what workflows can be run where, making the overall system
 much more flexible. In addition, all resource usage, distributed analysis and centralized production,
@@ -720,19 +717,19 @@ DAQ is not running.
 \subsubsection{Future Plans}
 
 The PhEDEx data management system has served CMS extremely well for more than 10 years.
-However, it is ill equipped for the more agile needs of the future. E.g. it's internal mechanisms for
-source selection for a given transfer is much less agile than the bit torrent-like multi source client
-used in Xrootd. It's internal back-off mechanism for handling transfer failures leads to long transfer
-tails, and it is generally very difficult to impossible to fill modern large bandwidth network pipes using PhEDEx.
+However, it is ill equipped for the more agile needs of the future. E.g. its internal mechanisms for
+source selection for a given transfer is much less agile than the bit-torrent-like multi source client
+used in XRootD. It's internal back-off mechanism for handling transfer failures leads to long transfer
+tails, and it is generally very difficult if not impossible to fill modern large bandwidth network pipes using PhEDEx.
 
 A significant redesign of PhEDEx is necessary. 
 Such a redesign also provides an opportunity to consider discontinuing poorly supported protocols like SRM, 
-as well as duplication of protocols like maybe replacing gridftp with Xrootd, as the latter is required anyway
+as well as duplication of protocols like replacing gridftp with XRootD, as the latter is required anyway
 for agile operations.
 
 Among the AAA toolset, a proxy-cache was developed that is not yet used in CMS. 
 Initial tests indicate that the cache system performs exceptionally well. As we gain more experience with this technology, 
-we may want to transition a sizable  fraction of the US-CMS disk space at Tier-2s and Tier-3s into XRootd proxy caches
+we may want to transition a sizable  fraction of the US-CMS disk space at Tier-2s and Tier-3s into XRootD proxy caches
 to gain additional efficiencies.
 
 The entire end-to-end centralized data production process still has far too many human effort intensive aspects.
@@ -750,14 +747,14 @@ Multicore computing systems have become ubiquitous in the past
 decade. However, efficient use of available resources, especially
 memory volume and access, required adaptation of our software to
 suitable multithreaded frameworks. Keeping up with technology
-evolution in the market requires continues investigation and CMS
+evolution in the market requires continuous investigation and CMS
 framework and utilities software development.  Cornell, Princeton and
 UCSD groups are engaged with central CMS in this essential software
 development and support.
 
 \subsubsection{Current Status}
 
-A systematic effort to make the core CMSSW thread-safe and has
+A systematic effort to make the core CMSSW thread-safe has
 successfully deployed it in the past year.  The event display
 for CMS has been reworked to work on a variety of platforms
 conveniently.
@@ -844,8 +841,8 @@ given fixed hardware investments. We propose to continue being an innovation lea
 \subsubsection{Future Plans}
 
 {\bf Reconstruction Software:}
-Cornell, Princeton, and UCSD are collaborating on an ambitious R\&D program towards redesigning the core Kalman filter tracking algorithms of CMS for parallel architectures While the bulk of this R\&D is funded to the tune of 3 FTE for 3 years
-via an independent NSF grant [cite the PIF], the present proposal includes a modest effort of XX focused on deriving short term
+Cornell, Princeton, and UCSD are collaborating on an ambitious R\&D program towards redesigning the core Kalman filter tracking algorithms of CMS for parallel architectures While the bulk of this R\&D is funded at the level of 3 FTE for 3 years
+via an independent NSF grant {\bf [cite the PIF]}, the present proposal includes a modest effort of XX focused on deriving short term
 benefits from the independently funded long term focused R\&D agenda.
 
 Deriving short term benefits is particularly interesting in light of the planned roll-out of large Supercomputers at both DOE and NSF
@@ -858,7 +855,7 @@ will depend crucially on successfully transitioning lessons learned from the ext
 long term R\& D program into production. This transition is within the scope of the present proposal.
 
 {\bf R\&D towards a new data analysis model:}
-For the HL-LHC era, CMS might need to contemplate a fundamental shift in the boundary between "primary data" and "custom data".
+For the HL-LHC era, CMS must contemplate a fundamental shift in the boundary between ``primary data'' and ``custom data''.
 Already in Run 1, the custom data Ntuples typically were analyzed at event rates ranging from 100 Hz to 10 kHz. 
 Ntuple analysis is even today
 in many cases IO rather than CPU limited. In contrast, the production of these custom Ntuples is almost always CPU limited. Even for the MiniAOD of Run 2, typical event processing rates reach little more than a few Hz.
@@ -872,7 +869,7 @@ Can we reuse some of the industry standard products for IO limited jobs, or is t
 
 \subsection{Coordination with CMS (WBS 7)}
 
-US CMS S\&C personnel are well inetgrated in the CMS-wide coordination
+US CMS S\&C personnel are well integrated in the CMS-wide coordination
 efforts and hold management positions.  
 
 \subsubsection{Current Status}
