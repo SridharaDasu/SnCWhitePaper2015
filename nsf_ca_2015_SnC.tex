@@ -659,30 +659,33 @@ decade. However, efficient use of available resources, especially memory
 volume and access, require adaptation of our software to suitable
 multithreaded frameworks. Keeping up with technology evolution in the
 market requires continuous investigation and CMS framework and utilities
-software development.  The Cornell, Princeton and UCSD groups are engaged
+software development.  The Cornell, Princeton, Florida and UCSD groups are engaged
 with central CMS in this essential software development and support.
+Recent efforts in software at institutions supported by the current NSF award
+have focused on a number of well contained projects.  The current status of those and future plans regarding them are described in the subsections below.  
 
 \subsubsection{Current Status}
-
-Recent efforts in software at institutions supported by the current NSF award
-have focused on the development of the MiniAOD format described in
-Section~\ref{computingmodeldetails}.  
-%Careful pruning of unused collections
-%of objects, and packing them in appropriately sized containers resulted in
-%a MiniAOD which is less than 50~kB per event. 
+\noindent{\bf Development of Multi-threaded CMSSW Applications}
+A systematic effort to make the core CMSSW, and the reconstruction application thread-safe has been successfully completeed and deployed in the past year.  Both the HLT and Tier0 were able to use this work to great advantage. In addition to the development of the framework itself, deployment of applications requires making the algoritmic physics code "thread friendly", meaning adjusting it to follow the rules of the multi-threaded framework, such that the entire application can safely run with multiple concurrent threads.  This past year developers at Cornell have been involved in this work.
+\noindent{\bf Support and Maintenance of Fireworks}
+The event display for CMS has been reworked to adapt to the DAQ system of Run 2 and to work on a variety of platforms conveniently.
+\noindent{\bf Support and Maintenance Build Systems}
+In order to take advantage of developments on alternative architectures as outlined in the R\&D section there must be support in the build tools for cross compilation and/or ports to these new architectures. This past year personnel that will be at Princenton have had major success in porting both CMSSW and the OSG stack to ARM64, and PowerPC8.
+\noindent{\bf Development of MiniAOD}
+The development of the MiniAOD format described in Section~\ref{computingmodeldetails}.  
 The MiniAOD is now the main data format that has been used for early results on the 13TeV data from CMS.
-%fkw: we already say this in the introduction:
-%while niche use cases involving the original AOD format will be
-%supported as needed. In rare cases FEVT access may also be needed.  As the
-%MiniAOD improves we anticipate AOD replica counts will become small.  
-Other activities included a systematic effort to make the core CMSSW
-thread-safe and reworking the CMS event display to work conveniently on a
-variety of platforms.
 
 \subsubsection{Future Plans}
-
-{FIXME: We need to list what is required to be done by the people
-  supported by this WBS.}
+\noindent{\bf Development of Multi-threaded CMSSW Applications}
+Future steps in this area are the extension of the number of other CMSSW applications that can be run multi-threaded.  In 2016 we are still on target to make the digitization thread friendly.  This work is being carried out at Cornell.  As CMSSW evolves, constant attention must be given to keep the code thread friendly.  Personnel at Florida will be helping with this task.
+\noindent{\bf Support and Maintenance of Fireworks}
+As Fireworks is the main event display for CMS, new feature requests, and updates for new operating systems are needed.  Personnel at UCSD will continue to provide this support. 
+\noindent{\bf Support and Maintenance Build Systems}
+As inovations in new architectures and techniques from the R&D area become beneficial to the operating program, it is important to have personnel that can make that transition happen.  Princeton personnel have demostrated success in this area, and will continue to provide this support.
+%LSK: it appears that this work is moving to WBS 6 which is fine.  I would claim that maintanance of this developmet is now in the hands of our Italian colleagues, so I comment it out of this program of work: 
+%\noindent{\bf Development of MiniAOD}
+%The development of the MiniAOD format described in Section~\ref{computingmodeldetails}.  
+%The MiniAOD is now the main data format that has been used for early results on the 13TeV data from CMS.
 
 \subsection{Technologies and Upgrade R\&D (WBS 6)}
 
