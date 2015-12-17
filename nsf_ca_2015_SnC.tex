@@ -79,7 +79,8 @@ instantaneous luminosity leading to event pileup.  As the beam energy has
 reached more or less the maximum expected, it is highly likely that from
 here on out analyses will tend to use all the data accumulated over time,
 from the 3 fb$^{-1}$ at 13 TeV accumulated in 2015 to the 300 fb$^{-1}$
-expected by the end of Run~3 in 2025.  While the analysis and Monte Carlo
+expected by the end of Run~3 in 2025.  
+While the analysis and Monte Carlo
 production computing needs scale roughly linearly with integrated
 luminosity, the reconstruction time per event for both data and simulation
 grows roughly exponentially with instantaneous luminosity.  Unfortunately,
@@ -87,7 +88,7 @@ Moore's law scaling of computing capabilities and evolution of storage have
 slowed down from $\times 2$ gains every 15-18 months ten years ago to a
 modest $\times 2$ gain every 4-7 years expected in the future.  As a
 result, the overall computing needs outpace expected technological advances
-and reasonable funding scenarios by a factor of 2-4 in Run~2 and Run~3, with even
+and reasonable funding scenarios significantly by the end of Run~3, with even
 larger shortfalls projected for the HL-LHC era.
 %requiring significant innovations in order to guarantee that the
 %physics potential of the data taken is fully realized.
@@ -99,33 +100,36 @@ larger shortfalls projected for the HL-LHC era.
 %cloud resources, with dynamic data management and just-in-time data
 %movement over wide-area networks, will work to meet our challenge. 
 
-Our vision for meeting the challenge of growth of computing needs
-beyond what is affordable via a simple Moore's law extrapolation is
-threefold. First, we will gain efficiencies by being  more
+Our vision for meeting this challenge 
+%of growth of computing needs
+%beyond what is affordable via a simple Moore's law extrapolation 
+is threefold. First, we will gain efficiencies by being  more
 agile in the way we use the traditional Fermilab-based Tier-1 and seven
 university-based Tier-2s center resources. Second, we will grow the
 resource pool by more tightly integrating resources at all other
 U.S.~CMS universities, DOE and NSF supercomputing centers, and
-commercial cloud providers as much as possible. Finally, we will
-pursue an aggressive R\&D program towards improvements in software
-algorithms, data formats, and procedural changes for how we analyze
-the data we collect and simulate, in order to significantly reduce the
-computing needs.
-
-The primary goal of our program is to empower physicists at all 48 U.S.~CMS
-member institutions to conveniently analyze CMS
-data. % oblivious of the computing resource provisioning.
-For the next five years, we propose to capitalize on NSF investment in
-networking at U.S. universities as well as developments from other NSF
-projects [AAA, gWMS, OSG, PRP] to integrate resources at U.S.~CMS member
-institutions beyond Tier-1 and Tier-2 centers much more tightly into the
-centrally operated services infrastructure of the CMS experiment.  In this
+commercial cloud providers as much as possible. 
+In this
 context, effort funded via the Tier-2 program will become responsible to
 maintain infrastructure in the Science DMZs of U.S.~CMS member institutions
 jointly with IT professionals at those institutions.  The effort funded via
 this proposal will provide consultation to campus IT organizations and
 ultimately maintain services on hardware inside the various Science DMZs,
 in order to support the desired integration of campus IT with CMS IT.
+Finally, we will
+pursue an aggressive R\&D program towards improvements in software
+algorithms, data formats, and procedural changes for how we analyze
+the data we collect and simulate, in order to contain the growth in
+computing needs.
+
+% oblivious of the computing resource provisioning.
+%For the next five years, we propose to capitalize on NSF investment in
+%networking at U.S. universities as well as developments from other NSF
+%projects [AAA, gWMS, OSG, PRP] to integrate resources at U.S.~CMS member
+%institutions beyond Tier-1 and Tier-2 centers much more tightly into the
+%centrally operated services infrastructure of the CMS experiment.  
+
+
 
 %The central services provided by those supported in this project
 %will be providing seamless access to distributed world-wide 
@@ -136,7 +140,9 @@ in order to support the desired integration of campus IT with CMS IT.
 %resources at all US CMS institutions, democratizing access to
 %computing resources.  
 
-This proposal focuses on the NSF supported university-based computing,
+The primary goal of our program is to empower physicists at all 48 U.S.~CMS
+member institutions to conveniently analyze CMS data. 
+This proposal thus focuses on the NSF supported university-based computing,
 especially for the most diverse %chaotic
 physicist-driven scientific data analysis activities, as they will require
 the bulk of the S\&C resources requested in this proposal.  Other supported
@@ -347,9 +353,10 @@ proposal matches these needs for the lower end of this range.
 {
 Projection of resources by the year from actual usage in 2015 for
 out years through 2023, based on LHC luminosity expectation is
-shown. The cost of resources which satisfy the projected needs, 
-including current Moore's law scaling, i.e., 20\% to 10\% reduction 
-in costs per year, ranges between \$300K and \$500K.
+shown. 
+%The cost of resources which satisfy the projected needs, 
+%including current Moore's law scaling, i.e., 20\% to 10\% reduction 
+%in costs per year, ranges between \$300K and \$500K.
 }
 \label{projection}
 \end{center}
@@ -587,13 +594,15 @@ computing infrastructure.
 The main objectives of the workflow management middleware is to
 process data as quickly as possible, maintain uniform load across all
 resources and enable fast recovery in case of service
-interruptions, e.g., by relocating jobs on an alternate site, while
-keeping track of the integrity of the combined dataset.  
+interruptions.
+%, e.g., by relocating jobs on an alternate site, while
+%keeping track of the integrity of the combined dataset.  
 
 During Run 1 each tier was used for only a small subset of all workflows.
-This led to inefficiencies and delays in processing due to inflexibility.
+%This led to inefficiencies and delays in processing due to inflexibility.
 During LS1, we expanded dramatically what workflows can be run where,
-making the overall system much more flexible. In addition, all resource
+making the overall system much more flexible, thus decreasing processing delays due to inefficiencies. 
+In addition, all resource
 usage, distributed analysis and centralized production, is now scheduled
 via a single global HTCondor pool, allowing for relative prioritization of
 different activities.
@@ -617,7 +626,7 @@ if not impossible to fill modern large-bandwidth network pipes using
 PhEDEx.  A re-design of PhEDEx to address these issues also provides an
 opportunity to consider discontinuing poorly supported protocols like SRM,
 as well as duplicative protocols such as gridftp when XRootD is required
-for agile operations.  The MIT group, which developed DDM, will take
+for agile operations.  The MIT group will take
 on this task.
 
 The AAA toolset contains a proxy-cache that is not yet used in CMS.
@@ -629,13 +638,14 @@ Development work to this end will be pursued at UCSD.
 
 The entire end-to-end centralized data production process still has far too
 many human effort intensive aspects.  Significantly more automation is
-needed to make the overall system both more agile and more efficient. Today
-it is still not uncommon that some resources, especially in U.S. CMS, are
-oversubscribed while others, especially elsewhere in the world, remain
-unused.  Enforcing dynamically changing processing priorities is also still
-very difficult due to multiple layers of queuing and workflow
-restrictions. Significant efficiencies are yet to be gained here.  Efforts
-on workflow management systems will continue at Cornell and Purdue.
+needed to make the overall system both more agile and more efficient. 
+%Today it is still not uncommon that some resources, especially in U.S. CMS, are
+%oversubscribed while others, especially elsewhere in the world, remain
+%unused.  Enforcing dynamically changing processing priorities is also still
+%very difficult due to multiple layers of queuing and workflow
+%restrictions. 
+%Significant efficiencies are yet to be gained here.  
+Efforts on workflow management systems will continue at Cornell and Purdue.
 
 Finally, commissioning of resources beyond the tiered system is still at
 the very beginning, and while having large potential for additional
@@ -656,10 +666,11 @@ with central CMS in this essential software development and support.
 
 Recent efforts in software at institutions supported by the current NSF award
 have focused on the development of the MiniAOD format described in
-Section~\ref{computingmodeldetails}.  Careful pruning of unused collections
-of objects, and packing them in appropriately sized containers resulted in
-a MiniAOD which is less than 50~kB per event. The MiniAOD is now
-the main data format that has been used for early results on the 13TeV data from CMS.
+Section~\ref{computingmodeldetails}.  
+%Careful pruning of unused collections
+%of objects, and packing them in appropriately sized containers resulted in
+%a MiniAOD which is less than 50~kB per event. 
+The MiniAOD is now the main data format that has been used for early results on the 13TeV data from CMS.
 %fkw: we already say this in the introduction:
 %while niche use cases involving the original AOD format will be
 %supported as needed. In rare cases FEVT access may also be needed.  As the
@@ -689,9 +700,9 @@ recognition step of the track reconstruction.  For example, an increase in
 the average number of PU events from 20 to 30 was measured to result in a
 three-fold increase of event reconstruction time in the current CMS software
 release.  This range of PU matches the expected running conditions during
-2015-16.  To set the scale, the time to reconstruct a 13~TeV $t\bar{t}$ event
+Run 2.  To set the scale, the time to reconstruct a 13~TeV $t\bar{t}$ event
 exceeds the time to simulate the same event at an average PU $\sim$ 25,
-which we expect to reach early on in 2016.  Any speed-ups of the
+which we expect to reach in 2016/17.  Any speed-ups of the
 reconstruction software, especially the tracking pattern recognition, thus
 directly translate into computing cost savings.
 
@@ -714,8 +725,8 @@ We led the algorithmic improvements and code optimizations in the pattern recogn
 time per event by xY for an average PU $\sim$ 30. We instigated the introduction of MiniAOD, reducing the event size by x10
 and the average analysis processing time per event by x2-5.
 We prepared the core framework to be multithreaded blablabla --- Sridhara to fill in text from David Lange here ... 
-And we transitioned the computing infrastructure and services that CMS depends on towards a suite of services that are much more agile
-as described in Section~\ref{cis}.
+And we transitioned the computing infrastructure and services that CMS depends on towards a suite of services that are much 
+more agile as described in Section~\ref{cis}.
 
 \subsubsection{Future Plans}
 
@@ -749,14 +760,12 @@ and speed. A data format for the entire CMS collaboration must be
 flexible in content for two reasons. First it needs to satisfy many types
 of data analyses, and second it must be ``forward compatible,'' {\it i.e.} a
 MiniAOD produced today must still be useful a few months from now when the
-state of the art in physics object definition, jet energy calibrations,
-etc. etc. have changed to incorporate a variety of improvements. The R\&D
-questions here include: Can we speed up MiniAOD to the kinds of event
+state of the art in physics object definition have changed to incorporate improvements. 
+The R\&D questions here include: Can we speed up MiniAOD to the kinds of event
 processing rates typical for custom Ntuples? If we can, what does it mean
 for the Tier-2 infrastructure to support I/O limited jobs at large scale?
-Do we need specialized batch system entry points for I/O limited jobs
-for which disks need to be co-scheduled?  Can we reuse some of the industry
-standard products for I/O limited jobs, or is this impossible because we
+Do we need to schedule disks for I/O limited jobs?
+Can we reuse some of the industry standard ``Big Data'' products, or is this impossible because we
 would loose the benefits of partial file reads in ROOT I/O?
 
 \subsection{Coordination with CMS (WBS 7)}
