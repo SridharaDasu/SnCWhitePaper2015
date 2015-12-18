@@ -135,7 +135,7 @@ computing needs.
 %will be providing seamless access to distributed world-wide 
 %resources to all US CMS universities.  In this context the 
 %Tier-2s will become responsible to maintain simple ``headnodes'',
-%which provide seamless access or provide conslutation for small 
+%which provide seamless access or provide consultation for small 
 %installations, which could serve as portals to the campus
 %resources at all US CMS institutions, democratizing access to
 %computing resources.  
@@ -164,7 +164,7 @@ U.S., seven of which will be supported by this award).~\footnote{The
 specific set of tasks would be performed at each tier of the
 infrastructure, but in recent years, much more flexibility has been
 introduced into the system.  The technical changes leading to this have
-largely been pioneered within the U.S., in many cases by unversity-based
+largely been pioneered within the U.S., in many cases by university-based
 personnel supported by the previous NSF award for U.S. CMS operations,
 especially those at the Tier-2 centers.  Some of the innovations have
 included commissioning the global data transfers matrix across all Tier-1
@@ -272,8 +272,7 @@ value as the investment in the computing equipment.
 
 \subsubsection{Future Plans}
 
-\noindent{\bf Tier-2 Personnel}
-
+\noindent{\bf Tier-2 Personnel:}
 We continue to request in this proposal 2 FTE at each of the seven Tier-2
 institutions.  On average, 1.6 FTE of these are necessary at each center to
 provide high-quality service that results in very high availability,
@@ -287,8 +286,7 @@ innovations and pioneering deployments initiated at U.S. Tier-2s, such as the
 most recent work in testing and commissioning of the world-wide CMS data
 federation using AAA technologies.
 
-\noindent{\bf Tier-2 Resources}
-
+\noindent{\bf Tier-2 Resources:}
 We use a simple model that scales the present usage of job slot count 
 and storage to future years based the expected LHC  luminosity plan 
 (see Table~\ref{projection}).
@@ -396,7 +394,7 @@ deemed to be the more likely in projections at CERN.
 
 %Two staff members are required to operate each site, to provide full
 %coverage.  However, each center can be operated with approximately 1.6~FTE
-%of effort.  Each site thus contributes effort to other S\&C activites
+%of effort.  Each site thus contributes effort to other S\&C activities
 %described in the proposal.  Many site staff members are former HEP
 %physicists, who have now become experts in computing. They are able to
 %provide wide-ranging expertise in physics software development.
@@ -529,14 +527,12 @@ Anywhere'' (AAA) project to Nebraska, UCSD and Wisconsin.
 
 \subsubsection{Current Status}
 
-\noindent{\bf Dynamic Data Placement and Management (DDM)}
-
+\noindent{\bf Dynamic Data Placement and Management (DDM):}
 The PhEDEx data distribution system, which underpins the CMS computing
 infrastructure, was largely manually operated during Run~1.    Operators
 moved large chunks of data on command across the grid as necessary to
 enable subsequent processing.  This labor intensive and lead to inefficient use
 of disk resources.
-
 The DDM software was developed and commissioned during LS1 to address these
 shortcomings. DDM is now deployed at all tiers to automatically place data
 where it is meant to be processed at the time it needs to be there, and
@@ -552,8 +548,7 @@ DDM uses PhEDEx to manage the actual transfers. It thus replaces decisions
 made by human operators during Run~1 with algorithms based on dataset
 ``popularity'', {\it i.e.} use.
 
-\noindent{\bf CMS Data Federation (AAA)}
-
+\noindent{\bf CMS Data Federation (AAA):}
 CMS Data Federation is built to provide seamless international-scale data
 access under the auspices of the AAA project. AAA removes the requirement
 of co-location of storage and processing resources through an
@@ -566,7 +561,6 @@ in fact, {\bf A}ny data can be accessed {\bf A}nytime from {\bf A}nywhere (AAA) 
 internet connection. 
 %The key to success of AAA is the improved wide-area
 %network access due to enhancements made to our dedicated LHC network.
-
 AAA is made possible by XRootD software, which allows the creation of
 data federations. A data federation serves a global namespace via a
 tree of XRootD servers. 
@@ -589,15 +583,13 @@ computing infrastructure.
 %controlled according to needs.  The two systems thus complement
 %each other perfectly.
 
-\noindent{\bf Improvements to CMS Workflows}
-
+\noindent{\bf Improvements to CMS Workflows:}
 The main objectives of the workflow management middleware is to
 process data as quickly as possible, maintain uniform load across all
 resources and enable fast recovery in case of service
 interruptions.
 %, e.g., by relocating jobs on an alternate site, while
 %keeping track of the integrity of the combined dataset.  
-
 During Run 1 each tier was used for only a small subset of all workflows.
 %This led to inefficiencies and delays in processing due to inflexibility.
 During LS1, we expanded dramatically what workflows can be run where,
@@ -606,9 +598,7 @@ In addition, all resource
 usage, distributed analysis and centralized production, is now scheduled
 via a single global HTCondor pool, allowing for relative prioritization of
 different activities.
-
 %\noindent{\bf Using Resources Beyond the Tiered System}
-
 At this point, CMS is in an exploratory phase for smoothly integrating resources beyond the tiered system
 for production and routine use. Such resources include the CMS High Level Trigger Farm (HLT) whenever the DAQ is not running, 
 DOE and NSF HPC facilities like NERSC and SDSC, commercial cloud resources such as AWS, and campus IT resources
@@ -665,24 +655,24 @@ Recent efforts in software at institutions supported by the current NSF award
 have focused on a number of well contained projects.  The current status of those and future plans regarding them are described in the subsections below.  
 
 \subsubsection{Current Status}
-\noindent{\bf Development of Multi-threaded CMSSW Applications}
+\noindent{\bf Development of Multi-threaded CMSSW Applications:}
 A systematic effort to make the core CMSSW, and the reconstruction application thread-safe has been successfully completed and deployed in the past year.  Both the HLT and Tier0 were able to use this work to great advantage. In addition to the development of the framework itself, deployment of applications requires making the algorithmic physics code "thread friendly", meaning adjusting it to follow the rules of the multi-threaded framework, such that the entire application can safely run with multiple concurrent threads.  This past year developers at Cornell have been involved in this work.
-\noindent{\bf Support and Maintenance of Fireworks}
+\noindent{\bf Support and Maintenance of Fireworks:}
 The event display for CMS has been reworked to adapt to the DAQ system of Run 2 and to work on a variety of platforms conveniently.
-\noindent{\bf Support and Maintenance Build Systems}
+\noindent{\bf Support and Maintenance Build Systems:}
 In order to take advantage of developments on alternative architectures as outlined in the R\&D section there must be support in the build tools for cross compilation and/or ports to these new architectures. This past year Princeton personnel have had major success in porting both CMSSW and the OSG stack to ARM64 and Power8.
-\noindent{\bf Development of MiniAOD}
+\noindent{\bf Development of MiniAOD:}
 The development of the MiniAOD format described in Section~\ref{computingmodeldetails}.  
 The MiniAOD is now the main data format that has been used for early results on the 13TeV data from CMS.
 
 \subsubsection{Future Plans}
-\noindent{\bf Development of Multi-threaded CMSSW Applications}
+\noindent{\bf Development of Multi-threaded CMSSW Applications:}
 Future steps in this area are the extension of the number of other CMSSW applications that can be run multi-threaded.  In 2016 we are still on target to make the digitization thread friendly.  This work is being carried out at Cornell.  As CMSSW evolves, constant attention must be given to keep the code thread friendly.  Personnel at Florida will be helping with this task.
-\noindent{\bf Support and Maintenance of Fireworks}
+\noindent{\bf Support and Maintenance of Fireworks:}
 As Fireworks is the main event display for CMS, new feature requests, and updates for new operating systems are needed.  Personnel at UCSD will continue to provide this support. 
-\noindent{\bf Support and Maintenance Build Systems}
+\noindent{\bf Support and Maintenance Build Systems:}
 As innovations in new architectures and techniques from the R\&D area become beneficial to the operating program, it is important to have personnel that can make that transition happen.  Princeton personnel have demonstrated success in this area, and will continue to provide this support.
-%LSK: it appears that this work is moving to WBS 6 which is fine.  I would claim that maintainance of this development is now in the hands of our Italian colleagues, so I comment it out of this program of work: 
+%LSK: it appears that this work is moving to WBS 6 which is fine.  I would claim that maintenance of this development is now in the hands of our Italian colleagues, so I comment it out of this program of work: 
 %\noindent{\bf Development of MiniAOD}
 %The development of the MiniAOD format described in Section~\ref{computingmodeldetails}.  
 %The MiniAOD is now the main data format that has been used for early results on the 13TeV data from CMS.
