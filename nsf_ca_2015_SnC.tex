@@ -432,7 +432,7 @@ campus Science DMZ will bridge the CMS and campus infrastructures.
 This node will provide interactive data analysis, batch submission, CVMFS
 software cache, XRootD data cache, and XRootD server to export local
 data.  The HTCondor batch systems implemented on these nodes are all
-connected to the global CMS HTCondor pool via glideinWMS.  Similarily any
+connected to the global CMS HTCondor pool via glideinWMS.  Similarly any
 University computing resources are integrated requiring nothing more than
 ssh access to a U.S. CMS account on the local university cluster.  Local CMS
 university groups will thus be empowered to transparently use any and all
@@ -509,8 +509,8 @@ harnessing of opportunistic resources is also anticipated.
 
 CMS as a global experiment depends on a variety of computing infrastructure
 and services (CIS), several of which have been long-term U.S. CMS
-commitments. In particular, U.S. CMS is traditionally leading in the areas of
-data management and centralized production workflow management.
+commitments. In particular, U.S. CMS has traditionally been a leader in 
+the areas of data management and centralized production workflow management.
 
 To meet two of the three goals outlined in the introduction, increased
 efficiencies across Tier-1 and Tier-2 and integration of additional
@@ -666,11 +666,11 @@ have focused on a number of well contained projects.  The current status of thos
 
 \subsubsection{Current Status}
 \noindent{\bf Development of Multi-threaded CMSSW Applications}
-A systematic effort to make the core CMSSW, and the reconstruction application thread-safe has been successfully completeed and deployed in the past year.  Both the HLT and Tier0 were able to use this work to great advantage. In addition to the development of the framework itself, deployment of applications requires making the algoritmic physics code "thread friendly", meaning adjusting it to follow the rules of the multi-threaded framework, such that the entire application can safely run with multiple concurrent threads.  This past year developers at Cornell have been involved in this work.
+A systematic effort to make the core CMSSW, and the reconstruction application thread-safe has been successfully completed and deployed in the past year.  Both the HLT and Tier0 were able to use this work to great advantage. In addition to the development of the framework itself, deployment of applications requires making the algorithmic physics code "thread friendly", meaning adjusting it to follow the rules of the multi-threaded framework, such that the entire application can safely run with multiple concurrent threads.  This past year developers at Cornell have been involved in this work.
 \noindent{\bf Support and Maintenance of Fireworks}
 The event display for CMS has been reworked to adapt to the DAQ system of Run 2 and to work on a variety of platforms conveniently.
 \noindent{\bf Support and Maintenance Build Systems}
-In order to take advantage of developments on alternative architectures as outlined in the R\&D section there must be support in the build tools for cross compilation and/or ports to these new architectures. This past year personnel that will be at Princenton have had major success in porting both CMSSW and the OSG stack to ARM64, and PowerPC8.
+In order to take advantage of developments on alternative architectures as outlined in the R\&D section there must be support in the build tools for cross compilation and/or ports to these new architectures. This past year Princeton personnel have had major success in porting both CMSSW and the OSG stack to ARM64 and Power8.
 \noindent{\bf Development of MiniAOD}
 The development of the MiniAOD format described in Section~\ref{computingmodeldetails}.  
 The MiniAOD is now the main data format that has been used for early results on the 13TeV data from CMS.
@@ -681,21 +681,23 @@ Future steps in this area are the extension of the number of other CMSSW applica
 \noindent{\bf Support and Maintenance of Fireworks}
 As Fireworks is the main event display for CMS, new feature requests, and updates for new operating systems are needed.  Personnel at UCSD will continue to provide this support. 
 \noindent{\bf Support and Maintenance Build Systems}
-As inovations in new architectures and techniques from the R&D area become beneficial to the operating program, it is important to have personnel that can make that transition happen.  Princeton personnel have demostrated success in this area, and will continue to provide this support.
-%LSK: it appears that this work is moving to WBS 6 which is fine.  I would claim that maintanance of this developmet is now in the hands of our Italian colleagues, so I comment it out of this program of work: 
+As innovations in new architectures and techniques from the R\&D area become beneficial to the operating program, it is important to have personnel that can make that transition happen.  Princeton personnel have demonstrated success in this area, and will continue to provide this support.
+%LSK: it appears that this work is moving to WBS 6 which is fine.  I would claim that maintainance of this development is now in the hands of our Italian colleagues, so I comment it out of this program of work: 
 %\noindent{\bf Development of MiniAOD}
 %The development of the MiniAOD format described in Section~\ref{computingmodeldetails}.  
 %The MiniAOD is now the main data format that has been used for early results on the 13TeV data from CMS.
 
 \subsection{Technologies and Upgrade R\&D (WBS 6)}
 
-The main thrust of the R\&D effort of the project is to control the
-rate of growth of computing required, and thus cost incured, and to retain
-flexibility for future changes in computer architecture.  
-There are fundamentally two largely independent effects that drive cost,
+The R\&D effort within the project aims to control the rate of growth of 
+computing required, and thus cost incurred, and to retain flexibility for 
+future changes in computer architectures and software technologies. This 
+relatively small WBS area aims to leverage for CMS developments from 
+elsewhere in HEP and beyond. 
+
+Two largely independent effects drive cost:
 those that scale with event complexity, or average pileup (PU) per event, 
 and those that scale with integrated luminosity, or total data volume.
-
 The cost of event reconstruction is driven by occupancy of the tracker.
 Higher instantaneous luminosity leads to higher pileup and occupancy, and
 with it a near exponential growth in CPU time per event in the pattern
@@ -733,25 +735,25 @@ more agile as described in Section~\ref{cis}.
 
 \subsubsection{Future Plans}
 
-{\bf Reconstruction Software:} Cornell, Princeton, and UCSD are
-collaborating on an ambitious R\&D program towards redesigning the core
+\noindent{\bf Reconstruction Software:} Cornell, Princeton, and UCSD are
+collaborating on an ambitious R\&D program to redesign the core
 Kalman filter tracking algorithms of CMS for parallel architectures.  While
 the bulk of the long term R\&D is funded via an
-independent NSF grant {\bf [cite the PIF]}, the present proposal includes 
-effort focused on deriving short-term benefits from the
+independent NSF collaborative research award (PHY-1521042,1520942,1520969), the present proposal includes 
+effort to derive short-term benefits from the
 independently-funded long term focused R\&D agenda.  This is particularly
 interesting in light of the planned roll-out of large Supercomputers at
 both DOE and NSF based on the next two generations of Intel MIC
-processors. For example, Cori Phase 2 at NERSC is expected to include 9,300 Intel
+processors. For example, Cori Phase 2 at NERSC plans for 9,300 Intel
 Knights Landing processors by 2017. Aurora at ANL is expected to deploy
 50,000 Intel Knights Hill processors in 2018.  Similar plans exists in the
-NSF for the Stampede Supercomputer at TACC.  The degree to which CMS can
+NSF for the Stampede Supercomputer at TACC.  Whether CMS can
 benefit from these large scale resources for its core processing needs in
-Run~2 and Run~3 will depend crucially on successfully transitioning lessons
-learned from the long term R\& D program into
+Run~2 and Run~3 depends crucially on successfully transitioning lessons
+learned from the long term R\&D program into
 production. This transition is within the scope of the present proposal.
 
-{\bf R\&D towards a new data analysis model:} For the HL-LHC era, CMS must
+\noindent{\bf R\&D towards a new data analysis model:} For the HL-LHC era, CMS must
 contemplate a fundamental shift in the boundary between ``primary data''
 and ``custom data''.  Already in Run~1, the custom data Ntuples typically
 were analyzed at event rates ranging from 100 Hz to 10 kHz.  Ntuple
@@ -770,6 +772,13 @@ for the Tier-2 infrastructure to support I/O limited jobs at large scale?
 Do we need to schedule disks for I/O limited jobs?
 Can we reuse some of the industry standard ``Big Data'' products, or is this impossible because we
 would loose the benefits of partial file reads in ROOT I/O?
+CMS will also benefit from the separately funded NSF SI2 DIANA/HEP (Data 
+Intensive ANAlysis for High Energy Physics) project (ACI-1450310, 1450319,
+1450323, 1450377) involving PIs working on CMS, Atlas and LHCb.
+DIANA/HEP will develop state-of-the-art software tools for analysis and improve
+interoperability of HEP tools with the larger scientific software ecosystem.
+A modest effort has been included in this proposal to integrate those
+advances into CMS and its analysis model.
 
 \subsection{Coordination with CMS (WBS 7)}
 
